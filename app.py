@@ -16,6 +16,7 @@ mongo = PyMongo(app)
 def get_countries():
     return render_template("countries.html", reviews=mongo.db.reviews.find())
 
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

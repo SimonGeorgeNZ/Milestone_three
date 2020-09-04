@@ -1,16 +1,7 @@
-<html>
-    <head>
-    
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% block content %}
         {% for review in reviews %}
         {{review.visit_reason}}
         {% endfor %}
+{% endblock %}
     
-    
-    
-    </body>
-
-
-
-</html>
