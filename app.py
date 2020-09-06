@@ -37,6 +37,22 @@ def insert_country():
 
 #---------------Cities-----------------#
 
+@app.route('/get_cities')
+def get_cities():
+    return render_template('cities.html',
+                           cities=mongo.db.cities.find())
+
+@app.route('/add_city')
+def add_city():
+    return render_template('addcity.html',
+                            countries=mongo.db.countries.find())
+
+@app.route('/insert_city', methods=['POST'])
+def insert_city():
+    city = mongo.db.cities
+    city.insert_one(request.form.to_dict())
+    return redirect(url_for('buttons'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

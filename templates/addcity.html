@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Add Task</h3>
+<div class="row">
+  <form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
+    <div class="row">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">map</i>
+          <select id="countries_city" name="country_name">
+            <option value="" disabled selected>Choose Country</option>
+            {% for country in countries %}
+            <option value="{{country.country_name}}"
+              >{{country.country_name}}</option
+            >
+            {% endfor %}
+          </select>
+          <label>Country</label>
+        </div>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="city_name" name="city_name" type="text" />
+        <label for="icon_prefix">City Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit">
+        Add City
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
