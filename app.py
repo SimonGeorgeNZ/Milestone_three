@@ -1,4 +1,5 @@
 import os
+import pycountry
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -12,9 +13,13 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+def buttons():
+    return render_template('buttons.html')
+
 @app.route('/get_countries')
 def get_countries():
-    return render_template("countries.html", reviews=mongo.db.reviews.find())
+    return render_template('countries.html',
+                           countries=mongo.db.countries.find())
 
 
 if __name__ == '__main__':

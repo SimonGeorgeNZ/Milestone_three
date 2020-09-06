@@ -1,7 +1,9 @@
-{% extends 'base.html' %}
-{% block content %}
-        {% for review in reviews %}
-        {{review.visit_reason}}
-        {% endfor %}
+{% extends 'base.html' %}{% block content %}
+
+    {% for country in countries %}
+    {{country.country_name}}
+    {% endfor %}
+
+
 {% endblock %}
     
