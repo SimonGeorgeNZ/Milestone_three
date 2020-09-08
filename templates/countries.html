@@ -1,11 +1,9 @@
 {% extends 'base.html' %}{% block content %}
 
     {% for country in countries %}
-    <a href="{{url_for('get_cities', country_id=countries._id)}}" >{{country.country_name}}</a>
+    <a href="{{url_for('get_cities', country_id=country._id)}}" >{{country.country_name}}</a>
     
     {% endfor %}
-
-    
 
 
 {% endblock %}
