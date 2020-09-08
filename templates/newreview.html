@@ -1,8 +1,13 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}{% block content %}
+<h2>Select Country</h2>
+    {% for country in countries %}
+    <a href="{{url_for('get_cities', country_id=country._id)}}" >{{country.country_name}}</a>
+    
+    {% endfor %}
 
-{% block content %} 
-<h3>Add Country</h3>
-<form action="{{ url_for('insert_country') }}" method="POST" class="col s12">
+    <h3> Add New Country </h3>
+
+    <form action="{{ url_for('insert_country') }}" method="POST" class="col s12">
     <div class="row">
         <div class="input-field col s12">
             <i class="material-icons prefix">poll</i>
@@ -16,4 +21,10 @@
         </button>
     </div>
 </form>
-{% endblock %} 
+    
+
+    
+
+
+{% endblock %}
+    

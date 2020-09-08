@@ -22,7 +22,7 @@ def buttons():
 @app.route('/get_countries')
 def get_countries():
     return render_template('countries.html',
-                           countries=mongo.db.countries.find())
+    countries=mongo.db.countries.find())
 
 @app.route('/add_country')
 def add_country():
@@ -39,21 +39,28 @@ def insert_country():
 
 @app.route('/get_cities/<country_id>')
 def get_cities(country_id):
-    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
-    
     return render_template('cities.html',
-                cities=mongo.db.cities.find({"country_name" : country['country_name']}))
+    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)}),
+    cities=mongo.db.cities.find({"country_name" : country['country_name']}))
 
 @app.route('/add_city')
 def add_city():
     return render_template('addcity.html',
-                            countries=mongo.db.countries.find())
+    countries=mongo.db.countries.find())
 
 @app.route('/insert_city', methods=['POST'])
 def insert_city():
     city = mongo.db.cities
     city.insert_one(request.form.to_dict())
     return redirect(url_for('buttons'))
+
+#---------------Reviews-----------------#
+
+@app.route('/new_review')
+def new_review():
+    return render_template('newreview.html',
+    countries=mongo.db.countries.find())
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
