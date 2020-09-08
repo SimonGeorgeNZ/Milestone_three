@@ -37,10 +37,12 @@ def insert_country():
 
 #---------------Cities-----------------#
 
-@app.route('/get_cities')
-def get_cities():
+@app.route('/get_cities/<country_id>')
+def get_cities(country_id):
+    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
+    
     return render_template('cities.html',
-                           cities=mongo.db.cities.find())
+                cities=mongo.db.cities.find({"country_name" : country['country_name']}))
 
 @app.route('/add_city')
 def add_city():
