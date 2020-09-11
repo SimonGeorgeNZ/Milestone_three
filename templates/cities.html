@@ -1,9 +1,27 @@
 {% extends 'base.html' %}{% block content %}
 
-    {% for city in cities %}
-    {{city.city_name}}
-    {% endfor %}
+{% for city in cities %}
+{{city.city_name}}
+{% endfor %}
+
+
+<h3>Add City</h3>
+<form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
+
+	<div class="input-field col s12">
+		<i class="material-icons prefix">Map</i>
+		<input id="city_name" name="city_name" type="text" />
+		<label for="icon_prefix">City Name</label>
+	</div>
+
+	<div class="row">
+		<button class="btn waves-effect waves-light" type="submit">
+        Add City
+        <i class="material-icons right">playlist_add</i>
+      </button>
+	</div>
+</form>
+
 
 
 {% endblock %}
-    

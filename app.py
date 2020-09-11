@@ -32,7 +32,7 @@ def add_country():
 def insert_country():
     category_doc = {'country_name': request.form.get('country_name')}
     mongo.db.countries.insert_one(category_doc)
-    return redirect(url_for('buttons'))
+    return redirect(url_for('add_city'))
 
 
 #---------------Cities-----------------#
@@ -46,13 +46,20 @@ def get_cities(country_id):
 @app.route('/add_city')
 def add_city():
     return render_template('addcity.html',
-                            countries=mongo.db.countries.find())
+    new_country=mongo.db.countries.find({natural:1}))
 
 @app.route('/insert_city', methods=['POST'])
 def insert_city():
     city = mongo.db.cities
     city.insert_one(request.form.to_dict())
-    return redirect(url_for('buttons'))
+    return redirect(url_for('add_review'))
+
+#---------------Reviews-----------------#
+
+@app.route('/add_review')
+def add_review():
+    return render_template('addreview.html',
+    countries=mongo.db.countries.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
