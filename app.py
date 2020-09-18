@@ -24,20 +24,30 @@ def get_countries():
     return render_template('countries.html',
                            countries=mongo.db.countries.find())
 
-@app.route('/insert_country', methods=['POST'])
+@app.route('/new_country')
+def new_country():
+    return render_template('newcountry.html')
+
+@app.route('/insert_country', methods=['POST', 'GET'])
 def insert_country():
     category_doc = {'country_name': request.form.get('country_name')}
-    mongo.db.countries.insert_one(category_doc)
-    return render_template('cities.html')
+    mongo.db.countries.insert(category_doc)
+    country=mongo.db.countries.find_one({'country_name': request.form.get('country_name')})
+    return redirect(url_for('new_city', country_id=country['_id']))
 
 #---------------Cities-----------------#
+
+@app.route('/new_city/<country_id>')
+def new_city(country_id):
+    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
+    return render_template('newcity.html', country = country)
 
 @app.route('/get_cities/<country_id>')
 def get_cities(country_id):
     country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
     return render_template('cities.html',
     cities = mongo.db.cities.find({"country_name": country['country_name']}),
-    the_country = country)
+    country = country)
 
 
 @app.route('/insert_city', methods=['POST'])
