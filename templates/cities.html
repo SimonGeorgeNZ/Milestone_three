@@ -2,7 +2,7 @@
 {% extends 'base.html' %}{% block content %}
 <h3>Pick City for {{country.country_name}}</h3>
 {% for city in cities %}
-<a href="{{url_for('add_review')}}">{{city.city_name}}</a>
+<a href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name}}</a>
 
 
 {% endfor %}
@@ -10,7 +10,7 @@
 
 <form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
     <h3>Add City for {{country.country_name}} </h3>
-	<input id="country_name" name="country_name" value="{{country.country_name}}" readonly/>
+	<input id="country_name" name="country_name" value="Country = {{country.country_name}}" readonly/>
 
     <div class="input-field col s12">
 		<i class="material-icons prefix">Map</i>

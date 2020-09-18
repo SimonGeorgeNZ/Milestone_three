@@ -54,20 +54,20 @@ def get_cities(country_id):
 def insert_city():
     city = mongo.db.cities
     city.insert_one(request.form.to_dict())
-    return redirect(url_for('add_review'))
+    new_city=mongo.db.cities.find_one({'city_name': request.form.get('city_name')})
+    return redirect(url_for('add_review', city_id = new_city['_id']))
 
 #---------------Reviews-----------------#
 
-@app.route('/add_review')
-def add_review():
-    return render_template('addreview.html',
-    countries=mongo.db.countries.find())
+@app.route('/add_review/<city_id>')
+def add_review(city_id):
+    city=mongo.db.cities.find_one({"_id": ObjectId(city_id)})
+    return render_template('addreview.html', city=city)
 
-@app.route('/insert_title/<city_id>', methods=['POST'])
-def insert_title(city_id):
+@app.route('/insert_title', methods=['POST'])
+def insert_title():
     title = mongo.db.title
     title.insert_one(request.form.to_dict())
-    city=mongo.db.city.find_one({'_id': ObjectId(city_id)})
     return redirect(url_for('add_review'))
 
 if __name__ == '__main__':
