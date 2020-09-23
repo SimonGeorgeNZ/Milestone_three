@@ -30,10 +30,18 @@ def new_country():
 
 @app.route('/insert_country', methods=['POST', 'GET'])
 def insert_country():
-    category_doc = {'country_name': request.form.get('country_name')}
-    mongo.db.countries.insert(category_doc)
-    country=mongo.db.countries.find_one({'country_name': request.form.get('country_name')})
-    return redirect(url_for('new_city', country_id=country['_id']))
+    input_country = request.form['country_name']
+    print(input_country)
+    find_country = mongo.db.countries.find_one({"country_name":input_country})
+    print(find_country)
+    country = mongo.db.countries.find_one({'country_name': request.form.get('country_name')})
+    if find_country:
+        return redirect(url_for('get_cities', country_id=country['_id']))
+    else:
+        countries = mongo.db.countries
+        countries.insert_one(request.form.to_dict())
+        return redirect(url_for('new_city', country_id=country['_id']))
+    
 
 #---------------Cities-----------------#
 
@@ -62,7 +70,7 @@ def insert_city():
 @app.route('/add_review/<city_id>')
 def add_review(city_id):
     city=mongo.db.cities.find_one({"_id": ObjectId(city_id)})
-    return render_template('addreview.html', city=city)
+    return render_template('addtitle.html', city=city)
 
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
