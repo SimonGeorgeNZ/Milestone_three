@@ -2,16 +2,17 @@
 <h3>Add a title to your review of {{city.city_name |title}}</h3>
 <div class="row">
   <form action="{{ url_for('insert_title') }}" method="POST" class="col s12">
+  <input type="hidden" id="city_name" name="city_name" value="{{city.city_name}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="city_name" name="city_name" type="text" />
+        <input id="review_title" name="review_title" type="text" />
         <label for="icon_prefix">Review Title</label>
       </div>
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit">
-        Add City
+        Add Title
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
