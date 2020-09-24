@@ -75,7 +75,9 @@ def add_review(city_id):
 
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
-    mongo.db.title.insert_one(request.form.to_dict())
+    add_title = {'city_name': request.form.get('city_name').lower(),
+    'review_title': request.form.get('review_title').lower()}
+    mongo.db.title.insert(add_title)
     return render_template('buttons.html')
 
 if __name__ == '__main__':
