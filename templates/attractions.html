@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Add Attractions to your review {{title.review_title |title}}</h3>
+<div class="row">
+  <form action="{{ url_for('insert_attract') }}" method="POST" class="col s12">
+  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_name" name="attract_name" type="text" />
+        <label for="icon_prefix">Attraction Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_type" name="attract_type" type="text" />
+        <label for="icon_prefix">Attraction Type </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_cost" name="attract_cost" type="text" />
+        <label for="icon_prefix">Attraction Cost</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_guide" name="attract_guide" type="text" />
+        <label for="icon_prefix">Is the attraction lead by a guide, or self guided?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_ticket" name="attract_ticket" type="text" />
+        <label for="icon_prefix">Is the attraction ticketed?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="ticket_site" name="ticket_site" type="text" />
+        <label for="icon_prefix">If yes, where can someone buy a ticket?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_time" name="attract_time" type="text" />
+        <label for="icon_prefix">How much time should someone set aside for this attraction?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_rating" name="attract_rating" type="text" />
+        <label for="icon_prefix">Overall attraction rating</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="attract_comment" name="attract_comment" type="text" />
+        <label for="icon_prefix">Any comments? </label>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit">
+        Add Attraction
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

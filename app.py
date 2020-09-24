@@ -75,10 +75,25 @@ def add_review(city_id):
 
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
-    add_title = {'city_name': request.form.get('city_name').lower(),
-    'review_title': request.form.get('review_title').lower()}
+    add_title = {'city_name': request.form.get('city_name'),
+    'review_title': request.form.get('review_title')}
     mongo.db.title.insert(add_title)
-    return render_template('buttons.html')
+    title=mongo.db.title.find_one({'review_title': request.form.get('review_title')})
+    return render_template('accommodation.html', title = title)
+
+@app.route('/insert_accom', methods=['POST'])
+def insert_accom():
+    accom = mongo.db.accommodation
+    accom.insert_one(request.form.to_dict())
+    title=mongo.db.accommodation.find({'review_title': request.form.get('review_title')})
+    return render_template('attractions.html', title=title)
+
+@app.route('/insert_attract', methods=['POST'])
+def insert_attract():
+    attract = mongo.db.attractions
+    attract.insert_one(request.form.to_dict())
+    title=mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
+    return render_template('hospitality.html', title=title)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
