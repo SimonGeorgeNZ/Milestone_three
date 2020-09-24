@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add a title to your review of {{city.city_name}}</h3>
+<h3>Add a title to your review of {{city.city_name |title}}</h3>
 <div class="row">
   <form action="{{ url_for('insert_title') }}" method="POST" class="col s12">
     <div class="row">
