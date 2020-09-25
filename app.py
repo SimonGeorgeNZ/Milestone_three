@@ -56,14 +56,18 @@ def get_cities(country_id):
     country = country)
 
 
-@app.route('/insert_city', methods=['POST'])
+@app.route('/insert_city', methods=['POST', 'GET'])
 def insert_city():
     input_city = request.form['city_name']
-    add_city = {'country_name': request.form.get('country_name').lower(),
-    'city_name': request.form.get('city_name').lower()}
-    mongo.db.cities.insert(add_city)
-    new_city=mongo.db.cities.find_one({'city_name': input_city.lower()})
-    return redirect(url_for('add_review', city_id = new_city['_id']))
+    find_city = mongo.db.cities.find_one({"city_name":input_city.lower()})
+    if find_city:
+        return redirect(url_for('add_review', city_id = find_city['_id']))
+    else:
+        add_city = {'country_name': request.form.get('country_name').lower(),
+        'city_name': request.form.get('city_name').lower()}
+        mongo.db.cities.insert_one(add_city)
+        new_city=mongo.db.cities.find_one({'city_name': input_city.lower()})
+        return redirect(url_for('add_review', city_id = new_city['_id']))
 
 
 #---------------Reviews-----------------#
@@ -85,8 +89,8 @@ def insert_title():
 def insert_accom():
     accom = mongo.db.accommodation
     accom.insert_one(request.form.to_dict())
-    title=mongo.db.accommodation.find({'review_title': request.form.get('review_title')})
-    return render_template('attractions.html', title=title)
+    title=mongo.db.accommodation.find_one({'review_title': request.form.get('review_title')})
+    return render_template('attractions.html', title = title)
 
 @app.route('/insert_attract', methods=['POST'])
 def insert_attract():
@@ -94,6 +98,21 @@ def insert_attract():
     attract.insert_one(request.form.to_dict())
     title=mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
     return render_template('hospitality.html', title=title)
+
+@app.route('/insert_hospo', methods=['POST'])
+def insert_hospo():
+    hospo = mongo.db.hospitality
+    hospo.insert_one(request.form.to_dict())
+    title=mongo.db.hospitality.find_one({'review_title': request.form.get('review_title')})
+    return render_template('reviewfinal.html', title=title)
+
+@app.route('/insert_final', methods=['POST'])
+def insert_final():
+    final = mongo.db.reviews
+    final.insert_one(request.form.to_dict())
+    return render_template('.html')
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
