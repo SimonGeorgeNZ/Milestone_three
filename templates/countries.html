@@ -5,6 +5,11 @@
 
 {% endfor %}
 
+{% for country in pycountries %}
+{{country.name}}
+{% endfor %}
+
+
 <div class="row">
 <a href="{{url_for('new_country')}}" class="waves-effect waves-light btn"> New Country</a>
 </div>

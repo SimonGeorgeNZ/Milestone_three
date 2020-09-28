@@ -1,0 +1,55 @@
+{% extends 'base.html' %}{% block content %}
+
+<h3>Add accommodation to {{title.review_title |title}}</h3>
+<div class="row">
+  <form action="{{ url_for('add_review_info') }}" method="POST" class="col s12">
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+    <h5>Trip dates</h5>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">map</i>
+        <input id="start_date" name="start_date" type="text" class="datepicker" />
+        <label for="start_date">Start date</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">map</i>
+        <input id="end_date" name="end_date" type="text" class="datepicker" />
+        <label for="end_date">End date</label>
+      </div>
+    </div>
+    <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Business</option>
+      <option value="2">Pleasure</option>
+      <option value="3">Event/Festival</option>
+    </select>
+    <label>Business or pleasure?</label>
+  </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="event" name="event" type="text" />
+        <label for="icon_prefix">If event, which one?</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="s_or_g" name="s_or_g" type="text" />
+        <label for="icon_prefix">Solo or guided?</label>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit">
+        Add starter info
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

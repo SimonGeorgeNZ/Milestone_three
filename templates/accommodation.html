@@ -2,10 +2,10 @@
 <h3>Add accommodation to {{title.review_title |title}}</h3>
 <div class="row">
   <form action="{{ url_for('insert_accom') }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">hotel</i>
         <input id="accom_name" name="accom_name" type="text" />
         <label for="icon_prefix">Accommodation Name</label>
       </div>
@@ -41,7 +41,9 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_clean" name="accom_clean" type="text" />
+        <p class="range-field">
+          <input type="range" id="test5" name="accom_clean" min="0" max="10" />
+        </p>
         <label for="icon_prefix">Accommodation Cleanliness</label>
       </div>
     </div>
@@ -60,6 +62,5 @@
     </div>
   </form>
 </div>
-
 
 {% endblock %}
