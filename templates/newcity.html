@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}{% block content %}
 <h1>Add a city to {{country.country_name |title}} </h1>
-<form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
+<form action="{{ url_for('insert_city') }}"  method="POST" class="col s12">
 
 	<input type="hidden" id="country_name" name="country_name" value="{{country.country_name}}"  readonly/>
 

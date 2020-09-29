@@ -1,5 +1,5 @@
 import os
-import pycountry as pc
+import pycountry
 import re
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
@@ -11,6 +11,15 @@ app.config["MONGO_DBNAME"] = 'Milestone_three'
 app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mongodb.net/Milestone_three?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
+
+input_countries = ['Austria']
+search = input_countries
+countries = {}
+for country in pycountry.countries:
+    countries[country.name] = country.name
+    print([country.name])
+
+
 
 
 @app.route('/')
@@ -29,7 +38,7 @@ def get_countries():
 @app.route('/new_country')
 def new_country():
     return render_template('newcountry.html')
-
+    
 
 @app.route('/insert_country', methods=['POST', 'GET'])
 def insert_country():
@@ -40,8 +49,8 @@ def insert_country():
     else:
         category_doc = {'country_name': request.form.get('country_name').lower()}
         mongo.db.countries.insert(category_doc)
-        country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-        return redirect(url_for('new_city', country_id = country['_id']))
+        country=mongo.db.countries.find_one({'country_name': input_country.lower()})
+        return redirect(url_for('new_city', country_id=country['_id']))
     
 
 #---------------Cities-----------------#
@@ -49,7 +58,7 @@ def insert_country():
 
 @app.route('/new_city/<country_id>')
 def new_city(country_id):
-    country = mongo.db.countries.find_one({"_id": ObjectId(country_id)})
+    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
     return render_template('newcity.html', country = country)
 
 
