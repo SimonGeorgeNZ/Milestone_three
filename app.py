@@ -1,6 +1,7 @@
 import os
 import pycountry
 import re
+import unicodedata
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -12,13 +13,27 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mo
 
 mongo = PyMongo(app)
 
-input_countries = ['Austria']
-search = input_countries
-countries = {}
-for country in pycountry.countries:
-    countries[country.name] = country.name
-    print([country.name])
 
+input_countries = 'New zealand'
+countries = ''
+for country in pycountry.countries:
+    countries = country.name
+    index = input_countries.capitalize()[0]
+    cindex = countries[0]
+    if index == cindex:
+        index = input_countries[1]
+        cindex = countries[1]
+        if index == cindex:
+            index = input_countries[2]
+            cindex = countries[2]
+            if index == cindex:
+                print(countries)
+
+        
+        
+
+
+    
 
 
 
@@ -27,7 +42,8 @@ for country in pycountry.countries:
 def buttons():
     return render_template('buttons.html')
 
-#--------------Countries-----------------#
+
+# --------------Countries-----------------#
 
 
 @app.route('/get_countries')
@@ -35,31 +51,32 @@ def get_countries():
     return render_template('countries.html',
                            countries=mongo.db.countries.find())
 
+
 @app.route('/new_country')
 def new_country():
     return render_template('newcountry.html')
-    
+
 
 @app.route('/insert_country', methods=['POST', 'GET'])
 def insert_country():
     input_country = request.form['country_name']
-    find_country = mongo.db.countries.find_one({"country_name":input_country.lower()})
+    find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
     if find_country:
         return redirect(url_for('get_cities', country_id=find_country['_id']))
     else:
         category_doc = {'country_name': request.form.get('country_name').lower()}
         mongo.db.countries.insert(category_doc)
-        country=mongo.db.countries.find_one({'country_name': input_country.lower()})
+        country = mongo.db.countries.find_one({'country_name': input_country.lower()})
         return redirect(url_for('new_city', country_id=country['_id']))
-    
 
-#---------------Cities-----------------#
+
+# ---------------Cities-----------------#
 
 
 @app.route('/new_city/<country_id>')
 def new_city(country_id):
-    country=mongo.db.countries.find_one({"_id": ObjectId(country_id)})
-    return render_template('newcity.html', country = country)
+    country = mongo.db.countries.find_one({"_id": ObjectId(country_id)})
+    return render_template('newcity.html', country=country)
 
 
 @app.route('/get_cities/<country_id>')
@@ -67,21 +84,21 @@ def get_cities(country_id):
     country = mongo.db.countries.find_one({"_id": ObjectId(country_id)})
     return render_template('cities.html',
     cities = mongo.db.cities.find({"country_name": country['country_name']}),
-    country = country)
+    country=country)
 
 
 @app.route('/insert_city', methods=['POST', 'GET'])
 def insert_city():
     input_city = request.form['city_name']
-    find_city = mongo.db.cities.find_one({"city_name":input_city.lower()})
+    find_city = mongo.db.cities.find_one({"city_name": input_city.lower()})
     if find_city:
-        return redirect(url_for('add_review', city_id = find_city['_id']))
+        return redirect(url_for('add_review', city_id=find_city['_id']))
     else:
         add_city = {'country_name': request.form.get('country_name').lower(),
         'city_name': request.form.get('city_name').lower()}
         mongo.db.cities.insert_one(add_city)
-        new_city=mongo.db.cities.find_one({'city_name': input_city.lower()})
-        return redirect(url_for('add_review', city_id = new_city['_id']))
+        new_city = mongo.db.cities.find_one({'city_name': input_city.lower()})
+        return redirect(url_for('add_review', city_id=new_city['_id']))
 
 
 #---------------Reviews-----------------#
@@ -89,7 +106,7 @@ def insert_city():
 
 @app.route('/add_review/<city_id>')
 def add_review(city_id):
-    city=mongo.db.cities.find_one({"_id": ObjectId(city_id)})
+    city = mongo.db.cities.find_one({"_id": ObjectId(city_id)})
     return render_template('addtitle.html', city=city)
 
 
@@ -114,7 +131,7 @@ def add_review_info():
 def insert_accom():
     accom = mongo.db.accommodation
     accom.insert_one(request.form.to_dict())
-    title=mongo.db.accommodation.find_one({'review_title': request.form.get('review_title')})
+    title = mongo.db.accommodation.find_one({'review_title': request.form.get('review_title')})
     return render_template('attractions.html', title=title)
 
 
@@ -122,7 +139,7 @@ def insert_accom():
 def insert_attract():
     attract = mongo.db.attractions
     attract.insert_one(request.form.to_dict())
-    title=mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
+    title = mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
     return render_template('hospitality.html', title=title)
 
 
@@ -145,3 +162,4 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True)
+
