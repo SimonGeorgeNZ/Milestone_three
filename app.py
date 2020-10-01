@@ -34,7 +34,7 @@ def get_countries():
 def new_country():
     return render_template('newcountry.html')
 
-@app.route('/insert_country', methods=['POST', 'GET'])
+@app.route('/search', methods=['POST', 'GET'])
 def search():
     countries = []
     input_country = request.form['country_name']
