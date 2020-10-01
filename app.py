@@ -14,28 +14,6 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mo
 mongo = PyMongo(app)
 
 
-input_countries = 'New zealand'
-countries = ''
-for country in pycountry.countries:
-    countries = country.name
-    index = input_countries.capitalize()[0]
-    cindex = countries[0]
-    if index == cindex:
-        index = input_countries[1]
-        cindex = countries[1]
-        if index == cindex:
-            index = input_countries[2]
-            cindex = countries[2]
-            if index == cindex:
-                print(countries)
-
-        
-        
-
-
-    
-
-
 
 @app.route('/')
 @app.route('/home')
@@ -56,18 +34,26 @@ def get_countries():
 def new_country():
     return render_template('newcountry.html')
 
-
 @app.route('/insert_country', methods=['POST', 'GET'])
-def insert_country():
+def search():
+    countries = []
     input_country = request.form['country_name']
-    find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
-    if find_country:
-        return redirect(url_for('get_cities', country_id=find_country['_id']))
+    for country in pycountry.countries:
+        countries = country.name
+        index = input_country.lower()
+        cindex = countries.lower()
+        if index in cindex:
+            input_country = request.form['country_name']
+            find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
+            if find_country:
+                return redirect(url_for('get_cities', country_id=find_country['_id']))
+            else:
+                category_doc = {'country_name': request.form.get('country_name').lower()}
+                mongo.db.countries.insert(category_doc)
+                country = mongo.db.countries.find_one({'country_name': input_country.lower()})
+                return redirect(url_for('new_city', country_id=country['_id']))
     else:
-        category_doc = {'country_name': request.form.get('country_name').lower()}
-        mongo.db.countries.insert(category_doc)
-        country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-        return redirect(url_for('new_city', country_id=country['_id']))
+        return render_template('didyoumean.html')
 
 
 # ---------------Cities-----------------#

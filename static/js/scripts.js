@@ -17,3 +17,4 @@ closeOnSelect: false,
 function showToast(message, duration) {
             Materialize.toast(message, duration);
          }
+
