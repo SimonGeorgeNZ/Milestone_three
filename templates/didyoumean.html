@@ -2,7 +2,13 @@
 {% extends 'base.html' %}{% block content %}
 <h3>Did you mean?</h3>
 
-{{ country |title }}
+Sorry we couldn't find {{ search |title }}
+
+Did you mean any of these countries? 
+
+{% for place in results %}
+<div>{{ place }}</div>
+{% endfor %}
 
 
 

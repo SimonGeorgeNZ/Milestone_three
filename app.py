@@ -53,7 +53,29 @@ def search():
                 country = mongo.db.countries.find_one({'country_name': input_country.lower()})
                 return redirect(url_for('new_city', country_id=country['_id']))
     else:
-        return render_template('didyoumean.html')
+        return redirect(url_for('didyoumean', search = index))
+
+
+@app.route('/didyoumean/<search>')
+def didyoumean(search):
+    countries = []
+    results = []
+    s = search [0]
+    for country in pycountry.countries:
+        countries = country.name
+        cindex = [countries.lower()]
+        for place in cindex:
+            if place[0] == s:
+                results += cindex
+        print(results)
+    return render_template('didyoumean.html', search = search, results = results)
+                
+
+    
+    
+    
+
+
 
 
 # ---------------Cities-----------------#
