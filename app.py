@@ -42,16 +42,17 @@ def search():
         countries = country.name
         index = input_country.lower()
         cindex = countries.lower()
+        input_country = request.form['country_name']
+        find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
         if index in cindex:
             input_country = request.form['country_name']
-            find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
-            if find_country:
-                return redirect(url_for('get_cities', country_id=find_country['_id']))
-            else:
-                category_doc = {'country_name': request.form.get('country_name').lower()}
-                mongo.db.countries.insert(category_doc)
-                country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-                return redirect(url_for('new_city', country_id=country['_id']))
+            category_doc = {'country_name': request.form.get('country_name').lower()}
+            mongo.db.countries.insert_one(category_doc)
+            country = mongo.db.countries.find_one({'country_name': input_country.lower()})
+            return redirect(url_for('new_city', country_id=country['_id']))
+        find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
+        if find_country:
+            return redirect(url_for('get_cities', country_id=find_country['_id']))
     else:
         return redirect(url_for('didyoumean', search = index))
 
@@ -67,14 +68,9 @@ def didyoumean(search):
         for place in cindex:
             if place[0] == s:
                 results += cindex
-        print(results)
+
     return render_template('didyoumean.html', search = search, results = results)
                 
-
-    
-    
-    
-
 
 
 
