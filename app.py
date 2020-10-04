@@ -14,7 +14,6 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mo
 mongo = PyMongo(app)
 
 
-
 @app.route('/')
 @app.route('/home')
 def buttons():
@@ -29,7 +28,6 @@ def get_countries():
     return render_template('countries.html',
                            countries=mongo.db.countries.find())
 
-
 @app.route('/new_country')
 def new_country():
     return render_template('newcountry.html')
@@ -37,24 +35,25 @@ def new_country():
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     countries = []
+    exceptions = ["england", "wales", "scotland", "northern ireland"]   
     input_country = request.form['country_name']
+    find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
     for country in pycountry.countries:
         countries = country.name
         index = input_country.lower()
         cindex = countries.lower()
-        input_country = request.form['country_name']
-        find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
-        if index in cindex:
-            input_country = request.form['country_name']
-            category_doc = {'country_name': request.form.get('country_name').lower()}
-            mongo.db.countries.insert_one(category_doc)
-            country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-            return redirect(url_for('new_city', country_id=country['_id']))
-        find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
-        if find_country:
-            return redirect(url_for('get_cities', country_id=find_country['_id']))
+    for value in exceptions:
+        if index in cindex + value.lower():
+            if find_country:
+                return redirect(url_for('get_cities', country_id=find_country['_id']))
+            else:
+                category_doc = {'country_name': request.form.get('country_name').lower()}
+                mongo.db.countries.insert(category_doc)
+                country = mongo.db.countries.find_one({'country_name': input_country.lower()})
+                return redirect(url_for('new_city', country_id=country['_id']))
     else:
         return redirect(url_for('didyoumean', search = index))
+
 
 
 @app.route('/didyoumean/<search>')
@@ -68,9 +67,7 @@ def didyoumean(search):
         for place in cindex:
             if place[0] == s:
                 results += cindex
-
     return render_template('didyoumean.html', search = search, results = results)
-                
 
 
 
