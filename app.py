@@ -35,22 +35,22 @@ def new_country():
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     countries = []
-    exceptions = ["england", "wales", "scotland", "northern ireland"]   
+    exceptions = ["England", "Wales", "Scotland", "Northern Ireland"]   
     input_country = request.form['country_name']
     find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
     for country in pycountry.countries:
         countries = country.name
         index = input_country.lower()
         cindex = countries.lower()
-    for value in exceptions:
-        if index in cindex + value.lower():
-            if find_country:
-                return redirect(url_for('get_cities', country_id=find_country['_id']))
-            else:
-                category_doc = {'country_name': request.form.get('country_name').lower()}
-                mongo.db.countries.insert(category_doc)
-                country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-                return redirect(url_for('new_city', country_id=country['_id']))
+        for value in exceptions:
+            if index in cindex + value.lower():
+                if find_country:
+                    return redirect(url_for('get_cities', country_id=find_country['_id']))
+                else:
+                    category_doc = {'country_name': request.form.get('country_name').lower()}
+                    mongo.db.countries.insert(category_doc)
+                    country = mongo.db.countries.find_one({'country_name': input_country.lower()})
+                    return redirect(url_for('new_city', country_id=country['_id']))
     else:
         return redirect(url_for('didyoumean', search = index))
 
