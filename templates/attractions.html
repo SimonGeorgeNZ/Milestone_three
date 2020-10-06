@@ -6,7 +6,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_name" name="attract_name" type="text" />
+        <input id="attract_name" name="attract_name" type="text" required />
         <label for="icon_prefix">Attraction Name</label>
       </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_cost" name="attract_cost" type="text" />
+        <input id="attract_cost" name="attract_cost" type="text" required />
         <label for="icon_prefix">Attraction Cost</label>
       </div>
     </div>
@@ -62,7 +62,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_rating" name="attract_rating" type="text" />
+        <input id="attract_rating" name="attract_rating" type="text" required />
         <label for="icon_prefix">Overall attraction rating</label>
       </div>
     </div>
@@ -76,6 +76,10 @@
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit">
         Add Attraction
+        <i class="material-icons right">playlist_add</i>
+      </button>
+      <button formaction = "{{url_for('insert_another_attract')}}" class="btn waves-effect waves-light" type="submit">
+        Add Another Attraction
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<h3>View what you've written for {{title.review_title |title}}</h3>
+<h5>You have an opportunity to edit your review here as well</h5>
+<div class="row">
+    <div class="input-field col s12">
+    <form action="" method="POST" class="col s12">
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+        <i class="material-icons prefix">poll</i>
+        <select id="category" name="category_name">
+            <option value="" disabled selected>Choose Category</option>
+                  {% for x in categories %}
+            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                  {% endfor %}
+        </select>
+    <label>Task Category</label>
+    </div>
+  
+
+
+
+
+
+      <button class="btn waves-effect waves-light" type="submit">
+        Click here to save and return to the main menu
+        <i class="material-icons right">playlist_add</i>
+      </button>
+</div>
+
+
+{% endblock %}

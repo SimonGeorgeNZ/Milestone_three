@@ -5,6 +5,8 @@ import unicodedata
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from webargs import fields
+from webargs.flaskparser import use_args
 
 app = Flask(__name__)
 
@@ -12,6 +14,9 @@ app.config["MONGO_DBNAME"] = 'Milestone_three'
 app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mongodb.net/Milestone_three?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
+
+db_categories = ["accommodation", "attractions", "cities", "countries", "first_info", "hospitality", "reviews", "title"]
+exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"] 
 
 
 @app.route('/')
@@ -32,6 +37,7 @@ def get_countries():
 def new_country():
     return render_template('newcountry.html')
 
+
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     countries = []
@@ -42,18 +48,21 @@ def search():
         countries = country.name
         index = input_country.lower()
         cindex = countries.lower()
-        for value in exceptions:
-            if index in cindex + value.lower():
-                if find_country:
-                    return redirect(url_for('get_cities', country_id=find_country['_id']))
-                else:
-                    category_doc = {'country_name': request.form.get('country_name').lower()}
-                    mongo.db.countries.insert(category_doc)
-                    country = mongo.db.countries.find_one({'country_name': input_country.lower()})
-                    return redirect(url_for('new_city', country_id=country['_id']))
+        if len(index) == 0:
+            return render_template('newcountry.html')
+        else:
+            if len(index) > 1:
+                for value in exceptions:
+                    if index in cindex + value.lower():
+                        if find_country:
+                            return redirect(url_for('get_cities', country_id=find_country['_id']))
+                        else:
+                            category_doc = {'country_name': request.form.get('country_name').lower()}
+                            mongo.db.countries.insert(category_doc)
+                            country = mongo.db.countries.find_one({'country_name': input_country.lower()})
+                            return redirect(url_for('new_city', country_id=country['_id']))
     else:
         return redirect(url_for('didyoumean', search = index))
-
 
 
 @app.route('/didyoumean/<search>')
@@ -67,8 +76,24 @@ def didyoumean(search):
         for place in cindex:
             if place[0] == s:
                 results += cindex
-    return render_template('didyoumean.html', search = search, results = results)
+                for place in results:
+                    place = place
+    return render_template('didyoumean.html', search = search, results = results, place = place)
 
+
+@app.route('/add_list_country/<place>', methods=['POST', 'GET'])
+def add_list_country(place):
+    input_country = place
+    find_country = mongo.db.countries.find_one({"country_name": place.lower()})
+    if find_country:
+        return redirect(url_for('get_cities', country_id=find_country['_id']))
+    else:
+        new_country = {'country_name': place.lower()}
+        mongo.db.countries.insert_one(new_country)
+        country = mongo.db.countries.find_one({'country_name': place.lower()})
+    return redirect(url_for('new_city', country_id=country['_id']))
+
+    
 
 
 # ---------------Cities-----------------#
@@ -114,8 +139,8 @@ def add_review(city_id):
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
     add_title = {'city_name': request.form.get('city_name'),
-    'review_title': request.form.get('review_title')}
-    mongo.db.title.insert(add_title)
+    'review_title': request.form.get('review_title').lower()}
+    mongo.db.title.insert_one(add_title)
     title = mongo.db.title.find_one({'review_title': request.form.get('review_title')})
     return render_template('first_info.html', title=title)
 
@@ -136,12 +161,28 @@ def insert_accom():
     return render_template('attractions.html', title=title)
 
 
+@app.route('/insert_another_accom', methods=['POST'])
+def insert_another_accom():
+    accom = mongo.db.accommodation
+    accom.insert_one(request.form.to_dict())
+    title = mongo.db.accommodation.find_one({'review_title': request.form.get('review_title')})
+    return render_template('accommodation.html', title=title)
+
+
 @app.route('/insert_attract', methods=['POST'])
 def insert_attract():
     attract = mongo.db.attractions
     attract.insert_one(request.form.to_dict())
     title = mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
     return render_template('hospitality.html', title=title)
+
+
+@app.route('/insert_another_attract', methods=['POST'])
+def insert_another_attract():
+    attract = mongo.db.attractions
+    attract.insert_one(request.form.to_dict())
+    title = mongo.db.attractions.find_one({'review_title': request.form.get('review_title')})
+    return render_template('attractions.html', title=title)
 
 
 @app.route('/insert_hospo', methods=['POST'])
@@ -152,11 +193,29 @@ def insert_hospo():
     return render_template('reviewfinal.html', title=title)
 
 
-@app.route('/insert_final', methods=['POST'])
+@app.route('/insert_another_hospo', methods=['POST'])
+def insert_another_hospo():
+    hospo = mongo.db.hospitality
+    hospo.insert_one(request.form.to_dict())
+    title = mongo.db.hospitality.find_one({'review_title': request.form.get('review_title')})
+    return render_template('hospitality.html', title=title)
+
+
+@app.route('/insert_final', methods=['POST', 'GET'])
 def insert_final():
+    input_title = request.form['review_title']
     final = mongo.db.reviews
     final.insert_one(request.form.to_dict())
-    return render_template('.html')
+    find_title = mongo.db.title.find_one({'review_title': input_title})
+    return redirect(url_for('view_review', review_id=find_title['_id']))
+
+
+#---------------View reviews-----------------#
+
+@app.route('/view_review/<review_id>')
+def view_review(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    return render_template('viewreview.html', title = title)
 
 
 if __name__ == '__main__':

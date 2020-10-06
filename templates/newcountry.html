@@ -6,14 +6,15 @@
     <div class="row">
         <div class="input-field col s12">
             <i class="material-icons prefix">poll</i>
-            <input id="country_name" name="country_name" type="text" class="validate">
+            <input id="country_name" name="country_name" type="text" class="validate" required>
             <label for="country_name">Country Name</label>
         </div>
     </div>
     <div class="row">
-        <button class="btn waves-effect waves-light" onclick= "showToast('You\'ve added your country!', 5000)" type="submit">Add Country
+        <button class="btn waves-effect waves-light" type="submit">Add Country
             <i class="material-icons right">playlist_add</i>
         </button>
     </div>
 </form>
+
 {% endblock %} 

@@ -7,9 +7,10 @@ Sorry we couldn't find {{ search |title }}
 Did you mean any of these countries? 
 
 {% for place in results %}
-<div>{{ place }}</div>
-{% endfor %}
 
+<a name="list_country" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
+
+{% endfor %}
 
 
 

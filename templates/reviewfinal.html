@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Add Some final comments to {{title.review_title |title}}</h3>
 <div class="row">
-  <form action="{{ url_for('insert_final') }}" method="POST" class="col s12">
+  <form action="{{ url_for('insert_final', review_id=review._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
@@ -20,14 +20,14 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="reasons_yes" name="reasons_yes" type="text" />
+        <input id="reasons_yes" name="reasons_yes" type="text" required />
         <label for="icon_prefix">Reasons to return</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="reasons_not" name="reasons_not" type="text" />
+        <input id="reasons_not" name="reasons_not" type="text" required />
         <label for="icon_prefix">Reasons not to return</label>
       </div>
     </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit">
-        Add Hospitality 
+        Click here to save and preview your review
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>

@@ -1,9 +1,14 @@
 /*--------------------------Generic styling------------------*/
 
-body {
-    background-image: url("../images/paper.png");
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+
+.body-img {
+    background-image: url("../images/wrinkled-note40.png");
     background-repeat: no-repeat;
     background-size: cover;
-    
 }
 

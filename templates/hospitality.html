@@ -6,7 +6,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_name" name="hospo_name" type="text" />
+        <input id="hospo_name" name="hospo_name" type="text" required />
         <label for="icon_prefix">Venue name</label>
       </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_style" name="hospo_style" type="text" />
+        <input id="hospo_style" name="hospo_style" type="text" required />
         <label for="icon_prefix">Venue style</label>
       </div>
     </div>
@@ -41,7 +41,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_service_rate" name="hospo_service_rate" type="text" />
+        <input id="hospo_service_rate" name="hospo_service_rate" type="text" required />
         <label for="icon_prefix">How was the service out of 10?</label>
       </div>
     </div>
@@ -62,6 +62,10 @@
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit">
         Add Hospitality 
+        <i class="material-icons right">playlist_add</i>
+      </button>
+      <button formaction = "{{url_for('insert_another_hospo')}}" class="btn waves-effect waves-light" type="submit">
+        Add A different Hospo
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
