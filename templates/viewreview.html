@@ -1,23 +1,34 @@
 {% extends 'base.html' %} {% block content %}
 <h3>View what you've written for {{title.review_title |title}}</h3>
 <h5>You have an opportunity to edit your review here as well</h5>
+{{ city }}
+{{ country.country_name }}
 <div class="row">
     <div class="input-field col s12">
-    <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
+    <form action="{{ url_for('all_done') }}" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <ul class="collapsible">
     <li>
       <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Review info</div>
       <div class="collapsible-body"><span>
+      <h5>Start Date</h5>
       {{ first.start_date }}
-        
-
+      {{ first.end_date }}
+      {{ first.event }}
+      {{ first.s_or_g }}      
       </span>
       </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">place</i>Accommodation</div>
       <div class="collapsible-body"><span>
+      {{ accom.accom_name }}
+      {{ accom.accom_site }}
+      {{ accom.accom_address }}
+      {{ accom.accom_style }}
+      {{ accom.accom_price }}
+      {{ accom.accom_clean }}
+      {{ accom.accom_comment }}
       
       
       </span>
@@ -26,7 +37,16 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Attractions</div>
       <div class="collapsible-body"><span>
-      
+      {{ attract.attract_name }}
+      {{ attract.attract_site }}
+      {{ attract.attract_type }}
+      {{ attract.attract_cost }}
+      {{ attract.attract_guide }}
+      {{ attract.attract_ticket }}
+      {{ attract.ticket_site }}
+      {{ attract.attract_time }}
+      {{ attract.attract_rating }}
+      {{ attract.attract_comment }}
       
       </span>
       </div>
@@ -34,6 +54,15 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Hospitality</div>
       <div class="collapsible-body"><span>
+      {{ hospo.hospo_name }}
+      {{ hospo.hospo_site }}
+      {{ hospo.hospo_site }}
+      {{ hospo.hospo_style }}
+      {{ hospo.hospo_hours }}
+      {{ hospo.hospo_cost }}
+      {{ hospo.hospo_service_rate }}
+      {{ hospo.hospo_overall_rating }}
+      {{ hospo.hospo_comment }}
       
       </span>
       </div>
@@ -41,6 +70,12 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Final info</div>
       <div class="collapsible-body"><span>
+
+      {{ final.ap_transport }}
+      {{ final.city_transport }}
+      {{ final.reasons_yes }}
+      {{ final.reasons_not }}
+      {{ final.comment_gen }}
       
       </span>
       </div>
