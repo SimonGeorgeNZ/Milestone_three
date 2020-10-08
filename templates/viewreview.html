@@ -3,23 +3,51 @@
 <h5>You have an opportunity to edit your review here as well</h5>
 <div class="row">
     <div class="input-field col s12">
-    <form action="" method="POST" class="col s12">
+    <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
-        <i class="material-icons prefix">poll</i>
-        <select id="category" name="category_name">
-            <option value="" disabled selected>Choose Category</option>
-                  {% for x in categories %}
-            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                  {% endfor %}
-        </select>
-    <label>Task Category</label>
+    <ul class="collapsible">
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Review info</div>
+      <div class="collapsible-body"><span>
+      {{ first.start_date }}
+        
+
+      </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Accommodation</div>
+      <div class="collapsible-body"><span>
+      
+      
+      </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Attractions</div>
+      <div class="collapsible-body"><span>
+      
+      
+      </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Hospitality</div>
+      <div class="collapsible-body"><span>
+      
+      </span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Final info</div>
+      <div class="collapsible-body"><span>
+      
+      </span>
+      </div>
+    </li>
+  </ul>
     </div>
   
-
-
-
-
-
       <button class="btn waves-effect waves-light" type="submit">
         Click here to save and return to the main menu
         <i class="material-icons right">playlist_add</i>

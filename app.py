@@ -5,8 +5,6 @@ import unicodedata
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from webargs import fields
-from webargs.flaskparser import use_args
 
 app = Flask(__name__)
 
@@ -41,7 +39,6 @@ def new_country():
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     countries = []
-    exceptions = ["England", "Wales", "Scotland", "Northern Ireland"]   
     input_country = request.form['country_name']
     find_country = mongo.db.countries.find_one({"country_name": input_country.lower()})
     for country in pycountry.countries:
@@ -138,10 +135,11 @@ def add_review(city_id):
 
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
+    input_title = request.form['review_title']
     add_title = {'city_name': request.form.get('city_name'),
     'review_title': request.form.get('review_title').lower()}
     mongo.db.title.insert_one(add_title)
-    title = mongo.db.title.find_one({'review_title': request.form.get('review_title')})
+    title = mongo.db.title.find_one({'review_title': input_title.lower()})
     return render_template('first_info.html', title=title)
 
 
@@ -206,20 +204,26 @@ def insert_final():
     input_title = request.form['review_title']
     final = mongo.db.reviews
     final.insert_one(request.form.to_dict())
-    find_title = mongo.db.title.find_one({'review_title': input_title})
-    return redirect(url_for('view_review', review_id=find_title['_id']))
-
+    title = mongo.db.title.find_one({'review_title': input_title.lower()})
+    return redirect(url_for('view_review', title = title,
+    review_id = title['_id']))
 
 #---------------View reviews-----------------#
 
 @app.route('/view_review/<review_id>')
 def view_review(review_id):
     title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
-    return render_template('viewreview.html', title = title)
+    review_title = title['review_title']
+    first = mongo.db.first_info.find_one({"review_title": (review_title)})
+    attract = mongo.db.attractions.find_one({"review_title": (review_title)})
+    accom = mongo.db.accommodation.find_one({"review_title": (review_title)})
+    hospo = mongo.db.hospitality.find_one({"review_title": (review_title)})
+    final = mongo.db.reviews.find_one({"review_title": (review_title)})
+    return render_template('viewreview.html', title=title, first=first, 
+    arrract=attract, accom=accom, hospo=hospo, final=final)
 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True)
-
