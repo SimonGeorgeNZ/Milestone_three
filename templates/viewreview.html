@@ -22,13 +22,15 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">place</i>Accommodation</div>
       <div class="collapsible-body"><span>
-      {{ accom.accom_name }}
-      {{ accom.accom_site }}
-      {{ accom.accom_address }}
-      {{ accom.accom_style }}
-      {{ accom.accom_price }}
-      {{ accom.accom_clean }}
-      {{ accom.accom_comment }}
+      {% for a in accom %}
+      {{ a.accom_name }}
+      {{ a.accom_site }}
+      {{ a.accom_address }}
+      {{ a.accom_style }}
+      {{ a.accom_price }}
+      {{ a.accom_clean }}
+      {{ a.accom_comment }}
+      {% endfor %}
       
       
       </span>
@@ -37,16 +39,18 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Attractions</div>
       <div class="collapsible-body"><span>
-      {{ attract.attract_name }}
-      {{ attract.attract_site }}
-      {{ attract.attract_type }}
-      {{ attract.attract_cost }}
-      {{ attract.attract_guide }}
-      {{ attract.attract_ticket }}
-      {{ attract.ticket_site }}
-      {{ attract.attract_time }}
-      {{ attract.attract_rating }}
-      {{ attract.attract_comment }}
+      {% for a in attract %}
+      {{ a.attract_name }}
+      {{ a.attract_site }}
+      {{ a.attract_type }}
+      {{ a.attract_cost }}
+      {{ a.attract_guide }}
+      {{ a.attract_ticket }}
+      {{ a.ticket_site }}
+      {{ a.attract_time }}
+      {{ a.attract_rating }}
+      {{ a.attract_comment }}
+      {% endfor %}
       
       </span>
       </div>
@@ -54,15 +58,17 @@
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Hospitality</div>
       <div class="collapsible-body"><span>
-      {{ hospo.hospo_name }}
-      {{ hospo.hospo_site }}
-      {{ hospo.hospo_site }}
-      {{ hospo.hospo_style }}
-      {{ hospo.hospo_hours }}
-      {{ hospo.hospo_cost }}
-      {{ hospo.hospo_service_rate }}
-      {{ hospo.hospo_overall_rating }}
-      {{ hospo.hospo_comment }}
+      {% for h in hospo %}
+      {{ h.hospo_name }}
+      {{ h.hospo_site }}
+      {{ h.hospo_site }}
+      {{ h.hospo_style }}
+      {{ h.hospo_hours }}
+      {{ h.hospo_cost }}
+      {{ h.hospo_service_rate }}
+      {{ h.hospo_overall_rating }}
+      {{ h.hospo_comment }}
+      {% endfor %}
       
       </span>
       </div>

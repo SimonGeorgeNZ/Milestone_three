@@ -217,9 +217,9 @@ def view_review(review_id):
     city = title['city_name']
     country = mongo.db.cities.find_one({"city_name": (city).lower()})
     first = mongo.db.first_info.find_one({"review_title": (review_title).lower()})
-    attract = mongo.db.attractions.find_one({"review_title": (review_title).lower()})
-    accom = mongo.db.accommodation.find_one({"review_title": (review_title).lower()})
-    hospo = mongo.db.hospitality.find_one({"review_title": (review_title).lower()})
+    attract = mongo.db.attractions.find({"review_title": (review_title).lower()})
+    accom = mongo.db.accommodation.find({"review_title": (review_title).lower()})
+    hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first, 
     attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
