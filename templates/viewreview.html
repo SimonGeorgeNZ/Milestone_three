@@ -10,7 +10,8 @@
     <ul class="collapsible">
     <li>
       <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Review info</div>
-      <div class="collapsible-body"><span>
+      <div class="collapsible-body">
+      <span>
       <h5>Start Date</h5>
       {{ first.start_date }}
       {{ first.end_date }}
@@ -21,7 +22,8 @@
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">place</i>Accommodation</div>
-      <div class="collapsible-body"><span>
+      <div class="collapsible-body">
+      <span>
       {% for a in accom %}
       {{ a.accom_name }}
       {{ a.accom_site }}
@@ -38,7 +40,8 @@
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Attractions</div>
-      <div class="collapsible-body"><span>
+      <div class="collapsible-body">
+      <span>
       {% for a in attract %}
       {{ a.attract_name }}
       {{ a.attract_site }}
@@ -57,7 +60,8 @@
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Hospitality</div>
-      <div class="collapsible-body"><span>
+      <div class="collapsible-body">
+      <span>
       {% for h in hospo %}
       {{ h.hospo_name }}
       {{ h.hospo_site }}
@@ -75,7 +79,8 @@
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Final info</div>
-      <div class="collapsible-body"><span>
+      <div class="collapsible-body">
+      <span>
 
       {{ final.ap_transport }}
       {{ final.city_transport }}

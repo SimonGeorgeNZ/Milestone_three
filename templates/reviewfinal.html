@@ -2,7 +2,21 @@
 <h3>Add Some final comments to {{title.review_title |title}}</h3>
 <div class="row">
   <form action="{{ url_for('insert_final') }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="reasons_yes" name="reasons_yes" type="text" />
+        <label for="icon_prefix">Reasons to return - Required</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="reasons_not" name="reasons_not" type="text" />
+        <label for="icon_prefix">Reasons not to return - Required</label>
+      </div>
+    </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
@@ -20,20 +34,6 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="reasons_yes" name="reasons_yes" type="text" required />
-        <label for="icon_prefix">Reasons to return - Required</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
-        <input id="reasons_not" name="reasons_not" type="text" required />
-        <label for="icon_prefix">Reasons not to return - Required</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
         <input id="comment_gen" name="comment_gen" type="text" />
         <label for="icon_prefix">Any final comments?</label>
       </div>
@@ -46,6 +46,5 @@
     </div>
   </form>
 </div>
-
 
 {% endblock %}

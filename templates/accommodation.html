@@ -6,11 +6,28 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">hotel</i>
-        <input id="accom_name" name="accom_name" type="text" required />
+        <input id="accom_name" name="accom_name" type="text" />
         <label for="icon_prefix">Accommodation Name - Required</label>
       </div>
     </div>
     <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">Map</i>
+        <input id="accom_style" name="accom_style" type="text" />
+        <label for="icon_prefix">Accommodation Style - Required</label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">Map</i>
+        <input id="accom_price" name="accom_price" type="text" />
+        <label for="icon_prefix">Accommodation Price - Required</label>
+      </div>
+    </div>
+    <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Aditional info</div>
+      <div class="collapsible-body">
+      <span>
+      <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
         <input id="accom_site" name="accom_site" type="text" />
@@ -27,26 +44,15 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_style" name="accom_style" type="text" required />
-        <label for="icon_prefix">Accommodation Style - Required</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
-        <input id="accom_price" name="accom_price" type="text" required />
-        <label for="icon_prefix">Accommodation Price - Required</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
         <p class="range-field">
           <input type="range" id="test5" name="accom_clean" min="0" max="10" />
         </p>
         <label for="icon_prefix">Accommodation Cleanliness</label>
       </div>
-    </div>
+    </div>    
+      </span>
+    </li>
+    </ul>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
