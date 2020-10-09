@@ -12,9 +12,15 @@ close: "Ok",
 closeOnSelect: false, 
 });
 
-
-
 function showToast(message, duration) {
             Materialize.toast(message, duration);
-         }
+        }
+
+endDate = document.getElementById("end_date");
+
+function toggleoff(flag){
+      if(!flag) {
+          console.log("yes")
+      
+    }
 

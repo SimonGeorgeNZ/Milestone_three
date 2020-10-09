@@ -3,77 +3,173 @@
 <h5>You have an opportunity to edit your review here as well</h5>
 {{ city }}
 {{ country.country_name }}
+
+
+
 <div class="row">
-    <div class="input-field col s12">
+    <div class="col s12">
     <form action="{{ url_for('all_done') }}" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <ul class="collapsible">
     <li>
-      <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Review info</div>
+      <div class="collapsible-header active"><i class="material-icons">filter_drama</i>When was your trip? How 
+      long were you there for? What was the reason? Were you kicking it solo or with a tour?</div>
       <div class="collapsible-body">
+      <div class="row">
       <span>
+      <div class="row">
+      <div class="col s6">
       <h5>Start Date</h5>
       {{ first.start_date }}
+      </div>
+      <div class="col s6">
+      <h5>End Date</h5>
       {{ first.end_date }}
+      </div>
+      </div>
+      <div class="row">
+      <div class="col s4">
+      <h6><strong>what was the reason for your trip?</strong></h6>
+      {{ first.reason }}
+      </div>
+      <div class="col s4">
+      <h6><strong>The event I attended was</strong></h6>
       {{ first.event }}
-      {{ first.s_or_g }}      
+      </div>
+      <div class="col s4">
+      <h6><strong>For this trip I traveled.....</strong></h6>
+      {{ first.s_or_g }} 
+      </div> 
+      </div>    
       </span>
+      </div>
       </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">place</i>Accommodation</div>
       <div class="collapsible-body">
+      <div class="row">
       <span>
       {% for a in accom %}
-      {{ a.accom_name }}
-      {{ a.accom_site }}
-      {{ a.accom_address }}
+      <div class="row">
+      <div class="col s12">
+      <h5>Accommodation name</h5>
+      <a href="{{ a.accom_site }}">{{ a.accom_name | title }}</a>
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Accommodation Style</strong></h6>
       {{ a.accom_style }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Accommodation Price</strong></h6>
       {{ a.accom_price }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Accommodation Address</strong></h6>
+      {{ a.accom_address }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Accommodation Clenliness</strong></h6>
       {{ a.accom_clean }}
+      </div>
+      <div class="col s12">
+      <h6><strong>Final comments about your accommodation</strong></h6>
       {{ a.accom_comment }}
+      </div>
+      </div>
       {% endfor %}
-      
-      
       </span>
       </div>
+      </div>
+
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Attractions</div>
       <div class="collapsible-body">
+      <div class="row">
       <span>
       {% for a in attract %}
-      {{ a.attract_name }}
-      {{ a.attract_site }}
-      {{ a.attract_type }}
-      {{ a.attract_cost }}
-      {{ a.attract_guide }}
-      {{ a.attract_ticket }}
-      {{ a.ticket_site }}
-      {{ a.attract_time }}
+      <div class="row">
+      <div class="col m8 s12">
+      <h5>Attraction name</h5>
+      <a href="{{ a.attract_site }}">{{ a.attract_name | title }}</a>
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Overall attraction rating</strong></h6>
       {{ a.attract_rating }}
+      </div>
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>Attraction Cost</strong></h6>
+      {{ a.attract_cost }}
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>Attraction type</strong></h6>
+      {{ a.attract_type }}
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>Guided or self tour?</strong></h6>
+      {{ a.attract_guide }}
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>Do you need a ticket?</strong></h6>
+      <a href="{{ a.ticket_site }}">{{ a.attract_ticket }}</a>
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>How long should someone put aside for this?</strong></h6>
+      {{ a.attract_time }}
+      </div>
+      <div class="col m4 s6">
+      <h6><strong>Any final commments?</strong></h6>
       {{ a.attract_comment }}
+      </div>
+      
       {% endfor %}
       
       </span>
+      </div>
       </div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Hospitality</div>
       <div class="collapsible-body">
       <span>
+      <div class="row">
       {% for h in hospo %}
-      {{ h.hospo_name }}
-      {{ h.hospo_site }}
-      {{ h.hospo_site }}
-      {{ h.hospo_style }}
-      {{ h.hospo_hours }}
-      {{ h.hospo_cost }}
-      {{ h.hospo_service_rate }}
+      <div class="row">
+      <div class="col m8 s12">
+      <h5>Name of the venue</h5>
+      <a href="{{ h.hospo_site }}">{{ h.hospo_name | title }}</a>
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Overall vene rating</strong></h6>
       {{ h.hospo_overall_rating }}
+      </div>
+      </div>
+      <div class="row">
+      <div class="col m3 s6">
+      <h6><strong>Venue style</strong></h6>
+      {{ h.hospo_style }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Service rating</strong></h6>
+      {{ h.hospo_service_rate }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Opening hours</strong></h6>
+      {{ h.hospo_hours }}
+      </div>
+      <div class="col m3 s6">
+      <h6><strong>Approximate cost</strong></h6>
+      {{ h.hospo_cost }}
+      </div>
+      </div>
+      <div class="col m12 s6">
+      <h6><strong>Any final comments?</strong></h6>
       {{ h.hospo_comment }}
+      </div>
       {% endfor %}
-      
+      </div>
       </span>
       </div>
     </li>
@@ -81,24 +177,44 @@
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Final info</div>
       <div class="collapsible-body">
       <span>
-
+      <div class="row">
+      <div class="col m6 s12">
+      <h5>Transport from the airport or trainstation</h5>
       {{ final.ap_transport }}
-      {{ final.city_transport }}
-      {{ final.reasons_yes }}
-      {{ final.reasons_not }}
-      {{ final.comment_gen }}
-      
-      </span>
       </div>
-    </li>
-  </ul>
-    </div>
-  
+      <div class="col m6 s6">
+      <h6><strong>Transport around the city</strong></h6>
+      {{ final.city_transport }}
+      </div>
+      </div>
+      <div class="row">
+      <div class="col s12">
+      <h6><strong>Reasons you'd go back to {{ city }}</strong></h6>
+      {{ final.reasons_yes }}
+      </div>
+      <div class="col s12">
+      <h6><strong>Reasons you wouldn't go back to {{ city }}</strong></h6>
+      {{ final.reasons_not }}
+      </div>
+      <div class="col s12">
+      <h6><strong>Any last comments?</strong></h6>
+      {{ final.comment_gen }}
+      </div>
+      </div>
+      </span>
+        </div>
+        </li>
+        </ul>
+    </form>
+</div>
+</div>
+
+        <div>
       <button class="btn waves-effect waves-light" type="submit">
         Click here to save and return to the main menu
         <i class="material-icons right">playlist_add</i>
-      </button>
-</div>
+        </button>
+        </div>
 
 
 {% endblock %}
