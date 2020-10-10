@@ -146,9 +146,22 @@ def insert_title():
 @app.route('/add_review_info', methods=['POST'])
 def add_review_info():
     info = mongo.db.first_info
-    info.insert_one(request.form.to_dict())
-    title = mongo.db.title.find_one({'review_title': request.form.get('review_title')})
-    return render_template('accommodation.html', title=title)
+    add_info = {'start_date': request.form.get('start_date'),
+                'end_date': request.form.get('end_date'),
+                'reason': request.form.get('reason'),
+                'event': request.form.get('event'),
+                's_or_g': request.form.get('s_or_g'),
+                'review_title': request.form.get('review_title').lower()}
+    start = request.form['start_date']
+    end = request.form['end_date']
+    if start == end:
+        info.insert_one(request.form.to_dict())
+        title = mongo.db.title.find_one({'review_title': request.form.get('review_title')})
+        return render_template('attractions.html', title=title)
+    else:
+        info.insert_one(add_info)
+        title = mongo.db.title.find_one({'review_title': request.form.get('review_title')})
+        return render_template('accommodation.html', title=title)
 
 
 @app.route('/insert_accom', methods=['POST'])

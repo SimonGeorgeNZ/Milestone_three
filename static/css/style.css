@@ -1,5 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 /*--------------------------Generic styling------------------*/
-
+html, body{
+  width:100%; 
+  min-height:100%;
+  font-family: 'Patrick Hand SC';
+}
 
 .body-img {
     background-image: url("../images/wrinkled-note40.png");
@@ -7,10 +12,22 @@
     background-size: cover;
 }
 
-
-.switch label input[type=checkbox]:checked + .lever:after {
- 
-  background-color: #311b92;
- 
+.btn{
+    background-color: lightgrey!important;
+    color: black!important;
 }
+
+.collapsible-body {
+    border:solid 2px #41403E!important;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px!important;
+}
+
+.lined.thick{
+         border:solid 7px #41403E;
+         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      }
+.lined.thin{
+         border:solid 2px #41403E;
+         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      }
 

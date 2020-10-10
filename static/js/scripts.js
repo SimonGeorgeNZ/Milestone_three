@@ -8,19 +8,12 @@ selectMonths: true,
 selectYears: 15, 
 today: "Today",
 clear: "Clear",
-close: "Ok",
-closeOnSelect: false, 
+closeOnSelect: true, 
 });
 
 function showToast(message, duration) {
             Materialize.toast(message, duration);
         }
 
-endDate = document.getElementById("end_date");
 
-function toggleoff(flag){
-      if(!flag) {
-          console.log("yes")
-      
-    }
 
