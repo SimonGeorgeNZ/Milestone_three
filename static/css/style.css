@@ -88,6 +88,29 @@ nav {
     display: flex;
     justify-content: center;
     padding-bottom: 4vw;
+    padding-top: 4vw;
 }
+
+/*.picker__date-display {
+    background-color: transparent;
+    color: black;
+}
+
+.picker__year-display {
+    color: black;
+}
+
+.picker__box {
+    background-image: url("../images/calendarpaper.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+    background-color: transparent;
+    border: none;
+}
+*/
+
+
+
 
 

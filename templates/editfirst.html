@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Edit your review for {{title.city_name}}</h3>
+<div class="row">
+  <form action="{{ url_for('update_first', first_id=first._id) }}" method="POST" class="col s12">
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+    <h5>Trip dates</h5>
+    <p><strong> If this was a day trip, simply select the same date for start and end date</strong></p>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">map</i>
+        <input id="start_date" name="start_date" type="text" class="datepicker">
+        <label for="start_date">Start date - Required</label>
+      </div>
+      <div id="endDate" class="input-field col s6">
+        <i class="material-icons prefix">map</i>
+        <input id="end_date" name="end_date" type="text" class="datepicker">
+        <label for="end_date">End date - Required</label>
+      </div>
+    <div class="input-field col s4">
+    <select id="reason" name="reason">
+      <option value="{{first.reason}}" disabled selected>Business, pleasure or other?</option>
+      <option value="Business">Business</option>
+      <option value="Pleasure">Pleasure</option>
+      <option value="Event/Festival">Event/Festival</option>
+    </select>
+    <label for="reason">Currently - {{first.reason}}</label>
+    </div>
+      <div class="input-field col s4">
+        <i class="material-icons prefix">Map</i>
+        <input id="event" name="event" type="text" value="{{first.event}}" />
+        <label for="icon_prefix">If event, which one?</label>
+      </div>
+      <div class="input-field col s4">
+        <select id="s_or_g" name="s_or_g">
+      <option value="{{first.s_or_g}}" disabled selected>Did you travel solo or in a tour</option>
+      <option value="Solo">Solo</option>
+      <option value="With friends">With friends</option>
+      <option value="Tour">Tour</option>
+    </select>
+    <label for="s_or_g">Currently - {{first.s_or_g}}</label>
+    </div>
+    <div class="center_btn">
+      <button class="btn lined thin waves-effect waves-light" type="submit">
+        Update info
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        start_date = Date.parse('{{first.start_date}}');
+        end_date = Date.parse('{{first.end_date}}');
+        $('#start_date').pickadate('picker').set('select', start_date, { format: 'dd/mm/yyyy' }).trigger('change');
+        $('#end_date').pickadate('picker').set('select', end_date, { format: 'dd/mm/yyyy' }).trigger('change');
+    });
+</script>
+
+{% endblock %}

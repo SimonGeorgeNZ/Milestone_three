@@ -235,11 +235,63 @@ def view_review(review_id):
     hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first, 
-    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
+    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country, first_id=first['_id'])
 
 @app.route('/all_done')
 def all_done():
     return render_template('alldone.html')
+
+
+#---------------Edit-----------------#
+
+@app.route('/edit_first/<first_id>')
+def edit_first(first_id):
+    the_first=mongo.db.first_info.find_one({"_id": ObjectId(first_id)})
+    title = mongo.db.title.find_one({'review_title': the_first['review_title']})
+    return render_template('editreview.html', title=title, first=the_first)
+
+
+@app.route('/update_first/<first_id>', methods=["POST"])
+def update_first(first_id):
+    first = mongo.db.first_info
+    first.update( {'_id': ObjectId(first_id)},
+    {
+        'start_date':request.form.get('start_date'),
+        'end_date':request.form.get('end_date'),
+        'reason':request.form.get('reason'),
+        'event':request.form.get('event'),
+        's_or_g':request.form.get('s_or_g'),
+        'reason':request.form.get('reason'),
+        'review_title':request.form.get('review_title'),
+    })
+    input_title = request.form['review_title']
+    title = mongo.db.title.find_one({'review_title': input_title.lower()})
+    return redirect(url_for('view_review', review_id=title['_id']))
+
+@app.route('/edit_accom/<accom_id>')
+def edit_accom(accom_id):
+    the_accom=mongo.db.first_info.find_one({"_id": ObjectId(first_id)})
+    title = mongo.db.title.find_one({'review_title': the_first['review_title']})
+    return render_template('editfirst.html', title=title, first=the_first)
+
+
+@app.route('/update_accom/<accom_id>', methods=["POST"])
+def update_accom(accom_id):
+    first = mongo.db.first_info
+    first.update( {'_id': ObjectId(first_id)},
+    {
+        'start_date':request.form.get('start_date'),
+        'end_date':request.form.get('end_date'),
+        'reason':request.form.get('reason'),
+        'event':request.form.get('event'),
+        's_or_g':request.form.get('s_or_g'),
+        'reason':request.form.get('reason'),
+        'review_title':request.form.get('review_title'),
+    })
+    input_title = request.form['review_title']
+    title = mongo.db.title.find_one({'review_title': input_title.lower()})
+    return redirect(url_for('view_review', review_id=title['_id']))
+    
 
 
 if __name__ == '__main__':
