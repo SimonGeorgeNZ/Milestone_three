@@ -20,16 +20,11 @@ exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 @app.route('/')
 @app.route('/home')
 def buttons():
-    return render_template('buttons.html')
+    return render_template('index.html')
 
 
 # --------------Countries-----------------#
 
-
-@app.route('/get_countries')
-def get_countries():
-    return render_template('countries.html',
-                           countries=mongo.db.countries.find())
 
 @app.route('/new_country')
 def new_country():

@@ -4,18 +4,23 @@ html, body{
   width:100%; 
   min-height:100%;
   font-family: 'Patrick Hand SC';
+  font-size: 1rem;
 }
 
 .body-img {
     background-image: url("../images/wrinkled-note40.png");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .btn{
     background-color: lightgrey!important;
     color: black!important;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
 }
+
 
 .collapsible-body {
     border:solid 2px #41403E!important;
@@ -30,4 +35,54 @@ html, body{
          border:solid 2px #41403E;
          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
       }
+
+nav {
+    margin-top: 6vh;
+    width: auto;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background-color: transparent;
+    min-height: 10vh!important;
+}
+
+
+.nav-wrapper a {
+    color: black;
+    font-size: 1.5rem; 
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.nav-wrapper li:hover{
+    text-decoration-line: underline;
+    text-decoration-style: 'Patrick Hand SC';
+    padding-top: 1vh; 
+}
+
+
+.side-nav {
+    margin-top: 15%;
+    padding-top: 5%;
+    background-image: url("../images/ripped_paper.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.side-nav li {
+    font-size: 6vh;
+}
+
+@media(max-width: 400px){
+    .nav-wrapper a {
+    font-size: .95rem;
+    width: 50%;
+    }
+    .side-nav {
+        margin-top: 25%;
+    }
+}
+
+
+
 

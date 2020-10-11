@@ -17,9 +17,10 @@
         <label for="icon_prefix">Accommodation Style - Required</label>
       </div>
       <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
-        <input id="accom_price" name="accom_price" type="text" />
-        <label for="icon_prefix">Accommodation Price - Required</label>
+        <p class="range-field section">
+        <input type="range" id="accom_price" name="accom_price" min="0" max="100+" />
+        </p>
+        <label for="accom_price">Price per night in local currency - Required</label>
       </div>
     </div>
     <ul class="collapsible popout">
@@ -45,7 +46,7 @@
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
         <p class="range-field">
-          <input type="range" id="test5" name="accom_clean" min="0" max="10" />
+          <input type="range" id="accom_clean" name="accom_clean" min="0" max="10" />
         </p>
         <label for="icon_prefix">Accommodation Cleanliness</label>
       </div>

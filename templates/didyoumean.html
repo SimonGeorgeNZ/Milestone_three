@@ -2,16 +2,22 @@
 {% extends 'base.html' %}{% block content %}
 <h3>Did you mean?</h3>
 
-Sorry we couldn't find {{ search |title }}
+<h4> we couldn't find {{ search }} </h4>
 
-Did you mean any of these countries? 
+<h5>Did you mean any of these countries? </h5>
 
+
+<div class="row">
+<div class="col s12">
+<ul>
 {% for place in results %}
-
+<li>
 <a name="list_country" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
-
+</li>
 {% endfor %}
-
+</ul>
+</div>
+</div>
 
 
 {% endblock %}
