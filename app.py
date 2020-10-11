@@ -131,6 +131,11 @@ def add_review(city_id):
 @app.route('/insert_title', methods=['POST'])
 def insert_title():
     input_title = request.form['review_title']
+    city = {'city_name': request.form.get('city_name').lower()}
+    #find_title = mongo.db.title.find_one({"review_title": input_title.lower()})
+    #if find_title:
+    #    return render_template('addtitle.html', city=city)
+    #else:
     add_title = {'city_name': request.form.get('city_name').lower(),
     'review_title': request.form.get('review_title').lower()}
     mongo.db.title.insert_one(add_title)
@@ -231,7 +236,6 @@ def view_review(review_id):
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first, 
     attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
-
 
 @app.route('/all_done')
 def all_done():

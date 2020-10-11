@@ -2,7 +2,9 @@
 <h3>Add a title to your review of {{city.city_name |title}}</h3>
 <div class="row">
 <p>Pick a title that is unique to this review, it won't be displayed when anyone views it, but you will be asked 
-to provide it if you want to update or delete your review later, so treat it like a password
+to provide it if you want to update or delete your review later, so treat it like a password. 
+<br>
+<br>If your review title exists, you'll be redirected back to this page
 </p>
   <form action="{{ url_for('insert_title') }}" method="POST" class="col s12">
   <input type="hidden" id="city_name" name="city_name" value="{{city.city_name}}" readonly/>
@@ -13,7 +15,7 @@ to provide it if you want to update or delete your review later, so treat it lik
         <label for="icon_prefix">Review Title - Required</label>
       </div>
     </div>
-    <div class="row">
+    <div class="center_btn">
       <button class="lined thin btn waves-effect waves-light" type="submit">
         Add Title
         <i class="material-icons right">playlist_add</i>

@@ -40,14 +40,13 @@
       <option value="Tour">Tour</option>
     </select>
     </div>
-    <div class="row">
+    <div class="center_btn">
       <button class="btn lined thin waves-effect waves-light" type="submit">
         Add starter info
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
     <form action="{{ url_for('insert_accom') }}" method="POST" class="col s12">
-    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <input type="hidden" id="accom_name" name="accom_name" value="This was a day trip" readonly />
     </form>
   </form>

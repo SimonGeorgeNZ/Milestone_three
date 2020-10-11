@@ -1,6 +1,7 @@
 
 {% extends 'base.html' %}{% block content %}
 <h3>Pick City for {{country.country_name |title}}</h3>
+<h5>Select your city from this list if it's there, if not, simply add it with the form below</h5>
 {% for city in cities %}
 <a href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name |title}}</a>
 
@@ -18,7 +19,7 @@
 		<label for="icon_prefix">City Name - Required</label>
 	</div>
 
-	<div class="row">
+	<div class="center_btn">
 		<button class="lined thin btn waves-effect waves-light" type="submit">
         Add City
         <i class="material-icons right">playlist_add</i>

@@ -1,18 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 /*--------------------------Generic styling------------------*/
 html, body{
-  width:100%; 
-  min-height:100%;
   font-family: 'Patrick Hand SC';
   font-size: 1rem;
+  min-height: 100%;
+  width: 100%;
 }
 
-.body-img {
+html {
     background-image: url("../images/wrinkled-note40.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100%;
-    min-width: 100%;
+    background-size: 100% 100%;
+    align-content: center;
 }
 
 .btn{
@@ -37,7 +36,7 @@ html, body{
       }
 
 nav {
-    margin-top: 6vh;
+    margin-top: 5vw;
     width: auto;
     padding-left: 4vw;
     padding-right: 4vw;
@@ -83,6 +82,12 @@ nav {
     }
 }
 
-
+.center_btn {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4vw;
+}
 
 
