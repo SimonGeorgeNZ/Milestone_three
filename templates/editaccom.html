@@ -1,24 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add accommodation to {{title.review_title |title}}</h3>
+<h3>Edit accommodation to {{title.city_name |title}}</h3>
 <div class="row">
-  <form action="{{ url_for('insert_accom') }}" method="POST" class="col s12">
+  <form action="{{ url_for('update_accom', accom_id=accom._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">hotel</i>
-        <input id="accom_name" name="accom_name" type="text" />
+        <input id="accom_name" name="accom_name" type="text" value="{{accom.accom_name}}" />
         <label for="icon_prefix">Accommodation Name - Required</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_style" name="accom_style" type="text" />
+        <input id="accom_style" name="accom_style" type="text" value="{{accom.accom_style}}" />
         <label for="icon_prefix">Accommodation Style - Required</label>
       </div>
       <div class="input-field col s6">
         <p class="range-field section">
-        <input type="range" id="accom_price" name="accom_price" min="0" max="100+" />
+        <input type="range" id="accom_price" name="accom_price" min="0" max="100+" value="{{accom.accom_price}}" />
         </p>
         <label for="accom_price">Price per night in local currency - Required</label>
       </div>
@@ -31,14 +31,14 @@
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_site" name="accom_site" type="text" />
+        <input id="accom_site" name="accom_site" type="text" value="{{accom.accom_site}}" />
         <label for="icon_prefix">Accommodation Website</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_address" name="accom_address" type="text" />
+        <input id="accom_address" name="accom_address" type="text" value="{{accom.accom_address}}" />
         <label for="icon_prefix">Accommodation Address</label>
       </div>
     </div>
@@ -46,7 +46,7 @@
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
         <p class="range-field">
-          <input type="range" id="accom_clean" name="accom_clean" min="0" max="10" />
+          <input type="range" id="accom_clean" name="accom_clean" min="0" max="10" value="{{accom.accom_clean}}" />
         </p>
         <label for="icon_prefix">Accommodation Cleanliness</label>
       </div>
@@ -58,17 +58,13 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="accom_comment" name="accom_comment" type="text" maxlength="500" />
+        <input id="accom_comment" name="accom_comment" type="text" maxlength="500" value="{{accom.accom_comment}}" />
         <label for="icon_prefix">Add aditional comments</label>
       </div>
     </div>
     <div class="center_btn">
       <button class="lined thin btn waves-effect waves-light" type="submit">
-        Add Accommodation
-        <i class="material-icons right">playlist_add</i>
-      </button>
-      <button formaction = "{{url_for('insert_another_accom')}}" class="lined thin btn waves-effect waves-light" type="submit">
-        Add more accommodation
+        Update Accommodation
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
@@ -76,3 +72,7 @@
 </div>
 
 {% endblock %}
+
+
+
+                    <a href="{{url_for('edit_accom', accom_id=accom._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>

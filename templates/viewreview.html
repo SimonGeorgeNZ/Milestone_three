@@ -51,8 +51,8 @@
           </div>
           <div class="lined thin collapsible-body">
             <div class="row">
+              {% for a in accom %}
               <span>
-                {% for a in accom %}
                 <div class="row">
                   <div class="col s12">
                     <h5>Accommodation name</h5>
@@ -80,21 +80,21 @@
                     </h6>
                     {{ a.accom_comment }}
                   </div>
+                  <a href="{{url_for('edit_accom', accom_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
                 </div>
-                {% endfor %}
-                <a href="{{url_for('edit_accom', accom_id=accom._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
               </span>
+              {% endfor %}
             </div>
           </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">whatshot</i>Attractions
-          </div>
+            <i class="material-icons">whatshot</i>Attractions</div>
           <div class="lined thin collapsible-body">
             <div class="row">
               <span>
                 {% for a in attract %}
+                <div class="row">
                 <div class="row">
                   <div class="col m8 s12">
                     <h5>Attraction name</h5>
@@ -130,11 +130,12 @@
                 <div class="col m4 s6">
                   <h6><strong>Any final commments?</strong></h6>
                   {{ a.attract_comment }}
+                 </div>
                 </div>
-
-                {% endfor %}
-                </span>
-                </div>
+                 </span> 
+                 <a href="{{url_for('edit_attract', attract_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
+                 {% endfor %}
+            </div>
           </div>
         </li>
         <li>
@@ -177,6 +178,7 @@
                   <h6><strong>Any final comments?</strong></h6>
                   {{ h.hospo_comment }}
                 </div>
+                <a href="{{url_for('edit_hospo', hospo_id=h._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
                 {% endfor %}
               </div>
             </span>
@@ -214,6 +216,7 @@
                   {{ final.comment_gen }}
                 </div>
               </div>
+              <a href="{{url_for('edit_final', final_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
             </span>
           </div>
         </li>

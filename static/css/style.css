@@ -91,7 +91,7 @@ nav {
     padding-top: 4vw;
 }
 
-/*.picker__date-display {
+.picker__date-display {
     background-color: transparent;
     color: black;
 }
@@ -101,14 +101,27 @@ nav {
 }
 
 .picker__box {
-    background-image: url("../images/calendarpaper.png");
+    background-image: url("../images/postitsummer.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     align-content: center;
     background-color: transparent;
     border: none;
+    padding: 2vw;
 }
-*/
+
+.picker__select--month.browser-default {
+    background-color: transparent!important;
+    border: none;
+    font-size: 2vw;
+}
+
+.picker__select--year.browser-default {
+    background-color: transparent!important;
+    border: none;
+    font-size: 2vw;
+}
+
 
 
 

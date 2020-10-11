@@ -1,24 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add Hospitality to {{title.review_title |title}}</h3>
+<h3>Edit your hospitality entry to {{title.city_name |title}}</h3>
 <div class="row input_doc">
-  <form action="{{ url_for('insert_hospo') }}" method="POST" class="col s12">
+  <form action="{{ url_for('update_hospo', hospo_id=hospo._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_name" name="hospo_name" type="text" />
+        <input id="hospo_name" name="hospo_name" type="text" value="{{hospo.hospo_name}}" />
         <label for="icon_prefix">Venue name - Required</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_style" name="hospo_style" type="text" />
+        <input id="hospo_style" name="hospo_style" type="text" value="{{hospo.hospo_style}}" />
         <label for="icon_prefix">Venue style - Required</label>
       </div>
       <div class="input-field col s6">
         <p class="range-field section">
-        <input type="range" id="hospo_service_rating" name="hospo_service_rating" min="0" max="10" />
+        <input type="range" id="hospo_service_rating" value="{{hospo.hospo_service_rating}}" name="hospo_service_rating" min="0" max="10" />
         </p>
         <label for="hospo_service_rating">Out of 10, how was the service?</label>
       </div>
@@ -31,29 +31,30 @@
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_site" name="hospo_site" type="text" />
-        <label for="icon_prefix">Enter a url here for this venue</label>
+        <input id="hospo_site" name="hospo_site" type="text" value="{{hospo.hospo_site}}" />
+        <label for="icon_prefix">Venue Website</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_hours" name="hospo_hours" type="text" />
+        <input id="hospo_hours" name="hospo_hours" type="text" value="{{hospo.hospo_hours}}" />
         <label for="icon_prefix">Opening hours</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_cost" name="hospo_cost" type="text" />
-        <label for="icon_prefix">Cost rating</label>
+        <input id="hospo_cost" name="hospo_cost" type="text" value="{{hospo.hospo_cost}}" />
+        <label for="icon_prefix">Cost</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
-        <input id="hospo_overall_rating" name="hospo_overall_rating" type="text" />
-        <label for="icon_prefix">Taking service, cost, wait time, location etc into consideration</label>
+        <p class="range-field section">
+        <input type="range" id="hospo_overall_rating" value="{{hospo.hospo_overall_rating}}" name="hospo_overall_rating" min="0" max="10" />
+        </p>
+        <label for="hospo_overall_rating">Out of 10, how was the service?</label>
       </div>
     </div>   
       </span>
@@ -63,17 +64,13 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="hospo_comment" name="hospo_comment" maxlength="500" type="text" />
+        <input id="hospo_comment" name="hospo_comment" type="text" maxlength="500" value="{{hospo.hospo_comment}}" />
         <label for="icon_prefix">Final comments</label>
       </div>
     </div>
     <div class="center_btn">
       <button class="lined thin btn waves-effect waves-light" type="submit">
-        Add Hospitality 
-        <i class="material-icons right">playlist_add</i>
-      </button>
-      <button formaction = "{{url_for('insert_another_hospo')}}" class="lined thin btn waves-effect waves-light" type="submit">
-        Add A different Hospo
+        Update Hospitality 
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
