@@ -377,12 +377,19 @@ def update_final(final_id):
 #---------------Display newest reviews-----------------#
 
 
-cities = mongo.db.cities.find()
-for place in cities:
-    print(place['_id'].generation_time)
+#@app.route('/delete_review/<section_id>')
+#def delete_review(section_id):
+    
 
 
+#cities = mongo.db.cities.find()
+#for place in cities:
+#    print(place['_id'].generation_time)
 
+cat = db_categories
+for cat in db_categories:
+    catt = ('mongo.db.'+cat)
+    catt.remove({'_id': ObjectId(section_id)})
 
 
 
@@ -390,3 +397,5 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         debug=True)
+
+
