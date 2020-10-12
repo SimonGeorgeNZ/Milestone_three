@@ -5,17 +5,17 @@
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <h5>Trip dates</h5>
     <p><strong> If this was a day trip, simply select the same date for start and end date</strong></p>
-      <div class="input-field col s6">
+      <div class="input-field col s12 ">
         <i class="material-icons prefix">map</i>
         <input id="start_date" name="start_date" type="text" class="datepicker">
         <label for="start_date">Start date - Required</label>
       </div>
-      <div id="endDate" class="input-field col s6">
+      <div id="endDate" class="input-field col s12 ">
         <i class="material-icons prefix">map</i>
         <input id="end_date" name="end_date" type="text" class="datepicker">
         <label for="end_date">End date - Required</label>
       </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 l6">
     <select id="reason" name="reason">
       <option value="{{first.reason}}" disabled selected>Business, pleasure or other?</option>
       <option value="Business">Business</option>
@@ -24,12 +24,7 @@
     </select>
     <label for="reason">Currently - {{first.reason}}</label>
     </div>
-      <div class="input-field col s4">
-        <i class="material-icons prefix">Map</i>
-        <input id="event" name="event" type="text" value="{{first.event}}" />
-        <label for="icon_prefix">If event, which one?</label>
-      </div>
-      <div class="input-field col s4">
+    <div class="input-field col s12 l6">
         <select id="s_or_g" name="s_or_g">
       <option value="{{first.s_or_g}}" disabled selected>Did you travel solo or in a tour</option>
       <option value="Solo">Solo</option>
@@ -38,6 +33,11 @@
     </select>
     <label for="s_or_g">Currently - {{first.s_or_g}}</label>
     </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">Map</i>
+        <input id="event" name="event" type="text" value="{{first.event}}" />
+        <label for="icon_prefix">If event, which one?</label>
+      </div>
     <div class="center_btn">
       <button class="btn lined thin waves-effect waves-light" type="submit">
         Update info

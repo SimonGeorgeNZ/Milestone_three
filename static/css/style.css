@@ -44,6 +44,13 @@ nav {
     min-height: 10vh!important;
 }
 
+.nav-wrapper {
+    background-image: url("../images/map.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    align-content: center;
+}
+
 
 .nav-wrapper a {
     color: black;
@@ -91,6 +98,12 @@ nav {
     padding-top: 4vw;
 }
 
+.center_btn button  {
+    margin-left: 6vw;
+    min-height: 4vh!important;
+    min-width: 3vw!important;
+}
+
 .picker__date-display {
     background-color: transparent;
     color: black;
@@ -121,6 +134,26 @@ nav {
     border: none;
     font-size: 2vw;
 }
+
+input {
+    border-bottom: black solid 2px!important;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    font-size: 2vw!important;
+}
+
+label {
+    color: black!important;
+}
+
+.heading-box {
+    width: fit-content;
+    border-left: none!important;
+    border-right: none!important;
+    border-top: none!important;
+}
+
+
+
 
 
 

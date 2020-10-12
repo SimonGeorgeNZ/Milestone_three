@@ -236,8 +236,7 @@ def view_review(review_id):
     hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first, 
-    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country, first_id=first['_id'],
-    final_id=final['_id'])
+    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country, first_id=first['_id'])
 
 @app.route('/all_done')
 def all_done():
@@ -354,14 +353,14 @@ def update_hospo(hospo_id):
 
 @app.route('/edit_final/<final_id>')
 def edit_final(final_id):
-    the_final=mongo.db.review.find_one({"_id": ObjectId(final_id)})
-    title = mongo.db.title.find({'review_title': the_final['review_title']})
+    the_final=mongo.db.reviews.find_one({"_id": ObjectId(final_id)})
+    title = mongo.db.title.find_one({'review_title': the_final['review_title']})
     return render_template('editfinal.html', title=title, final=the_final)
 
 
 @app.route('/update_final/<final_id>', methods=["POST"])
 def update_final(final_id): 
-    final = mongo.db.review
+    final = mongo.db.reviews
     final.update( {'_id': ObjectId(final_id)},
     {   
         'review_title':request.form.get('review_title'),
@@ -374,6 +373,17 @@ def update_final(final_id):
     input_title = request.form['review_title']
     title = mongo.db.title.find_one({'review_title': input_title.lower()})
     return redirect(url_for('view_review', review_id=title['_id']))
+
+#---------------Display newest reviews-----------------#
+
+
+cities = mongo.db.cities.find()
+for place in cities:
+    print(place['_id'].generation_time)
+
+
+
+
 
 
 if __name__ == '__main__':

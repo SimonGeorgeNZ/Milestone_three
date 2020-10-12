@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add things to do to {{title.review_title |title}}</h3>
+<h3 class="lined thin heading-box">Add things to do to {{title.review_title |title}}</h3>
 <div class="row">
   <form action="{{ url_for('insert_attract') }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>

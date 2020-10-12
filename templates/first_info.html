@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block content %}
 
-<h3>Add Some initial info to {{title.review_title |title}}</h3>
+<h3 class="lined thin heading-box">Add Some initial info to {{title.review_title |title}}</h3>
 
 <div class="row">
   <form action="{{ url_for('add_review_info') }}" method="POST" class="col s12">
@@ -8,33 +8,35 @@
     <h5>Trip dates</h5>
     <p><strong> If this was a day trip, simply select the same date for start and end date</strong></p>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12 l6">
         <i class="material-icons prefix">map</i>
         <input id="start_date" name="start_date" type="text" class="datepicker" />
         <label for="start_date">Start date - Required</label>
       </div>
-      <div id="endDate" class="input-field col s6">
+      <div id="endDate" class="input-field col s12 l6">
         <i class="material-icons prefix">map</i>
         <input id="end_date" name="end_date" type="text" class="datepicker" />
         <label for="end_date">End date - Required</label>
       </div>
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 l4">
     <select id="reason" name="reason">
-      <option value="" disabled selected>Business, pleasure or other?</option>
+      <option value="" disabled selected></option>
       <option value="Business">Business</option>
       <option value="Pleasure">Pleasure</option>
       <option value="Event/Festival">Event/Festival</option>
     </select>
+    <label for="reason">Business, pleasure or other?</label>
     </div>
-      <div class="input-field col s4">
+      <div class="input-field col s12 l4">
         <i class="material-icons prefix">Map</i>
         <input id="event" name="event" type="text" />
         <label for="icon_prefix">If event, which one?</label>
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col s12 l4">
+      <label for="s_or_g">Did you travel solo or in a tour</label>
         <select id="s_or_g" name="s_or_g">
-      <option value="" disabled selected>Did you travel solo or in a tour</option>
+      <option value="" disabled selected></option>
       <option value="Solo">Solo</option>
       <option value="With friends">With friends</option>
       <option value="Tour">Tour</option>
