@@ -17,6 +17,10 @@ app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
+MONGO_URI=os.environ.get('MONGO_URI')
+MONGO_DBNAME=os.environ.get('MONGO_DBNAME')
+
+
 db_categories = ["accommodation", "attractions", "cities", "countries", "first_info", "hospitality", "reviews", "title"]
 exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"] 
 
@@ -381,12 +385,17 @@ def update_final(final_id):
 #---------------Display newest reviews-----------------#
 
 
-#@app.route('/delete_review/<section_id>')
-#def delete_review(section_id):
-    
+@app.route('/delete_section/<first_id>')
+def delete_section(first_id):
+    first = mongo.db.first_info.find_one({"_id": ObjectId(first_id)})
+    print(first)
+    return render_template('delete.html', first_id=first['_id'], first=first)
 
 
-
+@app.route('/delete')
+def delete():
+    mongo.db.deleteOne({'_id': ObjectId(section_id)})
+    return render_template('delete.html',)
 
 
 if __name__ == '__main__':

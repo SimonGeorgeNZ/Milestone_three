@@ -5,16 +5,17 @@
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <h5>Trip dates</h5>
     <p><strong> If this was a day trip, simply select the same date for start and end date</strong></p>
-      <div class="input-field col s12 ">
+      <div class="input-field col s12 m6">
         <i class="material-icons prefix">map</i>
         <input id="start_date" name="start_date" type="text" class="datepicker">
         <label for="start_date">Start date - Required</label>
       </div>
-      <div id="endDate" class="input-field col s12 ">
+      <div id="endDate" class="input-field col s12 m6">
         <i class="material-icons prefix">map</i>
         <input id="end_date" name="end_date" type="text" class="datepicker">
         <label for="end_date">End date - Required</label>
       </div>
+      <div class="row">
     <div class="input-field col s12 l6">
     <select id="reason" name="reason">
       <option value="{{first.reason}}" disabled selected>Business, pleasure or other?</option>
@@ -32,6 +33,7 @@
       <option value="Tour">Tour</option>
     </select>
     <label for="s_or_g">Currently - {{first.s_or_g}}</label>
+    </div>
     </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
