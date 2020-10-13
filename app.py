@@ -6,10 +6,14 @@ from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+from os import path
+if path.exists("env.py"):
+    import env
+
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = 'Milestone_three'
-app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mongodb.net/Milestone_three?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] = "Milestone_three"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -382,14 +386,6 @@ def update_final(final_id):
     
 
 
-#cities = mongo.db.cities.find()
-#for place in cities:
-#    print(place['_id'].generation_time)
-
-cat = db_categories
-for cat in db_categories:
-    catt = ('mongo.db.'+cat)
-    catt.remove({'_id': ObjectId(section_id)})
 
 
 
