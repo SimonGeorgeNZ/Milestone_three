@@ -391,9 +391,14 @@ def delete_section(section_id, cat_name):
     return render_template('delete.html', cat_name=cat_name, common=common, common_id=common['_id'])
 
 
-@app.route('/confirm_delete/<review_id>')
-def confirm_delete(review_id):
-    return render_template('delete.html')
+@app.route('/confirm_delete/<review_id>/<cat_name>', methods=['POST', 'GET'])
+def confirm_delete(review_id, cat_name):
+    common = mongo.db[cat_name].find_one({"_id": ObjectId(review_id)})
+    the_title = common['review_title']
+    input_title = request.form['is_correct']
+    if input_title.lower() == the_title.lower():
+        print('yes')
+    return render_template('alldone.html', common=common, input_title=input_title)
 
 
 if __name__ == '__main__':
