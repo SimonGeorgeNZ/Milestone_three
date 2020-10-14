@@ -1,7 +1,32 @@
 {% extends 'base.html' %} {% block content %}
-<h5>You got here</h5>
+<h3>Are you sure you want to delete this data for {{first.review_title}}{{accom.review_title}}
+{{attract.review_title}}{{hospo.review_title}}{{final.review_title}}?</h3>
+<h5>You can always update your review and take out specific info. 
+<br>If you want to update, click
+<a href="{{url_for('view_review', review_id=title._id)}}"> here </a> to return to the previous page and click the update button 
+otherwise confirm your delete by confirming the title you gave to your review in the box below</h5>
 
-{{first.review_title}}
+
+<div class="row">
+  <form action="{{ url_for('confirm_delete', section_id=title._id) }}" method="POST" class="col s12">
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+
+    <div class="input-field col s12">
+		<input id="confirm" name="confirm" type="text" required />
+		<label for="confirm">Confirm review title</label>
+	</div>
+
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+
+
+  </form>
+</div>
+
+
+
 
 
 

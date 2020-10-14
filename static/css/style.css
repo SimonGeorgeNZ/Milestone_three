@@ -152,6 +152,11 @@ label {
     border-top: none!important;
 }
 
+.delete {
+    background-color: red!important;
+    width: 80%;
+    height: 100%;
+}
 
 
 

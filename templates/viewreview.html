@@ -40,7 +40,7 @@
                   </div>
                 </div>
                 <a href="{{url_for('edit_first', first_id=first._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
-                <a href="{{url_for('delete_section', first_id=first._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+                <a href="{{url_for('delete_section', section_id=first._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
           </div>
             </span>
             </div>
@@ -81,6 +81,7 @@
                   </div>
                   <div class="row section">
                   <a href="{{url_for('edit_accom', accom_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
+                  <a href="{{url_for('delete_section', section_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
                   </div>
                 {% endfor %}
                 </div>
@@ -135,6 +136,7 @@
                  </div>
               </div>
                  <a href="{{url_for('edit_attract', attract_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
+                <a href="{{url_for('delete_section', section_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
                 {% endfor %}
                 </div>
                  </span> 
@@ -183,6 +185,7 @@
                 </div>
                 </div>
               <a href="{{url_for('edit_hospo', hospo_id=h._id)}}"  class="section lined thin waves-effect waves-light btn-large btn">Edit</a>
+              <a href="{{url_for('delete_section', section_id=h._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
               </div>
               {% endfor %}
             </span>
@@ -221,6 +224,7 @@
                 </div>
               </div>
               <a href="{{url_for('edit_final', final_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
+            <a href="{{url_for('delete_section', section_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
             </span>
           </div>
         </li>
