@@ -244,7 +244,7 @@ def view_review(review_id):
     hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first, 
-    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country, section_id=first['_id'])
+    attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 @app.route('/all_done')
 def all_done():
@@ -255,9 +255,9 @@ def all_done():
 
 @app.route('/edit_first/<first_id>')
 def edit_first(first_id):
-    the_first=mongo.db.first_info.find_one({"_id": ObjectId(first_id)})
-    title = mongo.db.title.find_one({'review_title': the_first['review_title']})
-    return render_template('editfirst.html', title=title, first=the_first, section_id=the_first['_id'])
+    first=mongo.db.first_info.find_one({"_id": ObjectId(first_id)})
+    title = mongo.db.title.find_one({'review_title': first['review_title']})
+    return render_template('editfirst.html', title=title, first=first, section_id=first['_id'])
 
 
 @app.route('/update_first/<first_id>', methods=["POST"])
@@ -366,7 +366,7 @@ def edit_final(final_id):
     return render_template('editfinal.html', title=title, final=the_final, section_id=the_final['_id'])
 
 
-@app.route('/update_final/<final_id>', methods=["POST"])
+@app.route('/update_final/<final_id>', methods=["GET"])
 def update_final(final_id): 
     final = mongo.db.reviews
     final.update( {'_id': ObjectId(final_id)},
@@ -385,19 +385,14 @@ def update_final(final_id):
 #---------------Display newest reviews-----------------#
 
 
-@app.route('/delete_section/<section_id>')
-def delete_section(section_id):
-    first = mongo.db.first_info.find_one({"_id": ObjectId(section_id)})
-    accom = mongo.db.accommodation.find_one({"_id": ObjectId(section_id)})
-    attract = mongo.db.attractions.find_one({"_id": ObjectId(section_id)})
-    hospo = mongo.db.hospitality.find_one({"_id": ObjectId(section_id)})
-    final = mongo.db.reviews.find_one({"_id": ObjectId(section_id)})
-    title = mongo.db.title.find_one({"_id": ObjectId(section_id)})
-    return render_template('delete.html', first=first, accom=accom, attract=attract, hospo=hospo, final=final, title=title, review_id=title._id)
+@app.route('/delete_section/<section_id>/<cat_name>', methods=["GET"])
+def delete_section(section_id, cat_name):
+    common = mongo.db[cat_name].find_one({"_id": ObjectId(section_id)})
+    return render_template('delete.html', cat_name=cat_name, common=common, common_id=common['_id'])
 
 
-@app.route('/confirm_delete/<section_id>')
-def confirm_delete(section_id):
+@app.route('/confirm_delete/<review_id>')
+def confirm_delete(review_id):
     return render_template('delete.html')
 
 

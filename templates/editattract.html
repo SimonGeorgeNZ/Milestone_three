@@ -6,20 +6,20 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_name" name="attract_name" type="text" value="attract_name" />
+        <input id="attract_name" name="attract_name" type="text" value="{{attract.attract_name}}" />
         <label for="icon_prefix">Attraction Name - Required</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <p class="range-field section">
-        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100+" value="attract_cost" />
+        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100+" value="{{attract.attract_cost}}" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
       <div class="input-field col s6">
         <p class="range-field section">
-        <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" value="attract_rating" />
+        <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" value="{{attract.attract_rating}}" />
         </p>
         <label for="attract_rating">Out of 10, how awesome is this attraction?</label>
       </div>
@@ -32,38 +32,38 @@
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_site" name="attract_site" type="text" value="attract_site"  />
+        <input id="attract_site" name="attract_site" type="text" value="{{attract.attract_site}}"  />
         <label for="icon_prefix">Attraction Website</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_type" name="attract_type" type="text" value="attract_type"  />
+        <input id="attract_type" name="attract_type" type="text" value="{{attract.attract_type}}"  />
         <label for="icon_prefix">Is it a monument, museum, gallery, tour? Maybe something else? </label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_guide" name="attract_guide" type="text" value="attract_guide" />
+        <input id="attract_guide" name="attract_guide" type="text" value="{{attract.attract_guide}}" />
         <label for="icon_prefix">Is the attraction lead by a guide, or self guided?</label>
       </div>
       </div>
       <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_ticket" name="attract_ticket" type="text" value="attract_ticket" />
+        <input id="attract_ticket" name="attract_ticket" type="text" value="{{attract.attract_ticket}}" />
         <label for="icon_prefix">Is the attraction ticketed?</label>
         </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">Map</i>
-        <input id="ticket_site" name="ticket_site" type="text" value="ticket_site" />
+        <input id="ticket_site" name="ticket_site" type="text" value="{{attract.ticket_site}}" />
         <label for="icon_prefix">If yes, where can someone buy a ticket?</label>
       </div>
       </div>
     <div class="row">
       <div class="input-field col s12">
         <p class="range-field section">
-        <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="attract_time" />
+        <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="{{attract.attract_time}}" />
         </p>
         <label for="attract_time">How many hours should someone set aside for this Max = 1 day</label>
       </div>
@@ -75,7 +75,7 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
-        <input id="attract_comment" name="attract_comment" type="text" maxlength="500" value="attract_comment" />
+        <input id="attract_comment" name="attract_comment" type="text" maxlength="500" value="{{attract.attract_comment}}" />
         <label for="icon_prefix">Any comments? </label>
       </div>
     </div>

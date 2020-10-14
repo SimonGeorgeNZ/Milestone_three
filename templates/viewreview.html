@@ -40,7 +40,7 @@
                   </div>
                 </div>
                 <a href="{{url_for('edit_first', first_id=first._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
-                <a href="{{url_for('delete_section', section_id=first._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+                <a href="{{url_for('delete_section', section_id=first._id, cat_name='first_info')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
           </div>
             </span>
             </div>
@@ -81,7 +81,7 @@
                   </div>
                   <div class="row section">
                   <a href="{{url_for('edit_accom', accom_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
-                  <a href="{{url_for('delete_section', section_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+                  <a href="{{url_for('delete_section', section_id=a._id, cat_name='accommodation')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
                   </div>
                 {% endfor %}
                 </div>
@@ -94,49 +94,49 @@
           <div class="lined thin collapsible-body">
               <span>
               <div class="row">
-              {% for a in attract %}
+              {% for at in attract %}
               <div class="row">
                   <div class="lined thin col m8 s12">
                     <h5>Attraction name</h5>
-                    <a href="{{ a.attract_site }}">{{ a.attract_name | title }}</a>
+                    <a href="{{ at.attract_site }}">{{ at.attract_name | title }}</a>
                   </div>
                   <div class="lined thin col m3 s6">
                     <h6><strong>Overall attraction rating</strong></h6>
-                    {{ a.attract_rating }}
+                    {{ at.attract_rating }}
                   </div>
               </div>
               <div class="row">
                 <div class="lined thin col m4 s6">
                   <h6><strong>Attraction Cost</strong></h6>
-                  {{ a.attract_cost }}
+                  {{ at.attract_cost }}
                 </div>
                 <div class="lined thin col m4 s6">
                   <h6><strong>Attraction type</strong></h6>
-                  {{ a.attract_type }}
+                  {{ at.attract_type }}
                 </div>
               </div>
                 <div class="lined thin col m4 s6">
                   <h6><strong>Guided or self tour?</strong></h6>
-                  {{ a.attract_guide }}
+                  {{ at.attract_guide }}
                 </div>
                 <div class="lined thin col m4 s6">
                   <h6><strong>Do you need a ticket?</strong></h6>
-                  <a href="{{ a.ticket_site }}">{{ a.attract_ticket }}</a>
+                  <a href="{{ at.ticket_site }}">{{ at.attract_ticket }}</a>
                 </div>
                 <div class="lined thin col m4 s6">
                   <h6>
                     <strong>How long should someone put aside for this?</strong>
                   </h6>
-                  {{ a.attract_time }} hours
+                  {{ at.attract_time }} hours
                 </div>
               <div class="row">
                 <div class="lined thin col s12">
                   <h6><strong>Any final commments?</strong></h6>
-                  {{ a.attract_comment }}
+                  {{ at.attract_comment }}
                  </div>
               </div>
-                 <a href="{{url_for('edit_attract', attract_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
-                <a href="{{url_for('delete_section', section_id=a._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+                 <a href="{{url_for('edit_attract', attract_id=at._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
+                <a href="{{url_for('delete_section', section_id=at._id, cat_name='attractions')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
                 {% endfor %}
                 </div>
                  </span> 
@@ -185,7 +185,7 @@
                 </div>
                 </div>
               <a href="{{url_for('edit_hospo', hospo_id=h._id)}}"  class="section lined thin waves-effect waves-light btn-large btn">Edit</a>
-              <a href="{{url_for('delete_section', section_id=h._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+              <a href="{{url_for('delete_section', section_id=h._id, cat_name='hospitality')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
               </div>
               {% endfor %}
             </span>
@@ -224,7 +224,7 @@
                 </div>
               </div>
               <a href="{{url_for('edit_final', final_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
-            <a href="{{url_for('delete_section', section_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
+            <a href="{{url_for('delete_section', section_id=final._id, cat_name='reviews')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
             </span>
           </div>
         </li>
