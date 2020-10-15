@@ -1,28 +1,78 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Are you sure you want to delete this data for {{common.review_title}}?</h3>
-<h5>You can always update your review and take out specific info. 
-<br>If you want to update, click 
+
 {% if cat_name == 'first_info' %} 
+
+<h3>Are you sure you want to delete this?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
 <a href="{{url_for('edit_first', first_id=common._id)}}" > here </a>  
-{% elif cat_name == 'accommodation' %}
-<a href="{{url_for('edit_accom', accom_id=common._id)}}" > here </a>  
-{% elif cat_name == 'attractions' %}
-<a href="{{url_for('edit_attract', attract_id=common._id)}}" > here </a> 
-{% elif cat_name == 'hospitality' %}
-<a href="{{url_for('edit_hospo', hospo_id=common._id)}}" > here </a> 
-{% elif cat_name == 'reviews' %}
-<a href="{{url_for('edit_final', final_id=common._id)}}" > here </a> 
-
-{% endif %}
-
 
 to return to the previous page and click the update button 
 otherwise confirm your delete by confirming the title you gave to your review in the box below</h5>
 
+{% elif cat_name == 'accommodation' %}
 
+<h3>Are you sure you want to delete this?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
+<a href="{{url_for('edit_accom', accom_id=common._id)}}" > here </a> 
+
+to return to the previous page and click the update button 
+otherwise confirm your delete by confirming the title you gave to your review in the box below</h5> 
+
+{% elif cat_name == 'attractions' %}
+
+<h3>Are you sure you want to delete this?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
+<a href="{{url_for('edit_attract', attract_id=common._id)}}" > here </a> 
+
+to return to the previous page and click the update button 
+otherwise confirm your delete by confirming the title you gave to your review in the box below</h5>
+
+{% elif cat_name == 'hospitality' %}
+
+<h3>Are you sure you want to delete this?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
+<a href="{{url_for('edit_hospo', hospo_id=common._id)}}" > here </a> 
+
+to return to the previous page and click the update button 
+otherwise confirm your delete by confirming the title you gave to your review in the box below</h5>
+
+{% elif cat_name == 'reviews' %}
+
+<h3>Are you sure you want to delete this?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
+<a href="{{url_for('edit_final', final_id=common._id)}}" > here </a> 
+
+to return to the previous page and click the update button 
+otherwise confirm your delete by confirming the title you gave to your review in the box below</h5>
+
+{% elif cat_name == False %}
+
+<h3>Are you sure you want to delete this entire review?</h3>
+<h5>You can always update your review and take out info you don't want to keep. 
+<br>If you want to update, click 
+
+<a href="" > here </a> 
+
+
+{% endif %}
+
+
+
+
+{% if cat_name == "first_info" %}
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
-    <input type="text" id="is_correct" name="is_correct" required />
+    <input type="text" id="" name="is_correct" value="{{ not_quite }}" required />
     <div class="input-field col s12">
 		<label for="is_correct">Confirm review title</label>
 	</div>
@@ -33,6 +83,77 @@ otherwise confirm your delete by confirming the title you gave to your review in
     </div>
   </form>
 </div>
+{% elif cat_name == "accommodation" %}
+<div class="row">
+  <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
+    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <div class="input-field col s12">
+		<label for="is_correct">Confirm review title</label>
+	</div>
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+    </div>
+  </form>
+</div>
+{% elif cat_name == "attractions" %}
+<div class="row">
+  <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
+    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <div class="input-field col s12">
+		<label for="is_correct">Confirm review title</label>
+	</div>
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+    </div>
+  </form>
+</div>
+{% elif cat_name == "hospitality" %}
+<div class="row">
+  <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
+    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <div class="input-field col s12">
+		<label for="is_correct">Confirm review title</label>
+	</div>
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+    </div>
+  </form>
+</div>
+{% elif cat_name == "reviews" %}
+<div class="row">
+  <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
+    <input type="text" id="is_correct" name="is_correct" value="{{ not_quite }}"  required />
+    <div class="input-field col s12">
+		<label for="is_correct">Confirm review title</label>
+	</div>
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+    </div>
+  </form>
+</div>
+{% elif cat_name == False %}
+<div class="row">
+  <form action="{{ url_for('confirm_delete_all', title_id=title._id ) }}" method="POST" class="col s12">
+    <input type="text" id="" name="is_correct" value=""  required />
+    <div class="input-field col s12">
+		<label for="is_correct">Confirm review title</label>
+	</div>
+    <div class="center_btn delete_outter">
+      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+        DELETE FOREVER!
+      </button>
+    </div>
+  </form>
+</div>
+{% endif %}
 
 
 
