@@ -26,10 +26,23 @@ db_categories = ["accommodation", "attractions",
 exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 
 
+newest=mongo.db.title.find().sort("_id", -1).limit(6)
+country = mongo.db.cities.find()
+for x in newest:
+    city = x['city_name']
+    print(city)
+    country = mongo.db.cities.find_one({"city_name": city})
+    print(country)
+    review_id = x['_id']
+    print(review_id)
+
+    
+
+
 @app.route('/')
 @app.route('/home')
 def newest():
-    newest=mongo.db.title.find().sort("_id", -1)
+    newest=mongo.db.title.find().sort("_id", -1).limit(6)
     return render_template('index.html', newest=newest)
 
 
@@ -482,6 +495,9 @@ def country_search():
     cities = mongo.db.cities.find({"country_name": input_country.lower()})
     return render_template('results.html', cities=cities)
 
+
+#@app.route('/go_to_reviews/<review_id>')
+#def go_to_reviews(review_id):
 
 
 if __name__ == '__main__':
