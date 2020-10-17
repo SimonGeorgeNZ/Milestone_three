@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">Add accommodation to {{title.city_name |title}}</h3>
 <div class="row">
-  <form action="{{ url_for('insert_accom') }}" method="POST" class="col s12">
+<h3 class="lined thin heading-box">Add accommodation to {{title.city_name |title}}</h3>
+<a href="{{url_for('skip_accom', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
+  <form action="{{ url_for('insert_accom', review_id=title._id)}}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <div class="row">
       <div class="input-field col s12">
@@ -67,12 +68,15 @@
         Add Accommodation
         <i class="material-icons right">playlist_add</i>
       </button>
-      <button formaction = "{{url_for('insert_another_accom')}}" class="lined thin btn waves-effect waves-light" type="submit">
+      <button formaction = "{{url_for('insert_another_accom', review_id=title._id)}}" class="lined thin btn waves-effect waves-light" type="submit">
         Add more accommodation
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
   </form>
 </div>
+
+
+
 
 {% endblock %}

@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h3 class="lined thin heading-box">Add things to do to in {{title.city_name |title}}</h3>
+<a href="{{url_for('skip_attract', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row">
-  <form action="{{ url_for('insert_attract') }}" method="POST" class="col s12">
+  <form action="{{ url_for('insert_attract', review_id=title._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
@@ -13,7 +14,7 @@
     <div class="row">
       <div class="input-field col s6">
         <p class="range-field section">
-        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100+" />
+        <input type="range" id="attract_cost" name="attract_cost" value="" min="0" max="100+" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
@@ -61,7 +62,7 @@
     <div class="row">
       <div class="input-field col s12">
         <p class="range-field section">
-        <input type="range" id="attract_time" name="attract_time" min="0" max="15(a day)" value="attract_time" />
+        <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="attract_time" />
         </p>
         <label for="attract_time">How many hours should someone set aside for this Max = 1 day</label>
       </div>
@@ -83,7 +84,7 @@
         Add Attraction
         <i class="material-icons right">playlist_add</i>
       </button>
-      <button formaction = "{{url_for('insert_another_attract')}}" class="lined thin btn waves-effect waves-light" type="submit">
+      <button formaction = "{{url_for('insert_another_attract', review_id=title._id)}}" class="lined thin btn waves-effect waves-light" type="submit">
         Add Another Attraction
         <i class="material-icons right">playlist_add</i>
       </button>

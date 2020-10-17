@@ -2,8 +2,9 @@
 <h3 class="lined thin heading-box">Add Some final comments to {{title.city_name |title}}</h3>
 <h5>A reminder that the secret title you gave your review is <strong>"{{title.review_title}}"</strong>. You'll need this 
 if you ever what to delete this review. But why would you want to do that? </h5>
+<a href="{{url_for('skip_final', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row">
-  <form action="{{ url_for('insert_final') }}" method="POST" class="col s12">
+  <form action="{{ url_for('insert_final', review_id=title._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">

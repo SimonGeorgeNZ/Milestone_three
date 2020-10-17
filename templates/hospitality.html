@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h3 class="lined thin heading-box">Add Hospitality to {{title.city_name |title}}</h3>
+<a href="{{url_for('skip_hospo', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row input_doc">
-  <form action="{{ url_for('insert_hospo') }}" method="POST" class="col s12">
+  <form action="{{ url_for('insert_hospo', review_id=title._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
@@ -46,7 +47,7 @@
       <div class="input-field col s12">
         <i class="material-icons prefix">Map</i>
         <input id="hospo_cost" name="hospo_cost" type="text" />
-        <label for="icon_prefix">Cost rating</label>
+        <label for="icon_prefix">Cost rating - Give an idea of what a visit here might cost?</label>
       </div>
     </div>
     <div class="row">
@@ -72,7 +73,7 @@
         Add Hospitality 
         <i class="material-icons right">playlist_add</i>
       </button>
-      <button formaction = "{{url_for('insert_another_hospo')}}" class="lined thin btn waves-effect waves-light" type="submit">
+      <button formaction = "{{url_for('insert_another_hospo', review_id=title._id)}}" class="lined thin btn waves-effect waves-light" type="submit">
         Add A different Hospo
         <i class="material-icons right">playlist_add</i>
       </button>

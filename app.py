@@ -133,7 +133,7 @@ def insert_city():
 #---------------Reviews-----------------#
 
 
-@app.route('/add_review/<city_id>')
+@app.route('/add_review/<city_id>', methods=['POST', 'GET'])
 def add_review(city_id):
     city = mongo.db.cities.find_one({"_id": ObjectId(city_id)})
     return render_template('addtitle.html', city=city)
@@ -154,8 +154,8 @@ def insert_title():
     return render_template('first_info.html', title=title)
 
 
-@app.route('/add_review_info', methods=['POST'])
-def add_review_info():
+@app.route('/add_review_info/<review_id>', methods=['POST'])
+def add_review_info(review_id):
     info = mongo.db.first_info
     add_info = {'start_date': request.form.get('start_date'),
                 'end_date': request.form.get('end_date'),
@@ -165,29 +165,32 @@ def add_review_info():
                 'review_title': request.form.get('review_title').lower()}
     start = request.form['start_date']
     end = request.form['end_date']
-    if start == end:
-        info.insert_one(request.form.to_dict())
-        title = mongo.db.title.find_one(
-            {'review_title': request.form.get('review_title')})
-        return render_template('attractions.html', title=title)
-    else:
-        info.insert_one(add_info)
-        title = mongo.db.title.find_one(
-            {'review_title': request.form.get('review_title')})
-        return render_template('accommodation.html', title=title)
-
-
-@app.route('/insert_accom', methods=['POST'])
-def insert_accom():
-    accom = mongo.db.accommodation
-    accom.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
         {'review_title': request.form.get('review_title')})
+    if start < end:
+        error = "Are you a time traveller? Try picking an end date that's after your start date"
+        return render_template('first_info.html', title=title, error=error)
+    else:
+        if start == end:
+            info.insert_one(request.form.to_dict())
+            return render_template('attractions.html', title=title)
+        else:
+            info.insert_one(add_info)
+            title = mongo.db.title.find_one(
+                {'review_title': request.form.get('review_title')})
+            return render_template('accommodation.html', title=title)
+
+
+@app.route('/insert_accom/<review_id>', methods=['POST'])
+def insert_accom(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    accom = mongo.db.accommodation
+    accom.insert_one(request.form.to_dict())
     return render_template('attractions.html', title=title)
 
 
-@app.route('/insert_another_accom', methods=['POST'])
-def insert_another_accom():
+@app.route('/insert_another_accom/<review_id>', methods=['POST'])
+def insert_another_accom(review_id):
     accom = mongo.db.accommodation
     accom.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
@@ -195,8 +198,8 @@ def insert_another_accom():
     return render_template('accommodation.html', title=title)
 
 
-@app.route('/insert_attract', methods=['POST'])
-def insert_attract():
+@app.route('/insert_attract/<review_id>', methods=['POST'])
+def insert_attract(review_id):
     attract = mongo.db.attractions
     attract.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
@@ -204,8 +207,8 @@ def insert_attract():
     return render_template('hospitality.html', title=title)
 
 
-@app.route('/insert_another_attract', methods=['POST'])
-def insert_another_attract():
+@app.route('/insert_another_attract/<review_id>', methods=['POST'])
+def insert_another_attract(review_id):
     attract = mongo.db.attractions
     attract.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
@@ -213,8 +216,8 @@ def insert_another_attract():
     return render_template('attractions.html', title=title)
 
 
-@app.route('/insert_hospo', methods=['POST'])
-def insert_hospo():
+@app.route('/insert_hospo/<review_id>', methods=['POST'])
+def insert_hospo(review_id):
     hospo = mongo.db.hospitality
     hospo.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
@@ -222,8 +225,8 @@ def insert_hospo():
     return render_template('reviewfinal.html', title=title)
 
 
-@app.route('/insert_another_hospo', methods=['POST'])
-def insert_another_hospo():
+@app.route('/insert_another_hospo/<review_id>', methods=['POST'])
+def insert_another_hospo(review_id):
     hospo = mongo.db.hospitality
     hospo.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one(
@@ -231,14 +234,40 @@ def insert_another_hospo():
     return render_template('hospitality.html', title=title)
 
 
-@app.route('/insert_final', methods=['POST', 'GET'])
-def insert_final():
+@app.route('/insert_final/<review_id>', methods=['POST', 'GET'])
+def insert_final(review_id):
     input_title = request.form['review_title']
     final = mongo.db.reviews
     final.insert_one(request.form.to_dict())
     title = mongo.db.title.find_one({'review_title': input_title.lower()})
     return redirect(url_for('view_review', title=title,
                             review_id=title['_id']))
+
+
+@app.route('/skip_accom/<review_id>')
+def skip_accom(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    return render_template('attractions.html', title=title)
+
+
+@app.route('/skip_attract/<review_id>')
+def skip_attract(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    return render_template('hospitality.html', title=title)
+
+
+@app.route('/skip_hospo/<review_id>')
+def skip_hospo(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    return render_template('reviewfinal.html', title=title)
+
+
+@app.route('/skip_final/<review_id>')
+def skip_final(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    return redirect(url_for('view_review', title=title,
+                            review_id=title['_id']))
+
 
 #---------------View reviews-----------------#
 
@@ -402,7 +431,7 @@ def update_final(final_id):
     title = mongo.db.title.find_one({'review_title': input_title.lower()})
     return redirect(url_for('view_review', review_id=title['_id']))
 
-#---------------Display newest reviews-----------------#
+#---------------Delete-----------------#
 
 
 @app.route('/delete_section/<section_id>/<cat_name>', methods=["GET"])
@@ -439,6 +468,13 @@ def confirm_delete_all(title_id):
             title = { "review_title": input_title}
             mongo.db[x].delete_many(title)
     return render_template('alldone.html', title=title)
+
+
+#--------------------------view newest records---------------------------#
+
+newest = mongo.db.title.find().limit(5)
+for x in newest:
+    print(x)
 
 
 if __name__ == '__main__':

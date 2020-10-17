@@ -7,6 +7,7 @@ html, body{
   width: 100%;
 }
 
+
 html {
     background-image: url("../images/wrinkled-note40.png");
     background-repeat: no-repeat;
@@ -157,6 +158,8 @@ label {
     width: 80%;
     height: 100%;
 }
+
+
 
 
 
