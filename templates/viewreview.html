@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="col s12">
-    <form action="{{ url_for('all_done') }}" class="col s12">
+    <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
       <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
       <ul class="collapsible popout">
         <li>
@@ -242,7 +242,7 @@
         </li>
       </ul>
       <div class="center_btn">
-        <button class="lined thin btn waves-effect waves-light" type="submit">
+        <button formaction = "{{ url_for('all_done') }}" class="lined thin btn waves-effect waves-light" type="submit">
           Click here to save and return to the main menu
           <i class="material-icons right">playlist_add</i>
         </button>

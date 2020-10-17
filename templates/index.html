@@ -1,5 +1,33 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+<h3>Welcome to Where to next?</h3>
 
 
 
-{% endblock %}
+<div class="row">
+{% for new in newest %}
+{% if loop.index < 7 %}
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <p>
+          {{new.city_name}}
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+
+
+
+
+{% endblock %} 

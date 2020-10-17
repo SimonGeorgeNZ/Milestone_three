@@ -159,7 +159,21 @@ label {
     height: 100%;
 }
 
+.card {
+    background-image: url("../images/postitsummer.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 
+.card-content {
+    min-height: 30vh;
+    padding-top: 15%!important;
+}
+
+
+.card-action {
+    background-color: transparent!important;
+}
 
 
 

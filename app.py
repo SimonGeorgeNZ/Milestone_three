@@ -28,8 +28,9 @@ exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 
 @app.route('/')
 @app.route('/home')
-def buttons():
-    return render_template('index.html')
+def newest():
+    newest=mongo.db.title.find().sort("_id", -1)
+    return render_template('index.html', newest=newest)
 
 
 # --------------Countries-----------------#
@@ -87,7 +88,6 @@ def didyoumean(search):
 
 @app.route('/add_list_country/<place>', methods=['POST', 'GET'])
 def add_list_country(place):
-
     find_country = mongo.db.countries.find_one({"country_name": place.lower()})
     if find_country:
         return redirect(url_for('get_cities', country_id=find_country['_id']))
@@ -315,7 +315,6 @@ def update_first(first_id):
         'reason': request.form.get('reason'),
         'event': request.form.get('event'),
         's_or_g': request.form.get('s_or_g'),
-        'reason': request.form.get('reason'),
     })
     input_title = request.form['review_title']
     title = mongo.db.title.find_one({'review_title': input_title.lower()})
@@ -470,11 +469,19 @@ def confirm_delete_all(title_id):
     return render_template('alldone.html', title=title)
 
 
-#--------------------------view newest records---------------------------#
+#--------------------------Search---------------------------#
 
-newest = mongo.db.title.find().limit(5)
-for x in newest:
-    print(x)
+
+@app.route('/search_countries')
+def search_countries():
+    return render_template('searchcountries.html')
+
+@app.route('/country_search/', methods=['POST', 'GET'])
+def country_search():
+    input_country = request.form['country_name']
+    cities = mongo.db.cities.find({"country_name": input_country.lower()})
+    return render_template('results.html', cities=cities)
+
 
 
 if __name__ == '__main__':
