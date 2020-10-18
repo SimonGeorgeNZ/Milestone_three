@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+<h3 class="lined thin heading-box">Search Reviews</h3>
+
+<h5>Enter your search criteria in the search below to see if anyone has mentioned it in their reviews</h5>
+
+<form action="{{ url_for('review_search') }}" method="POST" class="lined thin col s12">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">poll</i>
+            <input id="search" name="search" type="text" class="validate" >
+            <label for="search">Search field</label>
+        </div>
+    </div>
+    <div class="center_btn">
+        <button class="lined thin btn waves-effect waves-light" type="validate">Find
+            <i class="material-icons right">playlist_add</i>
+        </button>
+    </div>
+</form>
+
+{% endblock %} 

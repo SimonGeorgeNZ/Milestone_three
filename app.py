@@ -24,26 +24,16 @@ MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
 db_categories = ["accommodation", "attractions",
                  "first_info", "hospitality", "reviews", "title"]
 exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
-
-
-newest=mongo.db.title.find().sort("_id", -1).limit(6)
-country = mongo.db.cities.find()
-for x in newest:
-    city = x['city_name']
-    print(city)
-    country = mongo.db.cities.find_one({"city_name": city})
-    print(country)
-    review_id = x['_id']
-    print(review_id)
-
+    
     
 
 
 @app.route('/')
 @app.route('/home')
-def newest():
-    newest=mongo.db.title.find().sort("_id", -1).limit(6)
-    return render_template('index.html', newest=newest)
+def home():
+    titles = list(mongo.db.title.find().sort("_id", -1).limit(6))
+    cities = list(mongo.db.cities.find())
+    return render_template('index.html', titles=titles, cities=cities)
 
 
 # --------------Countries-----------------#
@@ -485,19 +475,27 @@ def confirm_delete_all(title_id):
 #--------------------------Search---------------------------#
 
 
-@app.route('/search_countries')
-def search_countries():
-    return render_template('searchcountries.html')
+@app.route('/search_reviews')
+def search_reviews():
+    return render_template('searchreviews.html')
 
-@app.route('/country_search/', methods=['POST', 'GET'])
-def country_search():
-    input_country = request.form['country_name']
-    cities = mongo.db.cities.find({"country_name": input_country.lower()})
-    return render_template('results.html', cities=cities)
+@app.route('/review_search', methods=['POST', 'GET'])
+def review_search():
+    search = request.form['search']
+    find_country = mongo.db.countries.find_one({"country_name": search.lower()})
+    find_cities = mongo.db.cities.find({"country_name": search.lower()})
+    if search.lower() == find_country["country_name"]:
+        cities = mongo.db.cities.find({"country_name": search.lower()})
+        for c in cities:
+            names = c['city_name']
+        return render_template('results.html', country=find_country)
+    if search.lower() == find_cities["city_name"]:
+        for c in find_cities:
+            cities = c
+            print(cities)
+        return render_template('results.html', )
+        
 
-
-#@app.route('/go_to_reviews/<review_id>')
-#def go_to_reviews(review_id):
 
 
 if __name__ == '__main__':

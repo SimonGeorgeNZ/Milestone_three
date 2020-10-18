@@ -8,23 +8,26 @@
 
 
 <div class="row">
-{% for new in newest %}
-{% if loop.index < 7 %}
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <p>
-          {{new.city_name}}
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
+	{% for title in titles %}
+	<div class="col s12 m6">
+		<div class="card">
+			<div class="card-content">
+				<p>
+					{{title.city_name}},
+                    {% for city in cities %}
+					    {% if city.city_name == title.city_name %}
+                            {{ city.country_name }}
+                        {% endif %}
+                    {% endfor %}
+				</p>
+			</div>
+			<div class="card-action">
+				<a href="#">This is a link</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
 
 
