@@ -1,36 +1,60 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content %}
+<div class="row center">
+  <h3>Welcome to Where to next?</h3>
 
-
-{% block content %}
-
-<h3>Welcome to Where to next?</h3>
-
-
-
-<div class="row">
-	{% for title in titles %}
-	<div class="col s12 m6">
-		<div class="card">
-			<div class="card-content">
-				<p>
-					{{title.city_name}},
-                    {% for city in cities %}
-					    {% if city.city_name == title.city_name %}
-                            {{ city.country_name }}
-                        {% endif %}
-                    {% endfor %}
-				</p>
-			</div>
-			<div class="card-action">
-				<a href="#">This is a link</a>
-			</div>
-		</div>
-	</div>
-	{% endfor %}
+  <div class="row">
+    <div class="col s12">
+      <div class="lined thin col">
+        <h5>Stayed at an awesome hostel?</h5>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="lined thin col right">
+        <h5>Want to shout out to the best coffee you found in The UK?</h5>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="lined thin col right">
+        <h5>Maybe you want ideas of what to do on your next trip?</h5>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="lined thin col">
+        <h5>
+          See what like minded people have to say about places you want to go,
+          and let others know about places you've been.
+        </h5>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="row">
+  <div class="col s12 center">
+    <h4>The only real question is, Where to Next?</h4>
+  </div>
+</div>
 
+<div class="row">
+  {% for title in titles %}
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            {% for city in cities %} {% if city.city_name == title.city_name %}
+            <h4>Country - {{ city.country_name }}</h4>
+            {% endif %} {% endfor %}
+            <h4>City - {{title.city_name}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="card-action center">
+        <a class="font" href="{{url_for('landing_link', review_id=title._id)}}">Check out this review</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
-
-
-{% endblock %} 
+{% endblock %}

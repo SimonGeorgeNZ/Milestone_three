@@ -31,7 +31,7 @@ exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 @app.route('/')
 @app.route('/home')
 def home():
-    titles = list(mongo.db.title.find().sort("_id", -1).limit(6))
+    titles = list(mongo.db.title.find().sort("_id", -1).limit(8))
     cities = list(mongo.db.cities.find())
     return render_template('index.html', titles=titles, cities=cities)
 
@@ -495,6 +495,32 @@ def review_search():
             print(cities)
         return render_template('results.html', )
         
+
+
+
+
+#---------------------------landing page---------------------------#
+
+@app.route("/landing_link/<review_id>", methods=['POST', 'GET'])
+def landing_link(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    review_title = title['review_title']
+    city = title['city_name']
+    country = mongo.db.cities.find_one({"city_name": (city).lower()})
+    first = mongo.db.first_info.find_one({"review_title": (review_title).lower()})
+    attract = mongo.db.attractions.find({"review_title": (review_title).lower()})
+    accom = mongo.db.accommodation.find({"review_title": (review_title).lower()})
+    hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
+    final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
+    return render_template('landing_link.html', title=title, first=first,
+                           attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
+
+
+
+
+
+
+
 
 
 
