@@ -152,10 +152,8 @@ label {
 }
 
 .heading-box {
-    width: fit-content;
-    border-left: none!important;
-    border-right: none!important;
-    border-top: none!important;
+    text-decoration-line: underline;
+    text-align: center!important;
 }
 
 .delete {
@@ -182,7 +180,7 @@ label {
 
 
 .center {
-    align-content: center;
+    align-content: center!important;
 }
 
 

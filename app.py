@@ -483,17 +483,14 @@ def search_reviews():
 def review_search():
     search = request.form['search']
     find_country = mongo.db.countries.find_one({"country_name": search.lower()})
-    find_cities = mongo.db.cities.find({"country_name": search.lower()})
-    if search.lower() == find_country["country_name"]:
-        cities = mongo.db.cities.find({"country_name": search.lower()})
-        for c in cities:
-            names = c['city_name']
+    if find_country:
         return render_template('results.html', country=find_country)
-    if search.lower() == find_cities["city_name"]:
-        for c in find_cities:
-            cities = c
-            print(cities)
-        return render_template('results.html', )
+    elif not find_country:
+        error = "That search doesn't match anything. If you want to it, you can start by adding the country below"
+        return render_template('newcountry.html', error=error)
+
+        
+
         
 
 

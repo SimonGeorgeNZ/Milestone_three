@@ -1,7 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">View review for {{title.city_name |title}}</h3>
-<h5>Country = {{ country.country_name }}</h5>
-<h6><strong>City = {{ country.city_name }}</strong></h6>
+<div class="row">
+<div class="col center s12">
+  <h3 class="lined thin heading-box">View review for {{title.city_name |title}}</h3>
+  <h5>Country = {{ country.country_name }}</h5>
+  <h6><strong>City = {{ country.city_name }}</strong></h6>
+  </div>
+</div>
 
 <div class="row">
   <div class="col s12">
@@ -11,11 +15,12 @@
           <div class="lined thin collapsible-header active">
             <i class="material-icons">filter_drama</i>When was your trip? How
             long were you there for? What was the reason? Were you kicking it
-            solo or with a tour?</div>
+            solo or with a tour?
+          </div>
           <div class="lined thin collapsible-body">
-          <span>
-          {% if first.review_title == title.review_title %}
-          <div class="row">
+            <span>
+              {% if first.review_title == title.review_title %}
+              <div class="row">
                 <div class="row">
                   <div class="lined thin col s6">
                     <h5>Start Date - {{ first.start_date }}</h5>
@@ -38,84 +43,84 @@
                     {{ first.s_or_g }}
                   </div>
                 </div>
-          </div>
-          {% endif %}
+              </div>
+              {% endif %}
             </span>
-            </div>
+          </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">place</i>Accommodation {{ first.accom_name }}
+            <i class="material-icons">place</i>Accommodation {{ first.accom_name
+            }}
           </div>
           <div class="lined thin collapsible-body">
-              <span>
-             
+            <span>
               <div class="row">
-              {% for a in accom %}
-              {% if a.review_title.lower() == title.review_title %}
+                {% for a in accom %} {% if a.review_title.lower() ==
+                title.review_title %}
                 <div class="lined thin col s12">
-                    <h5>Accommodation name</h5>
-                    <a href="{{ a.accom_site }}">{{ a.accom_name | title }}</a>
-                  </div>
-                  <div class="lined thin col m3 s6">
-                    <h6><strong>Accommodation Style</strong></h6>
-                    {{ a.accom_style }}
-                  </div>
-                  <div class="lined thin col m3 s6">
-                    <h6><strong>Price per night</strong></h6>
-                    {{ a.accom_price }}
-                  </div>
-                  <div class="lined thin col m3 s6">
-                    <h6><strong>Accommodation Address</strong></h6>
-                    {{ a.accom_address }}
-                  </div>
-                  <div class="lined thin col m3 s6">
-                    <h6><strong>Accommodation Clenliness</strong></h6>
-                    {{ a.accom_clean }}
-                  </div>
-                  <div class="lined thin col s12">
-                    <h6>
-                      <strong>Final comments about your accommodation</strong>
-                    </h6>
-                    {{ a.accom_comment }}
-                  </div>
-                  <div class="row section">
-                  </div>
-                  {% endif %}
-                {% endfor %}
+                  <h5>Accommodation name</h5>
+                  <a href="{{ a.accom_site }}">{{ a.accom_name | title }}</a>
                 </div>
-                
-              </span>
+                <div class="lined thin col m3 s6">
+                  <h6><strong>Accommodation Style</strong></h6>
+                  {{ a.accom_style }}
+                </div>
+                <div class="lined thin col m3 s6">
+                  <h6><strong>Price per night</strong></h6>
+                  {{ a.accom_price }}
+                </div>
+                <div class="lined thin col m3 s6">
+                  <h6><strong>Accommodation Address</strong></h6>
+                  {{ a.accom_address }}
+                </div>
+                <div class="lined thin col m3 s6">
+                  <h6><strong>Accommodation Clenliness</strong></h6>
+                  {{ a.accom_clean }}
+                </div>
+                <div class="lined thin col s12">
+                  <h6>
+                    <strong>Final comments about your accommodation</strong>
+                  </h6>
+                  {{ a.accom_comment }}
+                </div>
+                <div class="row section"></div>
+                {% endif %} {% endfor %}
+              </div>
+            </span>
           </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">whatshot</i>Attractions</div>
+            <i class="material-icons">whatshot</i>Attractions
+          </div>
           <div class="lined thin collapsible-body">
-              <span>
+            <span>
               <div class="row">
-              {% for at in attract %}
-              {% if at.review_title == title.review_title %}
-              <div class="row">
+                {% for at in attract %} {% if at.review_title ==
+                title.review_title %}
+                <div class="row">
                   <div class="lined thin col m8 s12">
                     <h5>Attraction name</h5>
-                    <a href="{{ at.attract_site }}">{{ at.attract_name | title }}</a>
+                    <a href="{{ at.attract_site }}"
+                      >{{ at.attract_name | title }}</a
+                    >
                   </div>
                   <div class="lined thin col m3 s6">
                     <h6><strong>Overall attraction rating</strong></h6>
                     {{ at.attract_rating }}
                   </div>
-              </div>
-              <div class="row">
-                <div class="lined thin col m4 s6">
-                  <h6><strong>Attraction Cost</strong></h6>
-                  {{ at.attract_cost }} - In local currency
                 </div>
-                <div class="lined thin col m4 s6">
-                  <h6><strong>Attraction type</strong></h6>
-                  {{ at.attract_type }}
+                <div class="row">
+                  <div class="lined thin col m4 s6">
+                    <h6><strong>Attraction Cost</strong></h6>
+                    {{ at.attract_cost }} - In local currency
+                  </div>
+                  <div class="lined thin col m4 s6">
+                    <h6><strong>Attraction type</strong></h6>
+                    {{ at.attract_type }}
+                  </div>
                 </div>
-              </div>
                 <div class="lined thin col m4 s6">
                   <h6><strong>Guided or self tour?</strong></h6>
                   {{ at.attract_guide }}
@@ -130,17 +135,16 @@
                   </h6>
                   {{ at.attract_time }} hours
                 </div>
-              <div class="row">
-                <div class="lined thin col s12">
-                  <h6><strong>Any final commments?</strong></h6>
-                  {{ at.attract_comment }}
-                 </div>
-              </div>
-                {% endif %}
-                {% endfor %}
+                <div class="row">
+                  <div class="lined thin col s12">
+                    <h6><strong>Any final commments?</strong></h6>
+                    {{ at.attract_comment }}
+                  </div>
                 </div>
-                 </span> 
-            </div>
+                {% endif %} {% endfor %}
+              </div>
+            </span>
+          </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
@@ -148,8 +152,7 @@
           </div>
           <div class="lined thin collapsible-body">
             <span>
-            {% for h in hospo %}
-            {% if h.review_title == title.review_title %}
+              {% for h in hospo %} {% if h.review_title == title.review_title %}
               <div class="row">
                 <div class="row">
                   <div class="lined thin col m8 s12">
@@ -180,14 +183,13 @@
                   </div>
                 </div>
                 <div class="row">
-                <div class="lined thin col m12 s6">
-                  <h6><strong>Any final comments?</strong></h6>
-                  {{ h.hospo_comment }}
-                </div>
+                  <div class="lined thin col m12 s6">
+                    <h6><strong>Any final comments?</strong></h6>
+                    {{ h.hospo_comment }}
+                  </div>
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
+              {% endif %} {% endfor %}
             </span>
           </div>
         </li>
@@ -197,7 +199,7 @@
           </div>
           <div class="lined thin collapsible-body">
             <span>
-            {% if final.review_title == title.review_title %}
+              {% if final.review_title == title.review_title %}
               <div class="row">
                 <div class="lined thin col m6 s12">
                   <h6>Transport from the airport or trainstation</h6>
@@ -224,13 +226,17 @@
                   {{ final.comment_gen }}
                 </div>
               </div>
-            {% endif %}
+              {% endif %}
             </span>
           </div>
         </li>
       </ul>
       <div class="center_btn">
-        <button formaction = "{{url_for('home')}}" class="lined thin btn waves-effect waves-light" type="submit">
+        <button
+          formaction="{{url_for('home')}}"
+          class="lined thin btn waves-effect waves-light"
+          type="submit"
+        >
           Click here to save and return to the main page
           <i class="material-icons right">playlist_add</i>
         </button>

@@ -2,7 +2,8 @@
 
 
 {% block content %}
-<h3 class="lined thin heading-box">Add Country</h3>
+<h3 class=" heading-box">Add Country</h3>
+{{ error }}
 <form action="{{ url_for('search') }}" method="POST" class="lined thin col s12">
     <div class="row">
         <div class="input-field col s12">

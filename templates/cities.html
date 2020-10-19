@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %}{% block content %}
-<h3 class="lined thin heading-box">Pick City for {{country.country_name |title}}</h3>
+<h3 class="heading-box">Pick City for {{country.country_name |title}}</h3>
 <h5>Select your city from this list if it's there, if not, simply add it with the form below</h5>
 {% for city in cities %}
 <a href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name |title}}</a>
@@ -10,7 +10,7 @@
 
 
 <form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
-    <h3 class="lined thin heading-box">Add a new city for {{country.country_name |title}} </h3>
+    <h3 class="heading-box">Add a new city for {{country.country_name |title}} </h3>
 	<input type="hidden" id="country_name" name="country_name" value="{{country.country_name}}" readonly/>
 
     <div class="input-field col s12">
