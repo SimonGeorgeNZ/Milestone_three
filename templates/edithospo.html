@@ -1,22 +1,24 @@
 {% extends 'base.html' %} {% block content %}
+<div class="container">
 <h3>Edit your hospitality entry to {{title.city_name |title}}</h3>
 <div class="row input_doc">
   <form action="{{ url_for('update_hospo', hospo_id=hospo._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">local_cafe</i>
         <input id="hospo_name" name="hospo_name" type="text" value="{{hospo.hospo_name}}" />
         <label for="icon_prefix">Venue name - Required</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">local_bar</i>
         <input id="hospo_style" name="hospo_style" type="text" value="{{hospo.hospo_style}}" />
         <label for="icon_prefix">Venue style - Required</label>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">thumbs_up_down</i>
         <p class="range-field section">
         <input type="range" id="hospo_service_rating" value="{{hospo.hospo_service_rating}}" name="hospo_service_rating" min="0" max="10" />
         </p>
@@ -25,36 +27,37 @@
     </div>
     <ul class="collapsible popout">
     <li>
-      <div class="lined thin collapsible-header"><i class="material-icons">filter_drama</i>Aditional info</div>
+      <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
       <span>
       <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">language</i>
         <input id="hospo_site" name="hospo_site" type="text" value="{{hospo.hospo_site}}" />
         <label for="icon_prefix">Venue Website</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">schedule</i>
         <input id="hospo_hours" name="hospo_hours" type="text" value="{{hospo.hospo_hours}}" />
         <label for="icon_prefix">Opening hours</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">credit_card</i>
         <input id="hospo_cost" name="hospo_cost" type="text" value="{{hospo.hospo_cost}}" />
-        <label for="icon_prefix">Cost</label>
+        <label for="icon_prefix">Cost rating - Give an idea of what a visit here might cost?</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
+      <i class="material-icons prefix">rate_review</i>
         <p class="range-field section">
         <input type="range" id="hospo_overall_rating" value="{{hospo.hospo_overall_rating}}" name="hospo_overall_rating" min="0" max="10" />
         </p>
-        <label for="hospo_overall_rating">Out of 10, how was the service?</label>
+        <label for="hospo_overall_rating">Taking service, cost, wait time, location etc into consideration</label>
       </div>
     </div>   
       </span>
@@ -63,7 +66,7 @@
     </ul>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">sms</i>
         <input id="hospo_comment" name="hospo_comment" type="text" maxlength="500" value="{{hospo.hospo_comment}}" />
         <label for="icon_prefix">Final comments</label>
       </div>
@@ -75,6 +78,7 @@
       </button>
     </div>
   </form>
+</div>
 </div>
 
 

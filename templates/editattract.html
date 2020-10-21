@@ -1,23 +1,26 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Edit your attraction {{title.city_name |title}}</h3>
+<div class="container">
+<h3 class="center">Edit your attraction {{title.city_name |title}}</h3>
 <div class="row">
   <form action="{{ url_for('update_attract', attract_id=attract._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">question_answer</i>
         <input id="attract_name" name="attract_name" type="text" value="{{attract.attract_name}}" />
         <label for="icon_prefix">Attraction Name - Required</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
         <input type="range" id="attract_cost" name="attract_cost" min="0" max="100+" value="{{attract.attract_cost}}" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">thumbs_up_down</i>
         <p class="range-field section">
         <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" value="{{attract.attract_rating}}" />
         </p>
@@ -31,37 +34,38 @@
       <span>
       <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">language</i>
         <input id="attract_site" name="attract_site" type="text" value="{{attract.attract_site}}"  />
         <label for="icon_prefix">Attraction Website</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">museum</i>
         <input id="attract_type" name="attract_type" type="text" value="{{attract.attract_type}}"  />
         <label for="icon_prefix">Is it a monument, museum, gallery, tour? Maybe something else? </label>
       </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">tour</i>
         <input id="attract_guide" name="attract_guide" type="text" value="{{attract.attract_guide}}" />
         <label for="icon_prefix">Is the attraction lead by a guide, or self guided?</label>
       </div>
       </div>
       <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">confirmation_number</i>
         <input id="attract_ticket" name="attract_ticket" type="text" value="{{attract.attract_ticket}}" />
         <label for="icon_prefix">Is the attraction ticketed?</label>
         </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">language</i>
         <input id="ticket_site" name="ticket_site" type="text" value="{{attract.ticket_site}}" />
         <label for="icon_prefix">If yes, where can someone buy a ticket?</label>
       </div>
       </div>
     <div class="row">
       <div class="input-field col s12">
+      <i class="material-icons prefix">schedule</i>
         <p class="range-field section">
         <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="{{attract.attract_time}}" />
         </p>
@@ -74,7 +78,7 @@
     </ul>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">sms</i>
         <input id="attract_comment" name="attract_comment" type="text" maxlength="500" value="{{attract.attract_comment}}" />
         <label for="icon_prefix">Any comments? </label>
       </div>
@@ -87,6 +91,7 @@
       </button>
   </div>
   </form>
+  </div>
   </div>
   
 

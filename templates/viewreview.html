@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">View what you've written for {{title.city_name |title}}</h3>
-<h5>You have an opportunity to edit your review here as well</h5>
-<h5>Country = {{ country.country_name }}</h5>
-<h6><strong>City = {{ city }}</strong></h6>
+<div class="container">
+<h3 class="heading-box">View what you've written for {{title.city_name |title}}</h3>
+<h5 class="center">You have an opportunity to edit your review here as well</h5>
+<h5>Country = {{ country.country_name | title}}</h5>
+<h5><strong>City = {{ city | title }}</strong></h5>
 
 <div class="row">
   <div class="col s12">
@@ -11,7 +12,7 @@
       <ul class="collapsible popout">
         <li>
           <div class="lined thin collapsible-header active">
-            <i class="material-icons">filter_drama</i>When was your trip? How
+            When was your trip? How
             long were you there for? What was the reason? Were you kicking it
             solo or with a tour?</div>
           <div class="lined thin collapsible-body">
@@ -49,7 +50,7 @@
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">place</i>Accommodation {{ first.accom_name }}
+            <i class="material-icons">apartment</i>Accommodation {{ first.accom_name }}
           </div>
           <div class="lined thin collapsible-body">
               <span>
@@ -96,7 +97,7 @@
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">whatshot</i>Attractions</div>
+            <i class="material-icons">tour</i>Attractions</div>
           <div class="lined thin collapsible-body">
               <span>
               <div class="row">
@@ -152,7 +153,7 @@
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">whatshot</i>Hospitality
+            <i class="material-icons">local_cafe</i>Hospitality
           </div>
           <div class="lined thin collapsible-body">
             <span>
@@ -203,7 +204,7 @@
         </li>
         <li>
           <div class="lined thin collapsible-header">
-            <i class="material-icons">whatshot</i>Final info
+            <i class="material-icons">thumbs_up_down</i>Final info
           </div>
           <div class="lined thin collapsible-body">
             <span>
@@ -255,6 +256,7 @@
       </div>
     </form>
   </div>
+</div>
 </div>
 
 {% endblock %}

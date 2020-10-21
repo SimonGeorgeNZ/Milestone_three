@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}{% block content %}
+<div class="container">
 <h3>Did you mean?</h3>
 
 <h4> we couldn't find {{ search }} </h4>
@@ -11,11 +12,12 @@
 <div class="col s12">
 <ul>
 {% for place in results %}
-<li>
-<a name="list_country" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
+<li class="country_list">
+<a class="list_country lined thin" name="list_country" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
 </li>
 {% endfor %}
 </ul>
+</div>
 </div>
 </div>
 

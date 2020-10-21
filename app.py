@@ -170,7 +170,7 @@ def add_review_info(review_id):
     end = request.form['end_date']
     title = mongo.db.title.find_one(
         {'review_title': request.form.get('review_title')})
-    if start < end:
+    if start > end:
         error = "Are you a time traveller? Try picking an end date that's after your start date"
         return render_template('first_info.html', title=title, error=error)
     else:
@@ -481,9 +481,9 @@ def review_search():
     find_country = mongo.db.countries.find_one({"country_name": search.lower()})
     titles = list(mongo.db.title.find())
     get_cities = list(mongo.db.cities.find({"country_name": search.lower()}))
-    if find_country:
+    if get_cities:
         return render_template('results.html', country=find_country, cities=get_cities, titles=titles)
-    elif not find_country:
+    elif not get_cities:
         error = "That search doesn't match anything. If you want to it, you can start by adding the country below"
         return render_template('newcountry.html', error=error)
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">Add a title to your review of {{city.city_name |title}}</h3>
+<div class="container">
+<h3 class="heading-box">Add a title to your review of {{city.city_name |title}}</h3>
 <div class="row">
 <p>Pick a title that is unique to this review, it won't be displayed when anyone views it, but you will be asked 
 to provide it if you want to update or delete your review later, so treat it like a password. 
@@ -10,7 +11,7 @@ to provide it if you want to update or delete your review later, so treat it lik
   <input type="hidden" id="city_name" name="city_name" value="{{city.city_name}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">device_unknown</i>
         <input id="review_title" name="review_title" type="text" required />
         <label for="icon_prefix">Review Title - Required</label>
       </div>
@@ -22,6 +23,7 @@ to provide it if you want to update or delete your review later, so treat it lik
       </button>
     </div>
   </form>
+</div>
 </div>
 
 {% endblock %}

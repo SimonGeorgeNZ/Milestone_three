@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
+<div class="container">
 <div class="row">
-<h3 class="lined thin heading-box">Add accommodation to {{title.city_name |title}}</h3>
+<h3 class="heading-box">Add accommodation to {{title.city_name |title}}</h3>
 <a href="{{url_for('skip_accom', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
   <form action="{{ url_for('insert_accom', review_id=title._id)}}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
@@ -13,11 +14,12 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">apartment</i>
         <input id="accom_style" name="accom_style" type="text" />
         <label for="icon_prefix">Accommodation Style - Required</label>
       </div>
       <div class="input-field col s6">
+      <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
         <input type="range" id="accom_price" name="accom_price" min="0" max="100+" />
         </p>
@@ -26,26 +28,26 @@
     </div>
     <ul class="collapsible popout">
     <li>
-      <div class="lined thin collapsible-header"><i class="material-icons">filter_drama</i>Aditional info</div>
+      <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
       <span>
       <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">language</i>
         <input id="accom_site" name="accom_site" type="text" />
         <label for="icon_prefix">Accommodation Website</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">markunread_mailbox</i>
         <input id="accom_address" name="accom_address" type="text" />
         <label for="icon_prefix">Accommodation Address</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">water_damage</i>
         <p class="range-field">
           <input type="range" id="accom_clean" name="accom_clean" min="0" max="10" />
         </p>
@@ -58,7 +60,7 @@
     </ul>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">sms</i>
         <input id="accom_comment" name="accom_comment" type="text" maxlength="500" />
         <label for="icon_prefix">Add aditional comments</label>
       </div>
@@ -74,6 +76,7 @@
       </button>
     </div>
   </form>
+</div>
 </div>
 
 

@@ -1,24 +1,27 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">Add things to do to in {{title.city_name |title}}</h3>
+<div class="container">
+<h3 class="heading-box">Add things to do to in {{title.city_name |title}}</h3>
 <a href="{{url_for('skip_attract', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row">
   <form action="{{ url_for('insert_attract', review_id=title._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">question_answer</i>
         <input id="attract_name" name="attract_name" type="text" />
         <label for="icon_prefix">Attraction Name - Required</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
         <input type="range" id="attract_cost" name="attract_cost" value="" min="0" max="100+" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">thumbs_up_down</i>
         <p class="range-field section">
         <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" value="attract_rating" />
         </p>
@@ -27,40 +30,43 @@
     </div>
     <ul class="collapsible popout">
     <li>
-      <div class="lined thin collapsible-header"><i class="material-icons">filter_drama</i>Aditional info</div>
+      <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
       <span>
       <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">language</i>
         <input id="attract_site" name="attract_site" type="text" />
         <label for="icon_prefix">Attraction Website</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">museum</i>
       <label for="attract_type">Attraction Type - Is it a monument, museum, gallery, tour? Something else?</label>
         <input id="attract_type" name="attract_type" type="text"  />
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s12 m6">
+      <i class="material-icons prefix">tour</i>
         <input id="attract_guide" name="attract_guide" type="text" />
         <label for="icon_prefix">Is the attraction lead by a guide, or self guided?</label>
       </div>
       </div>
       <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">confirmation_number</i>
         <input id="attract_ticket" name="attract_ticket" type="text" />
         <label for="icon_prefix">Is the attraction ticketed?</label>
         </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">language</i>
         <input id="ticket_site" name="ticket_site" type="text" />
         <label for="icon_prefix">If yes, where can someone buy a ticket?</label>
       </div>
       </div>
     <div class="row">
       <div class="input-field col s12">
+      <i class="material-icons prefix">schedule</i>
         <p class="range-field section">
         <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="attract_time" />
         </p>
@@ -73,9 +79,9 @@
     </ul>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">sms</i>
         <input id="attract_comment" name="attract_comment" type="text" maxlength="500" />
-        <label for="icon_prefix">Any comments? </label>
+        <label for="icon_prefix">Any aditional comments? </label>
       </div>
     </div>
   
@@ -90,6 +96,7 @@
       </button>
   </div>
   </form>
+  </div>
   </div>
   
 

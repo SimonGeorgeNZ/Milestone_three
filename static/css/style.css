@@ -8,6 +8,11 @@ html, body {
   padding-bottom: 8vh;
 }
 
+.main {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
 .font {
     color: black!important;
 }
@@ -17,7 +22,7 @@ html {
     background-image: url("../images/wrinkled-note40.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    align-content: center;
+    align-content: rr;
 }
 
 .btn{
@@ -47,7 +52,7 @@ nav {
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: transparent;
-    min-height: 10vh!important;
+    min-height: 14vh!important;
 }
 
 .nav-wrapper {
@@ -60,9 +65,10 @@ nav {
 
 .nav-wrapper a {
     color: black;
-    font-size: 1.5rem; 
+    font-size: 4vh; 
     padding-left: 2vw;
     padding-right: 2vw;
+    padding-top: 2vh;
 }
 
 .nav-wrapper li:hover{
@@ -83,16 +89,6 @@ nav {
 
 .side-nav li {
     font-size: 6vh;
-}
-
-@media(max-width: 400px){
-    .nav-wrapper a {
-    font-size: .95rem;
-    width: 50%;
-    }
-    .side-nav {
-        margin-top: 25%;
-    }
 }
 
 .center_btn {
@@ -166,6 +162,7 @@ label {
     background-image: url("../images/postitsummer.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    background-color: transparent;
 }
 
 .card-content {
@@ -189,9 +186,45 @@ label {
     padding-left: 2vw!important;
     padding-right: 2vw!important;
     margin-bottom: 0;
-    font-size: 3vh;
+    font-size: 4vh!important;
 }
 
+.brand-logo {
+    font-size: 7vw!important;
+}
+
+.nav-wrapper .input-field input[type=search]{
+    padding-left: 2vw!important;
+    padding-top: 4vh;
+    background-color: transparent;
+}
+
+.card-action:hover {
+    text-decoration-line: underline;
+}
+
+
+@media(max-width: 576px) {
+    .brand-logo {
+        font-size: 9vw;
+        width: 100%;
+    }
+}
+
+.nav-link {
+    margin-top: 2vh;
+    padding-top: 0;
+}
+
+.list_country {
+    color: black;
+    font-size: 3vh;
+    padding: 1vh;
+}
+
+.country_list {
+    margin-top: 2vh;
+}
 
 
 

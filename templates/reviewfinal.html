@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h3 class="lined thin heading-box">Add Some final comments to {{title.city_name |title}}</h3>
+<div class="container">
+<h3 class="heading-box">Add Some final comments to {{title.city_name |title}}</h3>
 <h5>A reminder that the secret title you gave your review is <strong>"{{title.review_title}}"</strong>. You'll need this 
 if you ever what to delete this review. But why would you want to do that? </h5>
 <a href="{{url_for('skip_final', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
@@ -8,33 +9,33 @@ if you ever what to delete this review. But why would you want to do that? </h5>
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">thumb_up_alt</i>
         <input id="reasons_yes" name="reasons_yes" type="text" maxlength="300" />
         <label for="icon_prefix">Reasons to return - Required</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">thumb_down_alt</i>
         <input id="reasons_not" name="reasons_not" type="text" maxlength="300" />
         <label for="icon_prefix">Reasons not to return - Required</label>
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">directions_bus</i>
         <input id="ap_transport" name="ap_transport" type="text" />
         <label for="icon_prefix">Travel from airport</label>
       </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">subway</i>
         <input id="city_transport" name="city_transport" type="text" />
         <label for="icon_prefix">Travel around city</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">Map</i>
+        <i class="material-icons prefix">sms</i>
         <input id="comment_gen" name="comment_gen" type="text" />
         <label for="icon_prefix">Any final comments?</label>
       </div>
@@ -46,6 +47,7 @@ if you ever what to delete this review. But why would you want to do that? </h5>
       </button>
     </div>
   </form>
+</div>
 </div>
 
 {% endblock %}

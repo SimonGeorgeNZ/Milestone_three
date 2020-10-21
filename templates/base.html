@@ -16,19 +16,26 @@
       <a href="{{url_for('home')}}" class="brand-logo">Where to next?</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="{{url_for('new_country')}}">New Review</a></li>
+        <li class="thin lined nav-link"><a href="{{url_for('new_country')}}">New Review</a></li>
         <li>
-        <div class="input-field">
+        <div class="input-field thin lined nav-link">
         <form action="{{ url_for('review_search') }}" method="POST">
           <input id="search" name="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
+          <label for="search">Search for countries</label>
         </form>
         </div>
         </li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
     <li><a href="{{url_for('new_country')}}">New Review</a></li>
+    <li>
+    <div class="input-field">
+        <form action="{{ url_for('review_search') }}" method="POST">
+          <input id="search" name="search" type="search" required>
+          <label class="label-icon" for="search">Search for countries</label>
+        </form>
+        </div>
+        </li>
   </ul>
     </div>
   </nav>
@@ -36,7 +43,7 @@
 
   </header>
 
-    <div class="container">
+    <div class="main">
       {% block content %} 
       
       {% endblock %}

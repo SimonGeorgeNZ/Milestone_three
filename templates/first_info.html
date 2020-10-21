@@ -1,6 +1,7 @@
 {% extends 'base.html' %}{% block content %}
+<div class="container">
 
-<h3 class="lined thin heading-box">Add Some initial info to {{title.city_name |title}}</h3>
+<h3 class="heading-box">Add Some initial info to {{title.city_name |title}}</h3>
 
 <div class="row">
   <form action="{{ url_for('add_review_info', review_id=title._id) }}" method="POST" class="col s12">
@@ -10,17 +11,17 @@
     {{ error }}
     <div class="row">
       <div class="input-field col s12 l6">
-        <i class="material-icons prefix">map</i>
+        <i class="material-icons prefix">date_range</i>
         <input id="start_date" name="start_date" type="text" class="datepicker" />
         <label for="start_date">Start date - Required</label>
       </div>
       <div id="endDate" class="input-field col s12 l6">
-        <i class="material-icons prefix">map</i>
+        <i class="material-icons prefix">date_range</i>
         <input id="end_date" name="end_date" type="text" class="datepicker" />
         <label for="end_date">End date - Required</label>
       </div>
     </div>
-    <div class="input-field col s12 l4">
+    <div class="input-field col s12 m6">
     <select id="reason" name="reason">
       <option value="" disabled selected>Business, pleasure or other?</option>
       <option value="Business">Business</option>
@@ -28,19 +29,18 @@
       <option value="Event/Festival">Event/Festival</option>
     </select>
     </div>
-      <div class="input-field col s12 l4">
-        <i class="material-icons prefix">Map</i>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">event</i>
         <input id="event" name="event" type="text" />
         <label for="icon_prefix">If event, which one?</label>
       </div>
-      <div class="input-field col s12 l4">
+      <div class="input-field col s12">
         <select id="s_or_g" name="s_or_g">
       <option value="" disabled selected>Did you travel solo or in a tour</option>
       <option value="Solo">Solo</option>
       <option value="With friends">With friends</option>
       <option value="Tour">Tour</option>
     </select>
-    <label for="s_or_g"></label>
     </div>
     <div class="center_btn">
       <button class="btn lined thin waves-effect waves-light" type="submit">
@@ -52,6 +52,7 @@
     <input type="hidden" id="accom_name" name="accom_name" value="This was a day trip" readonly />
     </form>
   </form>
+</div>
 </div>
 
 
