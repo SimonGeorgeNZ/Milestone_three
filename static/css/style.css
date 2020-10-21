@@ -52,27 +52,26 @@ nav {
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: transparent;
-    min-height: 14vh!important;
+    min-height: 16vh!important;
 }
+
 
 .nav-wrapper {
     background-image: url("../images/map.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    align-content: center;
 }
 
 
 .nav-wrapper a {
     color: black;
-    font-size: 4vh; 
     padding-left: 2vw;
     padding-right: 2vw;
     padding-top: 2vh;
 }
 
 .brand-logo {
-    font-size: 6vh!important;
+    font-size: 8vh!important;
 }
 
 .nav-wrapper li:hover{
@@ -198,6 +197,7 @@ label {
 .nav-wrapper .input-field input[type=search]{
     padding-left: 2vw!important;
     padding-top: 4vh;
+    margin-top: 1vh;
     background-color: transparent;
 }
 
@@ -216,6 +216,16 @@ label {
 .nav-link {
     margin-top: 2vh;
     padding-top: 0;
+    margin-right: 2vw!important;
+}
+
+.nav-link a {
+    font-size: 6vh;
+}
+
+.nav-link label {
+    font-size: 3vh;
+    padding-right: 3vw;
 }
 
 .list_country {

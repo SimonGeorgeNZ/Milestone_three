@@ -449,6 +449,7 @@ def confirm_delete(review_id, cat_name):
     input_title = request.form['is_correct']
     if input_title.lower() == the_title:
         mongo.db[cat_name].remove({'_id': ObjectId(review_id)})
+        mongo.db.title.remove_one({"review_title": the_title})
         return render_template('alldone.html', common=common, input_title=input_title)
     else:
         not_quite = "Sorry, that's not the correct title"
