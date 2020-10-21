@@ -475,25 +475,17 @@ def confirm_delete_all(title_id):
 #--------------------------Search---------------------------#
 
 
-@app.route('/search_reviews')
-def search_reviews():
-    return render_template('searchreviews.html')
-
 @app.route('/review_search', methods=['POST', 'GET'])
 def review_search():
     search = request.form['search']
     find_country = mongo.db.countries.find_one({"country_name": search.lower()})
+    titles = list(mongo.db.title.find())
+    get_cities = list(mongo.db.cities.find({"country_name": search.lower()}))
     if find_country:
-        return render_template('results.html', country=find_country)
+        return render_template('results.html', country=find_country, cities=get_cities, titles=titles)
     elif not find_country:
         error = "That search doesn't match anything. If you want to it, you can start by adding the country below"
         return render_template('newcountry.html', error=error)
-
-        
-
-        
-
-
 
 
 #---------------------------landing page---------------------------#
@@ -511,12 +503,6 @@ def landing_link(review_id):
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('landing_link.html', title=title, first=first,
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
-
-
-
-
-
-
 
 
 

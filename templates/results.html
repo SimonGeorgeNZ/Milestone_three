@@ -1,6 +1,64 @@
 {% extends 'base.html'%}
 {% block content %}
-{{country.country_name}}
+<div class="row">
+<div class="col center s12">
+  <h3>View reviews for {{country.country_name |title}}</h3>
+  </div>
+</div>
+
+ 
+<div class="row">
+  {% for city in cities %}
+  {% for title in titles %}
+{% if title.city_name == city.city_name %}
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+          <div class="center col s12">
+          <h5>
+            {{city.city_name}}
+          </h5>
+          </div>
+      </div>
+      <div class="card-action center">
+        <a class="font" href="{{url_for('landing_link', review_id=title._id)}}">Check out this review</a>
+        </div>
+    </div>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endfor %}
+</div>
+
+
+
+
 
 
 {% endblock %} 
+
+<div class="row">
+  {% for city in cities %}
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            {% if country.country_name == city.country_name %}
+            {{city.city_name}}
+            {%endif%}
+          </div>
+           <div class="card-action center">
+           {% for title in titles %}
+          {% if city.city_name == title.city_name %}
+            <a class="font" href="{{url_for('landing_link', review_id=title._id)}}">Check out this review</a>
+            {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {% endfor %}
+</div>

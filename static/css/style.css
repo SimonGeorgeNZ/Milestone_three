@@ -181,11 +181,15 @@ label {
 
 .center {
     align-content: center!important;
+    padding-top: 0!important;
 }
 
 
-.right {
-    float: right;
+.title {
+    padding-left: 2vw!important;
+    padding-right: 2vw!important;
+    margin-bottom: 0;
+    font-size: 3vh;
 }
 
 
