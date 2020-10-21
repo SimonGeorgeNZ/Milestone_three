@@ -71,6 +71,10 @@ nav {
     padding-top: 2vh;
 }
 
+.brand-logo {
+    font-size: 6vh!important;
+}
+
 .nav-wrapper li:hover{
     text-decoration-line: underline;
     text-decoration-style: 'Patrick Hand SC';
@@ -189,9 +193,7 @@ label {
     font-size: 4vh!important;
 }
 
-.brand-logo {
-    font-size: 7vw!important;
-}
+
 
 .nav-wrapper .input-field input[type=search]{
     padding-left: 2vw!important;
