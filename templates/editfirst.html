@@ -5,15 +5,14 @@
   <form action="{{ url_for('update_first', first_id=first._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
     <h5>Trip dates</h5>
-    <p><strong> If this was a day trip, simply select the same date for start and end date</strong></p>
       <div class="input-field col s12 m6">
         <i class="material-icons prefix">date_range</i>
-        <input id="start_date" name="start_date" type="text" class="datepicker">
+        <input id="start_date" name="start_date" type="text" class="datepicker" >
         <label for="start_date">Start date - Required</label>
       </div>
       <div id="endDate" class="input-field col s12 m6">
         <i class="material-icons prefix">date_range</i>
-        <input id="end_date" name="end_date" type="text" class="datepicker">
+        <input id="end_date" name="end_date" type="text" class="datepicker" >
         <label for="end_date">End date - Required</label>
       </div>
       <div class="row">
@@ -51,6 +50,7 @@
 </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 

@@ -31,7 +31,7 @@ exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 @app.route('/')
 @app.route('/home')
 def home():
-    titles = list(mongo.db.title.find().sort("_id", -1).limit(8))
+    titles = list(mongo.db.title.find().sort("_id", -1).limit(9))
     cities = list(mongo.db.cities.find())
     return render_template('index.html', titles=titles, cities=cities)
 
@@ -157,7 +157,7 @@ def insert_title():
     return render_template('first_info.html', title=title)
 
 
-@app.route('/add_review_info/<review_id>', methods=['POST'])
+@app.route('/add_review_info/<review_id>', methods=['POST', 'GET'])
 def add_review_info(review_id):
     info = mongo.db.first_info
     add_info = {'start_date': request.form.get('start_date'),
@@ -173,15 +173,14 @@ def add_review_info(review_id):
     if start > end:
         error = "Are you a time traveller? Try picking an end date that's after your start date"
         return render_template('first_info.html', title=title, error=error)
+    elif start == end:
+        info.insert_one(request.form.to_dict())
+        return render_template('attractions.html', title=title)
     else:
-        if start == end:
-            info.insert_one(request.form.to_dict())
-            return render_template('attractions.html', title=title)
-        else:
-            info.insert_one(add_info)
-            title = mongo.db.title.find_one(
-                {'review_title': request.form.get('review_title')})
-            return render_template('accommodation.html', title=title)
+        info.insert_one(add_info)
+        title = mongo.db.title.find_one(
+            {'review_title': request.form.get('review_title')})
+        return render_template('accommodation.html', title=title)
 
 
 @app.route('/insert_accom/<review_id>', methods=['POST'])

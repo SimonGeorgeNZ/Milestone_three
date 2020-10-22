@@ -20,9 +20,9 @@
         <li>
         <div class="input-field thin lined nav-link">
         <form action="{{ url_for('review_search') }}" method="POST">
-        <label class="label-icon" for="search"><i class="material-icons prefix">search</i></label>
+        <label class="label-icon" for="search"><i class="m-glass material-icons prefix">search</i></label>
           <input id="search" name="search" type="search" required>
-          <label for="icon_prefix">Search for countries</label>
+          <label class="search_cl" for="icon_prefix">Search for countries</label>
           <i class="material-icons">close</i>
           </form>
           </div>
@@ -53,5 +53,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+
+    
   </body>
 </html>

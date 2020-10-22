@@ -9,8 +9,8 @@ html, body {
 }
 
 .main {
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
 }
 
 .font {
@@ -71,7 +71,8 @@ nav {
 }
 
 .brand-logo {
-    font-size: 8vh!important;
+    font-size: 7vh!important;
+    padding-top: 3vh!important;
 }
 
 .nav-wrapper li:hover{
@@ -107,6 +108,13 @@ nav {
     margin-left: 6vw;
     min-height: 4vh!important;
     min-width: 3vw!important;
+}
+
+.mine_btn {
+    justify-content: center;
+    padding-top: 4vw;
+    padding-left: 2vw;
+    min-width: 15vw;
 }
 
 .picker__date-display {
@@ -166,12 +174,15 @@ label {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: transparent;
+    min-height: 25vh!important;
+    width: auto;
+    text-align: center;
 }
 
 .card-content {
-    min-height: 30vh;
     padding-top: 15%!important;
 }
+
 
 
 .card-action {
@@ -183,6 +194,7 @@ label {
     align-content: center!important;
     padding-top: 0!important;
 }
+
 
 
 .title {
@@ -213,20 +225,38 @@ label {
     }
 }
 
+.m-glass label {
+    padding-left: 70vw!important;
+}
+
 .nav-link {
-    margin-top: 2vh;
-    padding-top: 0;
+    margin-top: 4vh;
     margin-right: 2vw!important;
 }
 
+nav .input-field label i {
+    color: black!important;
+}
+
+nav .input-field {
+    margin-top: 1.5vh;
+    padding-left: 2.5vw;
+}
+
+.search_cl {
+    margin-left: 3vw!important;
+}
+
 .nav-link a {
-    font-size: 6vh;
+    font-size: 5vh;
+    padding-top: .5vh;
 }
 
 .nav-link label {
     font-size: 3vh;
     padding-right: 3vw;
 }
+
 
 .list_country {
     color: black;

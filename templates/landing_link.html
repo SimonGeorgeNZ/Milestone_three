@@ -1,11 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row">
 <div class="col center s12">
-  <h3 class="lined thin heading-box">View review for {{title.city_name |title}}</h3>
+  <h3 class="heading-box">View review for {{title.city_name |title}}</h3>
   <h5>Country = {{ country.country_name }}</h5>
   <h6><strong>City = {{ country.city_name }}</strong></h6>
   </div>
+  <div class="mine_btn">
+        <button
+          formaction="{{url_for('home')}}"
+          class="lined thin btn waves-effect waves-light"
+          type="submit"
+        >
+          Is this your review? Click here to edit or delete
+        </button>
+      </div>
 </div>
+
 
 <div class="row">
   <div class="col s12">
