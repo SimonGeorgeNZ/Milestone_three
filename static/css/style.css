@@ -268,7 +268,12 @@ nav .input-field {
     margin-top: 2vh;
 }
 
-
+.validate {
+    background-color: lightgray;
+    font-size: 4vh;
+    margin-left: 5vw;
+    color: black;
+}
 
 
 

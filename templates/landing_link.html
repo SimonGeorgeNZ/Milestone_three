@@ -5,16 +5,9 @@
   <h5>Country = {{ country.country_name }}</h5>
   <h6><strong>City = {{ country.city_name }}</strong></h6>
   </div>
-  <div class="mine_btn">
-        <button
-          formaction="{{url_for('home')}}"
-          class="lined thin btn waves-effect waves-light"
-          type="submit"
-        >
-          Is this your review? Click here to edit or delete
-        </button>
-      </div>
 </div>
+
+<a href="{{url_for('validate', review_id = title._id)}}" class="lined thin validate">Is this your review? Click here to edit or delete</a>
 
 
 <div class="row">

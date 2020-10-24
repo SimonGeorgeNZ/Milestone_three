@@ -503,6 +503,23 @@ def landing_link(review_id):
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 
+#---------------------------validate---------------------------#
+
+
+@app.route('/validate/<review_id>')
+def validate(review_id):
+    title = mongo.db.title.find_one({'_id': ObjectId(review_id)})
+    the_title = title['review_title']
+    return render_template('validate.html', title=title, the_title=the_title)
+
+
+@app.route('/confirm_title/<review_id>',  methods=['POST', 'GET'])
+def confirm_title(review_id):
+    title = mongo.db.title.find_one({'_id': ObjectId(review_id)})
+    input_title = request.form['is_correct']
+    the_title = title['review_title']
+    if input_title.lower() == the_title:
+        return redirect(url_for('view_review', review_id=title['_id']))
 
 
 if __name__ == '__main__':
