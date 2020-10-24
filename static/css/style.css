@@ -52,7 +52,6 @@ nav {
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: transparent;
-    min-height: 16vh!important;
 }
 
 
@@ -67,12 +66,14 @@ nav {
     color: black;
     padding-left: 2vw;
     padding-right: 2vw;
-    padding-top: 2vh;
+    padding-top: 1vh!important;
+    margin-bottom: 1vh;
+    height: 8vh;
 }
 
 .brand-logo {
-    font-size: 7vh!important;
-    padding-top: 3vh!important;
+    font-size: 6vh!important;
+    padding-bottom: 3vh!important;
 }
 
 .nav-wrapper li:hover{
@@ -174,13 +175,16 @@ label {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: transparent;
-    min-height: 25vh!important;
-    width: auto;
     text-align: center;
 }
 
 .card-content {
     padding-top: 15%!important;
+    padding-right: 1vw!important;
+    padding-left: 1vw!important;
+    text-overflow: wrap;
+    min-height: 29vh!important;
+
 }
 
 
@@ -208,9 +212,10 @@ label {
 
 .nav-wrapper .input-field input[type=search]{
     padding-left: 2vw!important;
-    padding-top: 4vh;
+    padding-top: 3vh;
     margin-top: 1vh;
     background-color: transparent;
+    height: 4vh;
 }
 
 .card-action:hover {
@@ -222,7 +227,45 @@ label {
     .brand-logo {
         font-size: 9vw;
         width: 100%;
+        text-align: center;
     }
+    .card {
+        padding-top: 5vh;
+    }
+    .card-content{
+        padding-right: .5vw!important;
+        padding-left: .5vw!important;
+    }
+    .card h5 {
+        font-size: 5vh;
+    }
+    .card-action {
+        font-size: 3vh;
+    }
+    nav .nav-wrapper {
+        margin-top: 10vh!important;
+        height: 10vh!important;
+    }
+}
+
+nav .nav-wrapper {
+    height: 15vh;;
+}
+
+.side-nav li>a {
+    padding-top: 7vh;
+    font-size: 7vh;
+    padding-left: 10vw;
+}
+
+.side-nav .input-field {
+    padding-left: 10vw;
+    padding-top: 5vh;
+}
+
+.side-nav .input-field label {
+    padding-left: 5vw;
+    padding-top: 3vh;
 }
 
 .m-glass label {
@@ -273,6 +316,8 @@ nav .input-field {
     font-size: 4vh;
     margin-left: 5vw;
     color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 

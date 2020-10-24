@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-{{ the_title }}
 <div class="row">
+<h5 class="center">Enter the title you gave this review to make sure it's yours </h5>
   <form action="{{ url_for('confirm_title', review_id=title._id) }}" method="POST" class="col s12">
     <input type="text" id="" name="is_correct" value=""  required />
     <div class="input-field col s12">
 		<label for="is_correct">Confirm review title</label>
 	</div>
-    <div class="center_btn delete_outter">
-      <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
+    <div class="center_btn">
+      <button class="lined thin btn-large waves-effect waves-light validate" type="submit">
         Confirm review title
       </button>
     </div>
