@@ -12,12 +12,12 @@
     <div class="row">
       <div class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="start_date" name="start_date" type="text" class="datepicker" />
+        <input id="start_date" name="start_date" type="text" class="datepicker" value="" />
         <label for="start_date">Start date - Required</label>
       </div>
       <div id="endDate" class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="end_date" name="end_date" type="text" class="datepicker" />
+        <input id="end_date" name="end_date" type="text" class="datepicker" value="" />
         <label for="end_date">End date - Required</label>
       </div>
     </div>
@@ -54,6 +54,8 @@
   </form>
 </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 {% endblock %}

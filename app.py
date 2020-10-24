@@ -292,10 +292,6 @@ def view_review(review_id):
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 
-@app.route('/all_done')
-def all_done():
-    return render_template('alldone.html')
-
 
 #---------------Edit/update-----------------#
 
@@ -443,13 +439,14 @@ def delete_section(section_id, cat_name):
 
 @app.route('/confirm_delete/<review_id>/<cat_name>', methods=['POST', 'GET'])
 def confirm_delete(review_id, cat_name):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
     common = mongo.db[cat_name].find_one({"_id": ObjectId(review_id)})
     the_title = common['review_title']
     input_title = request.form['is_correct']
     if input_title.lower() == the_title:
+        title_main = mongo.db.title.find_one({"review_title": input_title.lower()})
         mongo.db[cat_name].remove({'_id': ObjectId(review_id)})
-        mongo.db.title.remove_one({"review_title": the_title})
-        return render_template('alldone.html', common=common, input_title=input_title)
+        return redirect(url_for('view_review', review_id=title_main['_id']))
     else:
         not_quite = "Sorry, that's not the correct title"
         return render_template('delete.html', cat_name=cat_name, common=common, common_id=common['_id'], not_quite=not_quite)
@@ -469,7 +466,8 @@ def confirm_delete_all(title_id):
         if title['review_title'] == input_title.lower():
             title = { "review_title": input_title}
             mongo.db[x].delete_many(title)
-    return render_template('alldone.html', title=title)
+            mongo.db.title.remove({"review_title": input_title})
+    return redirect(url_for('home'))
 
 
 #--------------------------Search---------------------------#
