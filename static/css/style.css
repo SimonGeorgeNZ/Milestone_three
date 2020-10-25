@@ -27,76 +27,47 @@ html {
     align-content: center;
 }
 
+.lined.thick{
+    border:solid 7px #41403E;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.lined.thin{
+    border:solid 2px #41403E;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.center {
+    align-content: center!important;
+    padding-top: 0!important;
+    text-justify: distribute!important;
+}
+
+.title {
+    padding-left: 2vw!important;
+    padding-right: 2vw!important;
+    margin-bottom: 0;
+    margin-top: 9vh;
+    font-size: 4vh!important;
+}
+
+.page_top {
+    padding-top: 1vh;
+}
+
+/*--------------------------Buttons------------------*/
+
+
 .btn{
     background-color: lightgrey!important;
     color: black!important;
     box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
 }
 
-
-.collapsible-body {
-    border:solid 2px #41403E!important;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px!important;
-}
-
-.lined.thick{
-         border:solid 7px #41403E;
-         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      }
-.lined.thin{
-         border:solid 2px #41403E;
-         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-      }
-
-nav {
-    margin-top: 5vw;
-    width: auto;
-    padding-left: 4vw;
-    padding-right: 4vw;
-    background-color: transparent;
-    margin-bottom: 8vh!important;
-}
-
-
-.nav-wrapper {
-    background-image: url("../images/map.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-
-.nav-wrapper a {
-    color: black;
+.mine_btn {
+    justify-content: center;
+    padding-top: 4vw;
     padding-left: 2vw;
-    padding-right: 2vw;
-    padding-top: 1vh!important;
-    margin-bottom: 1vh;
-    height: 8vh;
-}
-
-.brand-logo {
-    font-size: 6vh!important;
-    margin-top: 3vh;
-}
-
-.nav-wrapper li:hover{
-    text-decoration-line: underline;
-    text-decoration-style: 'Patrick Hand SC';
-    padding-top: 1vh; 
-}
-
-
-.side-nav {
-    margin-top: 15%;
-    padding-top: 5%;
-    background-image: url("../images/ripped_paper.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: transparent;
-}
-
-.side-nav li {
-    font-size: 6vh;
+    min-width: 15vw;
 }
 
 .center_btn {
@@ -114,12 +85,210 @@ nav {
     min-width: 3vw!important;
 }
 
-.mine_btn {
-    justify-content: center;
-    padding-top: 4vw;
-    padding-left: 2vw;
-    min-width: 15vw;
+
+/*--------------------------Data display------------------*/
+
+
+.collapsible-body {
+    border:solid 2px #41403E!important;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px!important;
 }
+
+.list_country {
+    color: black;
+    font-size: 4vh;
+}
+
+.list_country:hover {
+    text-decoration-line: underline;
+}
+
+.country_list:hover {
+    transform: scale(1.1);
+    background-color: lightgray;
+}
+
+.country_list {
+    display: inline-block;
+    margin-top: 2vw;
+    margin-right: 1vw;
+    transition: background-color .5s;
+}
+
+.validate {
+    background-color: lightgray;
+    font-size: 4vh;
+    margin-left: 5vw;
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.title-left {
+    margin-left: 12vw;
+    float: left;
+    font-size: 3vh;
+    margin-bottom: -.7vh!important;
+    margin-top: -.7vh!important;
+    padding: 1vh .8vw;
+}
+
+.title-left-2 {
+    margin-left: 5vw;
+    float: left;
+    font-size: 3vh;
+    margin-bottom: -.7vh!important;
+    margin-top: -.7vh!important;
+    padding: 1vh .8vw;
+}
+
+.title-right {
+    margin-right: 6vw;
+    float: right;
+    font-size: 3vh;
+    margin-top: -.7vh!important;
+    margin-bottom: -.7vh!important;
+    padding: .4vh .5vw;
+}
+
+.title-right-2 {
+    margin-right: 4vw;
+    float: right;
+    font-size: 3vh;
+    margin-top: -.7vh!important;
+    margin-bottom: -.7vh!important;
+    text-overflow: wrap;
+    width: 65%;
+    padding: .4vh .5vw;
+}
+
+.title-mid {
+    text-align: center;
+    font-size: 4vh;
+    font-weight: 200;
+    margin-top: .6vh!important;
+}
+
+
+
+/*-------------------------Nav---------------------------*/
+
+
+nav {
+    margin-top: 5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background-color: transparent;
+}
+.nav-wrapper {
+    background-image: url("../images/map.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.nav-wrapper .nav-link a {
+    color: black;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-bottom: 1vh;
+    height: 8vh;
+    transition: color 50ms;
+}
+.nav-wrapper .nav-link a:hover {
+    color: white;
+}
+.brand-logo {
+    font-size: 6vh;
+    margin-top: 2vh;
+    margin-left: 3vw;
+    color: black!important;
+    transition: 150ms;
+}
+.brand-logo:hover{
+    text-decoration-line: underline;
+}
+
+.nav-wrapper .nav-link:hover{
+    text-decoration-line: underline;
+    text-decoration-style: 'Patrick Hand SC';
+    margin-top: 4vh;
+    background-color: darkgray;
+}
+.nav-wrapper .nav-link {
+    transition: .5s;
+    padding-bottom: 1vh;
+}
+.side-nav {
+    margin-top: 15%;
+    padding-top: 5%;
+    background-image: url("../images/ripped_paper.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.side-nav li {
+    font-size: 6vh;
+}
+.nav-wrapper .input-field input[type=search]{
+    padding-left: 2vw!important;
+    padding-top: 3vh;
+    margin-top: 1vh;
+    background-color: transparent;
+    height: 4vh;
+}
+nav .nav-wrapper {
+    height: 15vh;;
+}
+.side-nav li>a {
+    padding-top: 7vh;
+    font-size: 7vh;
+    padding-left: 10vw;
+}
+.side-nav .input-field {
+    padding-left: 10vw;
+    padding-top: 5vh;
+}
+.side-nav .input-field label {
+    padding-left: 5vw;
+    padding-top: 3vh;
+}
+.m-glass label {
+    padding-left: 70vw!important;
+    color: black;
+}
+.nav-link {
+    margin-top: 1.5vh;
+    margin-right: 2vw!important;
+}
+.search-link {
+    margin-top: 3vh;
+    margin-right: 3vw!important;
+    min-height: 12vh;
+    min-width: 20vw;
+}
+nav .input-field label i {
+    color: black!important;
+}
+nav .input-field {
+    margin-top: 1vh;
+    padding-left: 2.5vw;
+}
+.search_cl {
+    margin-left: 3vw!important;
+}
+.nav-link a {
+    font-size: 6vh;
+    padding-top: .5vh;
+}
+.search-link label {
+    padding-right: 3vw;
+}
+
+.search-link input[type="search"] {
+    font-size: 4vh!important;
+}
+
+/*-------------------------Input---------------------------*/
+
 
 .picker__date-display {
     background-color: transparent;
@@ -155,7 +324,6 @@ nav {
 input {
     border-bottom: black solid 2px!important;
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    font-size: 2vw!important;
 }
 
 label {
@@ -173,6 +341,9 @@ label {
     height: 100%;
 }
 
+
+/*------------------------Data cards---------------------------*/
+
 .card {
     background-image: url("../images/postitsummer.png");
     background-repeat: no-repeat;
@@ -182,7 +353,6 @@ label {
 }
 
 
-
 .card-content {
     padding-top: 15%!important;
     padding-right: 1vw!important;
@@ -190,9 +360,7 @@ label {
     text-overflow: wrap;
     min-height: 29vh;
     width: auto;
-
 }
-
 
 
 .card-action {
@@ -200,34 +368,12 @@ label {
 }
 
 
-.center {
-    align-content: center!important;
-    padding-top: 0!important;
-    text-justify: distribute!important;
-}
-
-
-
-.title {
-    padding-left: 2vw!important;
-    padding-right: 2vw!important;
-    margin-bottom: 0;
-    font-size: 4vh!important;
-}
-
-
-
-.nav-wrapper .input-field input[type=search]{
-    padding-left: 2vw!important;
-    padding-top: 3vh;
-    margin-top: 1vh;
-    background-color: transparent;
-    height: 4vh;
-}
-
 .card-action:hover {
     text-decoration-line: underline;
 }
+
+
+/*------------------------Media Querys---------------------------*/
 
 
 @media(max-width: 576px) {
@@ -254,96 +400,6 @@ label {
         height: 10vh!important;
     }
 }
-
-nav .nav-wrapper {
-    height: 15vh;;
-}
-
-.side-nav li>a {
-    padding-top: 7vh;
-    font-size: 7vh;
-    padding-left: 10vw;
-}
-
-.side-nav .input-field {
-    padding-left: 10vw;
-    padding-top: 5vh;
-}
-
-.side-nav .input-field label {
-    padding-left: 5vw;
-    padding-top: 3vh;
-}
-
-.m-glass label {
-    padding-left: 70vw!important;
-}
-
-.nav-link {
-    margin-top: 4vh;
-    margin-right: 2vw!important;
-}
-
-nav .input-field label i {
-    color: black!important;
-}
-
-nav .input-field {
-    margin-top: 1.5vh;
-    padding-left: 2.5vw;
-}
-
-.search_cl {
-    margin-left: 3vw!important;
-}
-
-.nav-link a {
-    font-size: 5vh;
-    padding-top: .5vh;
-}
-
-.nav-link label {
-    font-size: 3vh;
-    padding-right: 3vw;
-}
-
-
-.list_country {
-    color: black;
-    font-size: 4vh;
-}
-
-.list_country:hover {
-    text-decoration-line: underline;
-}
-
-.country_list:hover {
-    transform: scale(1.1);
-    background-color: lightgray;
-}
-
-.country_list {
-    display: inline-block;
-    margin-top: 2vw;
-    margin-right: 1vw;
-    transition: background-color .5s;
-}
-
-.validate {
-    background-color: lightgray;
-    font-size: 4vh;
-    margin-left: 5vw;
-    color: black;
-    padding-left: 2vw;
-    padding-right: 2vw;
-}
-
-.page_top {
-    padding-top: 1vh;
-}
-
-
-
 
 
 

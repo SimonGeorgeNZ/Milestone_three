@@ -18,7 +18,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="thin lined nav-link"><a href="{{url_for('new_country')}}">New Review</a></li>
         <li>
-        <div class="input-field thin lined nav-link">
+        <div class="input-field thin lined search-link">
         <form action="{{ url_for('review_search') }}" method="POST">
         <label class="label-icon" for="search"><i class="m-glass material-icons prefix">search</i></label>
           <input id="search" name="search" type="search" required>
@@ -33,8 +33,8 @@
     <li>
     <div class="input-field">
         <form action="{{ url_for('review_search') }}" method="POST">
+        <label class="search_cl" for="icon_prefix">Search for countries</label>
           <input id="search" name="search" type="search" required>
-          <label class="search_cl" for="icon_prefix">Search for countries</label>
           <i class="material-icons">close</i>
         </form>
         </div>

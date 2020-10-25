@@ -1,25 +1,28 @@
 {% extends 'base.html'%} {% block content %}
-<div class="row center">
+<div class="row">
 
   <div class="row title">
       <div class="col s12">
-        <p>Stayed at an awesome hostel?
-        <br>
-        Want to shout out to the best coffee you found in The UK
-        <br>
-        Maybe you want ideas of what to do on your next trip?
-        <br>
-        See what like minded people have to say about places you want to go,
-          and let others know about places you've been.
-          <br>
-          View the latest reviews below or search for countries or cities in the menu above
-        </p>
+        <p class="title-left lined thin">Stayed at an awesome hostel?</p>
+      </div>
+      <div class="col s12">
+       <p class="title-right lined thin"> Want to shout out to the best coffee you found in The UK</p>
+      </div>
+      <div class="col s12">
+        <p class="title-left-2 lined thin">Maybe you want ideas of what to do on your next trip?</p>
+        </div>
+        <div class="col s12">
+        <p class="title-right-2 lined thin">See what like minded people have to say about places you want to go and 
+        let others know about places you've been.</p>
+        </div>
+        <div class="col s12">
+          <p class="title-mid lined thin">View the latest reviews below or search for countries or cities in the menu above</p>
+          </div>
       </div>
   </div>
   <div class="col s12 center">
     <h4>The only real question is, Where to Next?</h4>
   </div>
-</div>
 
 <div class="row">
   {% for title in titles %}
