@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
 <div class="row">
+
 <h5 class="center">Enter the title you gave this review to make sure it's yours </h5>
+{{ not_quite }}
   <form action="{{ url_for('confirm_title', review_id=title._id) }}" method="POST" class="col s12">
     <input type="text" id="" name="is_correct" value=""  required />
     <div class="input-field col s12">

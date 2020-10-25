@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Lato);
 /*--------------------------Generic styling------------------*/
 html, body {
   font-family: 'Patrick Hand SC';
@@ -52,6 +54,7 @@ nav {
     padding-left: 4vw;
     padding-right: 4vw;
     background-color: transparent;
+    margin-bottom: 8vh!important;
 }
 
 
@@ -73,7 +76,7 @@ nav {
 
 .brand-logo {
     font-size: 6vh!important;
-    padding-bottom: 3vh!important;
+    margin-top: 3vh;
 }
 
 .nav-wrapper li:hover{
@@ -178,12 +181,15 @@ label {
     text-align: center;
 }
 
+
+
 .card-content {
     padding-top: 15%!important;
     padding-right: 1vw!important;
     padding-left: 1vw!important;
     text-overflow: wrap;
     min-height: 29vh!important;
+    width: auto;
 
 }
 
@@ -319,7 +325,6 @@ nav .input-field {
     padding-left: 2vw;
     padding-right: 2vw;
 }
-
 
 
 

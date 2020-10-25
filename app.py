@@ -467,7 +467,10 @@ def confirm_delete_all(title_id):
             title = { "review_title": input_title}
             mongo.db[x].delete_many(title)
             mongo.db.title.remove({"review_title": input_title})
-    return redirect(url_for('home'))
+            return redirect(url_for('home'))
+        else:
+            not_quite = "Sorry, that's not the correct title"
+            return render_template('delete.html', common=False, title=title, cat_name=False, not_quite=not_quite)
 
 
 #--------------------------Search---------------------------#
@@ -520,6 +523,9 @@ def confirm_title(review_id):
     the_title = title['review_title']
     if input_title.lower() == the_title:
         return redirect(url_for('view_review', review_id=title['_id']))
+    else:
+        not_quite = "Sorry, that's not the correct title"
+        return render_template('validate.html', not_quite=not_quite, title=title)
 
 
 if __name__ == '__main__':

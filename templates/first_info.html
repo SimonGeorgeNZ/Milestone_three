@@ -1,8 +1,9 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
-
-<h3 class="heading-box">Add Some initial info to {{title.city_name |title}}</h3>
-
+<div class="row">
+<div class="col center s12">
+<h4 class="heading-box">Add Some initial info to {{title.city_name |title}}</h4>
+</div>
 <div class="row">
   <form action="{{ url_for('add_review_info', review_id=title._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
@@ -12,12 +13,12 @@
     <div class="row">
       <div class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="start_date" name="start_date" type="text" class="datepicker" value="" />
+        <input id="start_date" name="start_date" type="text" class="datepicker" required />
         <label for="start_date">Start date - Required</label>
       </div>
       <div id="endDate" class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="end_date" name="end_date" type="text" class="datepicker" value="" />
+        <input id="end_date" name="end_date" type="text" class="datepicker" required />
         <label for="end_date">End date - Required</label>
       </div>
     </div>
@@ -54,8 +55,11 @@
   </form>
 </div>
 </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 
 
 {% endblock %}

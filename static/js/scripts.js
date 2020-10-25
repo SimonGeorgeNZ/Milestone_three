@@ -8,12 +8,12 @@ $(document).ready(function () {
 });
 
 $(".datepicker").pickadate({
-  selectMonths: true, // Creates a dropdown to control month
-  selectYears: 15, // Creates a dropdown of 15 years to control year,
+  selectMonths: true, 
+  selectYears: 15, 
   today: "Today",
   clear: "Clear",
   close: "Ok",
-  closeOnSelect: false, // Close upon selecting a date,
+  closeOnSelect: false, 
 });
 
 $(document).ready(function () {
@@ -28,5 +28,6 @@ $(document).ready(function () {
     .set("select", end_date, { format: "dd/mm/yyyy" })
     .trigger("change");
 });
+
 
 

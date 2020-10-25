@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
+<div class="row">
+<div class="col center s12">
 <h3 class="heading-box">Add a title to your review of {{city.city_name |title}}</h3>
 <div class="row">
 <p>Pick a title that is unique to this review, it won't be displayed when anyone views it, but you will be asked 
@@ -25,5 +27,7 @@ to provide it if you want to update or delete your review later, so treat it lik
   </form>
 </div>
 </div>
+</div>
+
 
 {% endblock %}
