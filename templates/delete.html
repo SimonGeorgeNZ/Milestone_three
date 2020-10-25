@@ -146,11 +146,11 @@ otherwise confirm your delete by confirming the title you gave to your review in
   </form>
 </div>
 {% elif cat_name == False %}
-<h5>{{ not_quite }}</h5>
+
 <div class="row">
   <form action="{{ url_for('confirm_delete_all', title_id=title._id ) }}" method="POST" class="col s12">
   <label for="is_correct">Confirm review title</label>
-    <input type="text" id="" name="is_correct" value=""  required />
+    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
     <div class="input-field col s12">
     <div class="center_btn delete_outter">
       <button class="lined thin delete btn-large waves-effect waves-light" type="submit">
