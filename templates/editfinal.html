@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<h3>Edit your final comments to {{title.city_name |title}}</h3>
+<h3>Edit your final comments for {{title.city_name |title}}</h3>
 <div class="row">
   <form action="{{ url_for('update_final', final_id=final._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>

@@ -1,24 +1,21 @@
 {% extends 'base.html' %} {% block content %}
-<div class="row">
+<div class="container">
+<div class="row page_top">
 <div class="col center s12">
   <h3 class="heading-box">View review for {{title.city_name |title}}</h3>
   <h5>Country = {{ country.country_name }}</h5>
   <h5><strong>City = {{ country.city_name }}</strong></h5>
-  </div>
-</div>
+
 
 <a href="{{url_for('validate', review_id = title._id)}}" class="lined thin validate">Is this your review? Click here to edit or delete</a>
 
 
 <div class="row">
   <div class="col s12">
-    <form action="" class="col s12">
       <ul class="collapsible popout">
         <li>
           <div class="lined thin collapsible-header active">
-            <i class="material-icons">filter_drama</i>When was your trip? How
-            long were you there for? What was the reason? Were you kicking it
-            solo or with a tour?
+            <i class="material-icons">filter_drama</i>Overview
           </div>
           <div class="lined thin collapsible-body">
             <span>
@@ -244,8 +241,10 @@
           <i class="material-icons right">playlist_add</i>
         </button>
       </div>
-    </form>
   </div>
+</div>
+</div>
+</div>
 </div>
 
 {% endblock %}

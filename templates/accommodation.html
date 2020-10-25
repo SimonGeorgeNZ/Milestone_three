@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container">
-<div class="row">
+<div class="container page_top">
 <h3 class="heading-box">Add accommodation to {{title.city_name |title}}</h3>
 <a href="{{url_for('skip_accom', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
   <form action="{{ url_for('insert_accom', review_id=title._id)}}" method="POST" class="col s12">
@@ -76,7 +75,6 @@
       </button>
     </div>
   </form>
-</div>
 </div>
 
 

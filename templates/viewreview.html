@@ -1,42 +1,42 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
+<div class="row page_top">
+<div class="col center s12">
 <h3 class="heading-box">View what you've written for {{title.city_name |title}}</h3>
-<h5 class="center">You have an opportunity to edit your review here as well</h5>
+<h5>You have an opportunity to edit your review here as well</h5>
 <h5>Country = {{ country.country_name | title}}</h5>
 <h5><strong>City = {{ city | title }}</strong></h5>
 
-<div class="row">
-  <div class="col s12">
+
     <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
       <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
       <ul class="collapsible popout">
         <li>
           <div class="lined thin collapsible-header active">
-            When was your trip? How
-            long were you there for? What was the reason? Were you kicking it
-            solo or with a tour?</div>
+            <i class="material-icons">filter_drama</i>Overview
+          </div>
           <div class="lined thin collapsible-body">
           <span>
           {% if first.review_title == title.review_title %}
           <div class="row">
                 <div class="row">
-                  <div class="lined thin col s6">
+                  <div class="lined thin col s12 m6">
                     <h5>Start Date - {{ first.start_date }}</h5>
                   </div>
-                  <div class="lined thin col s6">
+                  <div class="lined thin col s12 m6">
                     <h5>End Date - {{ first.end_date }}</h5>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="lined thin col s4">
+                  <div class="lined thin col s12 m4">
                     <h6><strong>what was the reason for your trip?</strong></h6>
                     {{ first.reason }}
                   </div>
-                  <div class="lined thin col s4">
+                  <div class="lined thin col s12 m4">
                     <h6><strong>The event I attended was</strong></h6>
                     {{ first.event }}
                   </div>
-                  <div class="lined thin col s4">
+                  <div class="lined thin col s12 m4">
                     <h6><strong>For this trip I traveled.....</strong></h6>
                     {{ first.s_or_g }}
                   </div>
@@ -62,19 +62,19 @@
                     <h5>Accommodation name</h5>
                     <a href="{{ a.accom_site }}">{{ a.accom_name | title }}</a>
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Accommodation Style</strong></h6>
                     {{ a.accom_style }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Price per night</strong></h6>
                     {{ a.accom_price }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Accommodation Address</strong></h6>
                     {{ a.accom_address }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Accommodation Clenliness</strong></h6>
                     {{ a.accom_clean }}
                   </div>
@@ -114,24 +114,24 @@
                   </div>
               </div>
               <div class="row">
-                <div class="lined thin col m4 s6">
+                <div class="lined thin col s12 m6">
                   <h6><strong>Attraction Cost</strong></h6>
                   {{ at.attract_cost }} - In local currency
                 </div>
-                <div class="lined thin col m4 s6">
+                <div class="lined thin col s12 m6">
                   <h6><strong>Attraction type</strong></h6>
                   {{ at.attract_type }}
                 </div>
               </div>
-                <div class="lined thin col m4 s6">
+                <div class="lined thin col s12 m6">
                   <h6><strong>Guided or self tour?</strong></h6>
                   {{ at.attract_guide }}
                 </div>
-                <div class="lined thin col m4 s6">
+                <div class="lined thin col s12 m6">
                   <h6><strong>Do you need a ticket?</strong></h6>
                   <a href="{{ at.ticket_site }}">{{ at.attract_ticket }}</a>
                 </div>
-                <div class="lined thin col m4 s6">
+                <div class="lined thin col s12 m6">
                   <h6>
                     <strong>How long should someone put aside for this?</strong>
                   </h6>
@@ -171,25 +171,25 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Venue style</strong></h6>
                     {{ h.hospo_style }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Service rating</strong></h6>
                     {{ h.hospo_service_rate }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Opening hours</strong></h6>
                     {{ h.hospo_hours }}
                   </div>
-                  <div class="lined thin col m3 s6">
+                  <div class="lined thin col s12 m6">
                     <h6><strong>Approximate cost</strong></h6>
                     {{ h.hospo_cost }}
                   </div>
                 </div>
                 <div class="row">
-                <div class="lined thin col m12 s6">
+                <div class="lined thin col s12">
                   <h6><strong>Any final comments?</strong></h6>
                   {{ h.hospo_comment }}
                 </div>
@@ -210,11 +210,11 @@
             <span>
             {% if final.review_title == title.review_title %}
               <div class="row">
-                <div class="lined thin col m6 s12">
+                <div class="lined thin col s12 m6">
                   <h6>Transport from the airport or trainstation</h6>
                   {{ final.ap_transport }}
                 </div>
-                <div class="lined thin col m6 s6">
+                <div class="lined thin col s12 m6">
                   <h6><strong>Transport around the city</strong></h6>
                   {{ final.city_transport }}
                 </div>
@@ -258,5 +258,6 @@
   </div>
 </div>
 </div>
+
 
 {% endblock %}

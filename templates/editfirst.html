@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<h3>Edit your review for {{title.city_name |title}}</h3>
+<div class="row page_top">
+<div class="row center">
+<h3>Edit your overview for {{title.city_name |title}}</h3>
+</div>
 <div class="row">
   <form action="{{ url_for('update_first', first_id=first._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
@@ -49,8 +52,12 @@
   </form>
 </div>
 </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+
+
 
 
 
