@@ -462,15 +462,17 @@ def delete_all(title_id):
 def confirm_delete_all(title_id):
     title = mongo.db.title.find_one({"_id": ObjectId(title_id)})
     input_title = request.form['is_correct']
-    for x in db_categories:
-        if title['review_title'] == input_title.lower():
-            title = { "review_title": input_title}
-            mongo.db[x].delete_many(title)
-            mongo.db.title.remove({"review_title": input_title})
-            return redirect(url_for('home'))
-        else:
-            not_quite = "Sorry, that's not the correct title"
-            return render_template('delete.html', common=False, title=title, cat_name=False, not_quite=not_quite)
+    if title['review_title'] == input_title.lower():
+        mongo.db.first_info.remove({"review_title": input_title}),
+        mongo.db.accommodation.remove({"review_title": input_title}),
+        mongo.db.attractions.remove({"review_title": input_title}),
+        mongo.db.hospitality.remove({"review_title": input_title}),
+        mongo.db.reviews.remove({"review_title": input_title}),
+        mongo.db.title.remove({"review_title": input_title})
+        return redirect(url_for('home'))
+    else:
+        not_quite = "Sorry, that's not the correct title"
+        return render_template('delete.html', common=False, title=title, cat_name=False, not_quite=not_quite)
 
 
 #--------------------------Search---------------------------#
