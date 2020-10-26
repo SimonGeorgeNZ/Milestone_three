@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<h3>Edit your hospitality entry for {{title.city_name |title}}</h3>
+<div class="head-main">Edit your hospitality entry for {{title.city_name |title}}</h3>
 <div class="row input_doc">
   <form action="{{ url_for('update_hospo', hospo_id=hospo._id) }}" method="POST" class="col s12">
   <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>

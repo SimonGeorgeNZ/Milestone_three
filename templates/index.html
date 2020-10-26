@@ -1,40 +1,48 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
 
-  <div class="row title">
+  <div class="row title title-main">
       <div class="col s12">
-        <p class="title-left lined thin">Stayed at an awesome hostel?</p>
+        <p class="title-left front-font lined thin">Stayed at an awesome hostel?</p>
       </div>
       <div class="col s12">
-       <p class="title-right lined thin"> Want to shout out to the best coffee you found in The UK</p>
+       <p class="title-right front-font lined thin"> Want to shout out to the best coffee you found in The UK</p>
       </div>
       <div class="col s12">
-        <p class="title-left-2 lined thin">Maybe you want ideas of what to do on your next trip?</p>
+        <p class="title-left-2 front-font lined thin">Maybe you want ideas of what to do on your next trip?</p>
         </div>
         <div class="col s12">
-        <p class="title-right-2 lined thin">See what like minded people have to say about places you want to go and 
+        <p class="title-right-2 front-font lined thin">See what like minded people have to say about places you want to go and 
         let others know about places you've been.</p>
         </div>
         <div class="col s12">
           <p class="title-mid lined thin">View the latest reviews below or search for countries or cities in the menu above</p>
           </div>
+          <div class="col s12 center">
+            <p class="title-main thin lined">The only real question is, Where to Next?</p>
+        </div>
       </div>
-  </div>
-  <div class="col s12 center">
-    <h4>The only real question is, Where to Next?</h4>
-  </div>
+      <div class="row mobile-title">
+      <div class="col s12">
+      <p class="title-mid center lined thin"> Share experiences, the good, the bad, and probably - The ugly.</p>
+      
+      </div>
+      
+      </div>
+  
 
 <div class="row">
+
   {% for title in titles %}
-  <div class="col s6 m6 l4">
+  <div class="col cards s6 m6 l4">
     <div id="card" class="card">
       <div class="card-content">
         <div class="row">
           <div class="col s12">
             {% for city in cities %} {% if city.city_name == title.city_name %}
-            <h5>Country - {{ city.country_name }}</h5>
+            <p class="head-sub">Country - {{ city.country_name }}</p>
             {% endif %} {% endfor %}
-            <h5>City - {{title.city_name}}</h5>
+            <p class="head-sub">City - {{title.city_name}}</p>
           </div>
         </div>
       </div>
@@ -44,6 +52,7 @@
     </div>
   </div>
   {% endfor %}
+</div>
 </div>
 
 

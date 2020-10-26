@@ -2,8 +2,8 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
 <div class="row">
-<div class="col center s12">
-<h3 class="heading-box">Add a city to {{country.country_name |title}} </h3>
+<div class="col title center s12">
+<p class="heading-box head-main">Add a city to {{country.country_name |title}} </p>
   </div>
 </div>
 <form action="{{ url_for('insert_city') }}"  method="POST" class="col s12">

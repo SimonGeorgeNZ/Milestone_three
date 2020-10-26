@@ -2,21 +2,22 @@
 {% extends 'base.html' %}{% block content %}
 <div class="container">
 <div class="row">
-<div class="col center s12">
-  <h3 class="heading-box">Pick City for {{country.country_name |title}}</h3>
-  <h5>Select your city from this list if it's there, if not, simply add it with the form below</h5>
+<div class="col title s12">
+  <p class="heading-box head-main">Pick City for {{country.country_name |title}}</p>
+  <p class="head-sub">Select your city from this list if it's there, if not, simply add it with the form below</p>
   </div>
 </div>
 
 {% for city in cities %}
-<a href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name |title}}</a>
-
+<div class=" col s12">
+<a class="option lined thin" href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name |title}}</a>
+</div>
 
 {% endfor %}
 
 
 <form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
-    <h3 class="heading-box">Add a new city for {{country.country_name |title}} </h3>
+    <p class="heading-box head-main">Add a new city for {{country.country_name |title}} </p>
 	<input type="hidden" id="country_name" name="country_name" value="{{country.country_name}}" readonly/>
 
     <div class="input-field col s12">
