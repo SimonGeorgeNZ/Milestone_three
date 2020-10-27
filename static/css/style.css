@@ -11,8 +11,7 @@ html, body {
 .main {
     padding-left: 4vw;
     padding-right: 4vw;
-    min-height: 100%;
-    width: auto;
+    
 }
 
 .font {
@@ -54,9 +53,10 @@ html {
 }
 
 .title-main {
-    font-size: 8vh;
+    font-size: 7vh;
     display: block;
-    width: 100%
+    width: 100%;
+    text-align: center;
     
 }
 
@@ -69,7 +69,6 @@ html {
 
 .head-sub {
     font-size: 5vh;
-    text-align: center!important;
 }
 
 .material-icons {
@@ -91,6 +90,10 @@ html {
 
 input[type=text] {
     font-size: 5vh!important;
+}
+.mobile-title{
+        display: none;
+        margin-top: 2vh;
 }
 
 
@@ -238,6 +241,11 @@ nav {
     display: block;
     min-height: 14vh;
 }
+
+nav .nav-wrapper .brand-logo {
+    font-size: 7vh;
+}
+
 .nav-wrapper {
     background-image: url("../images/map.png");
     background-repeat: no-repeat;
@@ -255,7 +263,6 @@ nav {
 }
 .brand-logo {
     margin-top: 2vh;
-    font-size: 6vh;
     margin-left: 3vw;
     color: black!important;
     transition: 150ms;
@@ -331,7 +338,7 @@ nav .input-field {
     margin-left: 3vw!important;
 }
 .nav-link a {
-    font-size: 5vh;
+    font-size: 4vh;
     padding-top: .5vh;
 }
 .search-link label {
@@ -405,14 +412,11 @@ label {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: transparent;
-    text-align: center;
-    min-height: 40vh!important;
-    display: inline;
+    padding-top: 7vh!important;
 }
 
 
 .card-content {
-    padding-top: 15%!important;
     padding-right: 1vw!important;
     padding-left: 1vw!important;
 }
@@ -420,6 +424,7 @@ label {
 
 .card-action {
     transition: ease-in-out .3s;
+    text-align: center;
 }
 
 
@@ -439,24 +444,63 @@ label {
 
 /*------------------------Media Querys---------------------------*/
 
-@media screen and (min-width: 600px) { /*--------mobile------*/
+
+@media screen and (max-width: 992px) { /*--------Tablet------*/
     body {
         min-height: 100%;
         width: auto;
-    }
-    .mobile-title{
-        display: none;
-        margin-top: 2vh;
     }
     .title-right-2 {
         width: 85%;
     }
     .title-main {
+        font-size: 5vh;
         margin-top: 4vh;
         margin-bottom: 0;
     }
     .title-mid {
         margin-bottom: 0!important;
+    }
+    .brand-logo {
+        width: 100%;
+        text-align: center;
+        margin-top: 4vh;
+    }
+    nav .nav-wrapper i {
+        font-size: 5vh;
+    }
+    .card {
+        min-height: 30vh;
+    }
+    .card-content{
+        padding-right: .5vw;
+        padding-left: .5vw;
+    }
+    .card-action {
+        font-size: 2vh;
+    }
+    .card-action a {
+        padding-left: 0!important;
+        margin-right: 0!important;
+    }
+    .front-font {
+        font-size: 2vh;
+    }
+    .side-nav li>a {
+        padding-top: 1vh;
+        font-size: 3vh;
+        padding-left: 5vw;
+    }
+    .side-nav .input-field {
+        padding-left: 5vw;
+        padding-top: 1vh;
+    }
+    .side-nav .input-field label {
+        padding-left: 5vw;
+        padding-top: 1vh;
+    }
+    .head-sub {
+        font-size: 3vh;
     }
 }
 
@@ -475,44 +519,35 @@ label {
         margin-top: 7vh;
     }
     .card {
-        padding-top: 6vh;
-        min-height: 10vh!important;
+        margin-bottom: 0!important;
+        padding-bottom: 4vh;
     }
     .card-content{
-        padding-right: .5vw!important;
-        padding-left: .5vw!important;
-        text-align: left;
-        width: auto;
+        padding-right: .5vw;
+        padding-left: .5vw;
+        padding-bottom: 3vh;
     }
     .card-action {
         font-size: 1.5vh;
     }
     .card-action a {
         padding-left: 0!important;
-        width: 100%;
         margin-right: 0!important;
     }
     .title {
         margin-top: 2vh;
     }
     .front-font {
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
     .title-mid {
         font-size: 3vh;
     }
     .title-main {
-        font-size: 5vh;
-    }
-    .head-sub {
-        font-size: 4vh;
-    }
-    .title-main {
         display: none;
     }
-    .mobile-title{
-        display: block;
-        margin-top: 2vh;
+    .head-sub {
+        font-size: 2vh;
     }
     .validate {
         font-size: 3vh;
@@ -520,7 +555,10 @@ label {
         height: auto;
         display: block;
     }
+    .mobile-title{
+        display: block;
+        margin-top: 2vh;
+    }
 }
-
 
 
