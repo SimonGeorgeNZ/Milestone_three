@@ -97,7 +97,7 @@ html {
 }
 
 input[type=text] {
-    font-size: 5vh!important;
+    font-size: 5vh;
 }
 .mobile-title{
         display: none;
@@ -520,12 +520,11 @@ label {
     .nav-wrapper {
         margin-top: 7vh;
     }
-    .card {
-        min-height: 40vh;
-    }
     .card-content{
         padding-right: .5vw;
         padding-left: .5vw;
+        min-height: 10vh;
+        margin-bottom: 3vh;
     }
     .card-action a {
         padding-left: 0!important;
@@ -543,8 +542,11 @@ label {
     .title-main {
         display: none;
     }
+    .head-main {
+        font-size: 4vh;
+    }
     .head-sub {
-        font-size: 2vh;
+        font-size: 3vh;
     }
     .head-least {
         font-size: 1.5vh;
@@ -562,7 +564,7 @@ label {
     .input-field.col label {
         width: 75%!important;
         padding-right: 2vw;
-        font-size: 3vh;
+        font-size: 2vh;
     }
     .center_btn {
         display: inline;
@@ -572,9 +574,16 @@ label {
         height: auto;
         padding-right: 1vw;
         padding-left: 1vw;
+        font-size: 3vh;
     }
     .collapsible-header {
         font-size: 3vh;
+    }
+    .btn-large {
+        font-size: 2vh;
+    }
+    input[type=text] {
+    font-size: 3vh;
     }
 }
 
