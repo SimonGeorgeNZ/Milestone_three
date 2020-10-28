@@ -320,18 +320,24 @@ nav .nav-wrapper .brand-logo {
     height: 4vh;
 }
 
-.side-nav li>a {
-    padding-top: 5vh;
+.side-nav li a {
     font-size: 4vh;
-    padding-left: 13vw;
+    margin-top: 7vh;
+    padding-left: 18vw;
 }
+
 .side-nav .input-field {
     padding-left: 13vw;
-    padding-top: 8vh;
+    margin-top: 5vh;
+    padding-top: 2vh;
 }
+.side-nav .input-field input[type=search] {
+    font-size: 5vh;
+}
+
 .side-nav .input-field label {
     padding-left: 13vw;
-    padding-top: 8vh;
+    font-size: 3vh;
 }
 .m-glass label {
     padding-left: 70vw!important;
@@ -341,12 +347,7 @@ nav .nav-wrapper .brand-logo {
     margin-top: 1.5vh;
     margin-right: 2vw!important;
 }
-.search-link {
-    margin-top: 3vh;
-    margin-right: 3vw!important;
-    min-height: 12vh;
-    min-width: 25vw;
-}
+
 nav .input-field label i {
     color: black!important;
 }
@@ -361,13 +362,7 @@ nav .input-field {
     font-size: 4vh;
     padding-top: .5vh;
 }
-.search-link label {
-    padding-right: 3vw;
-}
 
-.search-link input[type="search"] {
-    font-size: 4vh!important;
-}
 
 /*-------------------------Input---------------------------*/
 
@@ -563,6 +558,23 @@ label {
     .mobile-title{
         display: block;
         margin-top: 2vh;
+    }
+    .input-field.col label {
+        width: 75%!important;
+        padding-right: 2vw;
+        font-size: 3vh;
+    }
+    .center_btn {
+        display: inline;
+    }
+    .center_btn button {
+        margin-bottom: 5vh;
+        height: auto;
+        padding-right: 1vw;
+        padding-left: 1vw;
+    }
+    .collapsible-header {
+        font-size: 3vh;
     }
 }
 
