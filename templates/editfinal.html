@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<div class="head-main">Edit your final comments for {{title.city_name |title}}</h3>
+<div class="row page_top">
+<p class="head-main heading-box">Edit your final comments for {{title.city_name |title}}</p>
+</div>
 <div class="row">
   <form action="{{ url_for('update_final', final_id=final._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
@@ -21,7 +23,7 @@
     <div class="row">
       <div class="input-field col s12 m6">
         <i class="material-icons prefix">directions_bus</i>
-        <input id="ap_transport" name="ap_transport" type="text"value="{{final.ap_transport}}" />
+        <input id="ap_transport" name="ap_transport" type="text" value="{{final.ap_transport}}" />
         <label for="icon_prefix">Travel from airport</label>
       </div>
       <div class="input-field col s12 m6">

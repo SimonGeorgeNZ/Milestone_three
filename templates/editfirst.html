@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
 <div class="row page_top">
-<div class="row center">
-<div class="head-main">Edit your overview for {{title.city_name |title}}</h3>
+<p class="heading-box head-main">Edit your overview for {{title.city_name |title}}</p>
 </div>
 <div class="row">
   <form action="{{ url_for('update_first', first_id=first._id) }}" method="POST" class="col s12">
     <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
-    <h5>Trip dates</h5>
+    <p class="head-sub">Trip dates</p>
       <div class="input-field col s12 m6">
         <i class="material-icons prefix">date_range</i>
         <input id="start_date" name="start_date" type="text" class="datepicker" >
@@ -50,7 +49,6 @@
       </button>
     </div>
   </form>
-</div>
 </div>
 </div>
 

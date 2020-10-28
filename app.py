@@ -412,7 +412,7 @@ def edit_final(final_id):
     return render_template('editfinal.html', title=title, final=the_final, section_id=the_final['_id'])
 
 
-@app.route('/update_final/<final_id>', methods=["GET"])
+@app.route('/update_final/<final_id>', methods=["POST"])
 def update_final(final_id):
     final = mongo.db.reviews
     final.update({'_id': ObjectId(final_id)},

@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
 
-  <div class="row title title-main">
+  <div class="row page_top title-main">
       <div class="col s12">
         <p class="title-left front-font lined thin">Stayed at an awesome hostel?</p>
       </div>
@@ -37,7 +37,6 @@
   <div class="col cards s6 m6 l4">
     <div id="card" class="card">
       <div class="card-content">
-        <div class="row">
           <div class="col s12">
             {% for city in cities %} {% if city.city_name == title.city_name %}
             <p class="head-sub">Country - {{ city.country_name }}</p>
@@ -45,9 +44,8 @@
             <p class="head-sub">City - {{title.city_name}}</p>
           </div>
         </div>
-      </div>
       <div class="card-action">
-        <a class="font" href="{{url_for('landing_link', review_id=title._id)}}">Check out this review</a>
+        <a class="font head-least" href="{{url_for('landing_link', review_id=title._id)}}">Check out this review</a>
       </div>
     </div>
   </div>

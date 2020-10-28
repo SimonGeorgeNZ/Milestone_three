@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container page_top">
-<h3 class="heading-box">Add Hospitality to {{title.city_name |title}}</h3>
+<p class="heading-box head-main">Add Hospitality to {{title.city_name |title}}</p>
 <a href="{{url_for('skip_hospo', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row input_doc">
   <form action="{{ url_for('insert_hospo', review_id=title._id) }}" method="POST" class="col s12">

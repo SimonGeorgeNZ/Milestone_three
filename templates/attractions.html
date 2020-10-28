@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container page_top">
-<h3 class="heading-box">Add things to do to in {{title.city_name |title}}</h3>
+<p class="heading-box head-main">Add things to do to in {{title.city_name |title}}</p>
 <a href="{{url_for('skip_attract', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row">
   <form action="{{ url_for('insert_attract', review_id=title._id) }}" method="POST" class="col s12">

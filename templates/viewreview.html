@@ -2,10 +2,10 @@
 <div class="container">
 <div class="row page_top">
 <div class="col center s12">
-<h3 class="heading-box">View what you've written for {{title.city_name |title}}</h3>
-<h5>You have an opportunity to edit your review here as well</h5>
-<h5>Country = {{ country.country_name | title}}</h5>
-<h5><strong>City = {{ city | title }}</strong></h5>
+<p class="heading-box head-main">View what you've written for {{title.city_name |title}}</p>
+<p class="head-sub">You have an opportunity to edit your review here as well</p>
+<p class="head-sub">Country = {{ country.country_name | title}}</p>
+<p class="head-sub"><strong>City = {{ city | title }}</strong></p>
 
 
     <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
@@ -21,23 +21,23 @@
           <div class="row">
                 <div class="row">
                   <div class="lined thin col s12 m6">
-                    <h5>Start Date - {{ first.start_date }}</h5>
+                    <p class="head-least">Start Date - {{ first.start_date }}</p>
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h5>End Date - {{ first.end_date }}</h5>
+                    <p class="head-least">End Date - {{ first.end_date }}</p>
                   </div>
                 </div>
                 <div class="row">
                   <div class="lined thin col s12 m4">
-                    <h6><strong>what was the reason for your trip?</strong></h6>
+                    <p class="head-least"><strong>what was the reason for your trip?</strong></p>
                     {{ first.reason }}
                   </div>
                   <div class="lined thin col s12 m4">
-                    <h6><strong>The event I attended was</strong></h6>
+                    <p class="head-least"><strong>The event I attended was</strong></p>
                     {{ first.event }}
                   </div>
                   <div class="lined thin col s12 m4">
-                    <h6><strong>For this trip I traveled.....</strong></h6>
+                    <p class="head-least"><strong>For this trip I traveled.....</strong></p>
                     {{ first.s_or_g }}
                   </div>
                 </div>
@@ -59,29 +59,29 @@
               {% for a in accom %}
               {% if a.review_title.lower() == title.review_title %}
                 <div class="lined thin col s12">
-                    <h5>Accommodation name</h5>
+                    <p class="head-least">Accommodation name</p>
                     <a href="{{ a.accom_site }}">{{ a.accom_name | title }}</a>
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Accommodation Style</strong></h6>
+                    <p class="head-least"><strong>Accommodation Style</strong></p>
                     {{ a.accom_style }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Price per night</strong></h6>
+                    <p class="head-least"><strong>Price per night</strong></p>
                     {{ a.accom_price }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Accommodation Address</strong></h6>
+                    <p class="head-least"><strong>Accommodation Address</strong></p>
                     {{ a.accom_address }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Accommodation Clenliness</strong></h6>
+                    <p class="head-least"><strong>Accommodation Clenliness</strong></p>
                     {{ a.accom_clean }}
                   </div>
                   <div class="lined thin col s12">
-                    <h6>
+                    <p class="head-least">
                       <strong>Final comments about your accommodation</strong>
-                    </h6>
+                    </p>
                     {{ a.accom_comment }}
                   </div>
                   <div class="row section">
@@ -105,41 +105,41 @@
               {% if at.review_title == title.review_title %}
               <div class="row">
                   <div class="lined thin col m8 s12">
-                    <h5>Attraction name</h5>
+                    <p class="head-least">Attraction name</p>
                     <a href="{{ at.attract_site }}">{{ at.attract_name | title }}</a>
                   </div>
                   <div class="lined thin col m3 s6">
-                    <h6><strong>Overall attraction rating</strong></h6>
+                    <p class="head-least"><strong>Overall attraction rating</strong></p>
                     {{ at.attract_rating }}
                   </div>
               </div>
               <div class="row">
                 <div class="lined thin col s12 m6">
-                  <h6><strong>Attraction Cost</strong></h6>
+                  <p class="head-least"><strong>Attraction Cost</strong></p>
                   {{ at.attract_cost }} - In local currency
                 </div>
                 <div class="lined thin col s12 m6">
-                  <h6><strong>Attraction type</strong></h6>
+                  <p class="head-least"><strong>Attraction type</strong></p>
                   {{ at.attract_type }}
                 </div>
               </div>
                 <div class="lined thin col s12 m6">
-                  <h6><strong>Guided or self tour?</strong></h6>
+                  <p class="head-least"><strong>Guided or self tour?</strong></p>
                   {{ at.attract_guide }}
                 </div>
                 <div class="lined thin col s12 m6">
-                  <h6><strong>Do you need a ticket?</strong></h6>
+                  <p class="head-least"><strong>Do you need a ticket?</strong></p>
                   <a href="{{ at.ticket_site }}">{{ at.attract_ticket }}</a>
                 </div>
                 <div class="lined thin col s12 m6">
-                  <h6>
+                  <p class="head-least">
                     <strong>How long should someone put aside for this?</strong>
-                  </h6>
+                  </p>
                   {{ at.attract_time }} hours
                 </div>
               <div class="row">
                 <div class="lined thin col s12">
-                  <h6><strong>Any final commments?</strong></h6>
+                  <p class="head-least"><strong>Any final commments?</strong></p>
                   {{ at.attract_comment }}
                  </div>
               </div>
@@ -162,35 +162,35 @@
               <div class="row">
                 <div class="row">
                   <div class="lined thin col m8 s12">
-                    <h5>Name of the venue</h5>
+                    <p class="head-least">Name of the venue</p>
                     <a href="{{ h.hospo_site }}">{{ h.hospo_name | title }}</a>
                   </div>
                   <div class="lined thin col m3 s6">
-                    <h6><strong>Overall vene rating</strong></h6>
+                    <p class="head-least"><strong>Overall vene rating</strong></p>
                     {{ h.hospo_overall_rating }}
                   </div>
                 </div>
                 <div class="row">
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Venue style</strong></h6>
+                    <p class="head-least"><strong>Venue style</strong><p6>
                     {{ h.hospo_style }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Service rating</strong></h6>
+                    <p class="head-least"><strong>Service rating</strong></p>
                     {{ h.hospo_service_rate }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Opening hours</strong></h6>
+                    <p class="head-least"><strong>Opening hours</strong></p>
                     {{ h.hospo_hours }}
                   </div>
                   <div class="lined thin col s12 m6">
-                    <h6><strong>Approximate cost</strong></h6>
+                    <p class="head-least"><strong>Approximate cost</strong></p>
                     {{ h.hospo_cost }}
                   </div>
                 </div>
                 <div class="row">
                 <div class="lined thin col s12">
-                  <h6><strong>Any final comments?</strong></h6>
+                  <p class="head-least"><strong>Any final comments?</strong></p>
                   {{ h.hospo_comment }}
                 </div>
                 </div>
@@ -211,27 +211,27 @@
             {% if final.review_title == title.review_title %}
               <div class="row">
                 <div class="lined thin col s12 m6">
-                  <h6>Transport from the airport or trainstation</h6>
+                  <p class="head-least">Transport from the airport or train station</p>
                   {{ final.ap_transport }}
                 </div>
                 <div class="lined thin col s12 m6">
-                  <h6><strong>Transport around the city</strong></h6>
+                  <p class="head-least"><strong>Transport around the city</strong></p>
                   {{ final.city_transport }}
                 </div>
               </div>
               <div class="row">
                 <div class="lined thin col s12">
-                  <h6><strong>Reasons you'd go back to {{ city }}</strong></h6>
+                  <p class="head-least"><strong>Reasons you'd go back to {{ city }}</strong></p>
                   {{ final.reasons_yes }}
                 </div>
                 <div class="lined thin col s12">
-                  <h6>
+                  <p class="head-least">
                     <strong>Reasons you wouldn't go back to {{ city }}</strong>
-                  </h6>
+                  </p>
                   {{ final.reasons_not }}
                 </div>
                 <div class="lined thin col s12">
-                  <h6><strong>Any last comments?</strong></h6>
+                  <p class="head-least"><strong>Any last comments?</strong></p>
                   {{ final.comment_gen }}
                 </div>
               </div>
