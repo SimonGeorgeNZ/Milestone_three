@@ -308,8 +308,6 @@ nav .nav-wrapper .brand-logo {
     background-size: 100%;
     background-repeat: no-repeat;
     background-color: transparent;
-    min-width: 75vw;
-    min-height: 75vh;
 }
 
 .nav-wrapper .input-field input[type=search]{
@@ -322,17 +320,17 @@ nav .nav-wrapper .brand-logo {
 
 .side-nav li a {
     font-size: 4vh;
-    margin-top: 7vh;
+    margin-top: 5vh;
     padding-left: 18vw;
 }
 
 .side-nav .input-field {
     padding-left: 13vw;
-    margin-top: 5vh;
-    padding-top: 2vh;
+    margin-bottom: 3vh;
 }
 .side-nav .input-field input[type=search] {
     font-size: 5vh;
+    padding-bottom: 2vh;
 }
 
 .side-nav .input-field label {
