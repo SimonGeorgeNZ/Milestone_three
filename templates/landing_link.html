@@ -5,9 +5,9 @@
     <p class="heading-box head-main">View review for {{title.city_name |title}}</p>
     <p class="head-sub">Country = {{ country.country_name }}</p>
     <p class="head-sub"><strong>City = {{ country.city_name }}</strong>
+</div>
 
-
-<a href="{{url_for('validate', review_id = title._id)}}" class="lined thin validate">Is this your review? Click here to edit or delete</a>
+<a href="{{url_for('validate', review_id = title._id)}}" class="lined thin waves-effect waves-light btn-large btn">Is this your review? Click here to edit or delete</a>
 
 
 <div class="row">
@@ -30,15 +30,15 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="lined thin col s6 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>what was the reason for your trip?</strong></p>
                     {{ first.reason }}
                   </div>
-                  <div class="lined thin col s6 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>The event I attended was</strong></p>
                     {{ first.event }}
                   </div>
-                  <div class="lined thin col s6 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>For this trip I traveled.....</strong></p>
                     {{ first.s_or_g }}
                   </div>

@@ -416,7 +416,7 @@ label {
 
 .delete {
     background-color: red!important;
-    width: 80%;
+    width: 60%;
     height: 100%;
 }
 
@@ -523,7 +523,7 @@ label {
     .card-content{
         padding-right: .5vw;
         padding-left: .5vw;
-        min-height: 10vh;
+        min-height: 19vh;
         margin-bottom: 3vh;
     }
     .card-action a {
@@ -581,6 +581,8 @@ label {
     }
     .btn-large {
         font-size: 2vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
     }
     input[type=text] {
     font-size: 3vh;

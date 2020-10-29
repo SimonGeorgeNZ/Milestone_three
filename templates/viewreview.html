@@ -27,15 +27,15 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="lined thin col s12 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>what was the reason for your trip?</strong></p>
                     {{ first.reason }}
                   </div>
-                  <div class="lined thin col s12 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>The event I attended was</strong></p>
                     {{ first.event }}
                   </div>
-                  <div class="lined thin col s12 m4">
+                  <div class="lined thin col s12 m6">
                     <p class="head-sub"><strong>For this trip I traveled.....</strong></p>
                     {{ first.s_or_g }}
                   </div>
@@ -246,7 +246,7 @@
           Click here to save and return to the main menu
         </button>
       </div>
-      <div class="center_btn delete_outter">
+      <div class="center_btn">
       <button formaction = "{{ url_for('delete_all', title_id=title._id) }}" class="lined thin delete btn-large waves-effect waves-light" type="submit">
         Delete whole review
       </button>

@@ -39,9 +39,9 @@
       <div class="card-content">
           <div class="col s12">
             {% for city in cities %} {% if city.city_name == title.city_name %}
-            <p class="head-sub">Country - {{ city.country_name }}</p>
+            <p class="head-sub">Country - {{ city.country_name |title }}</p>
             {% endif %} {% endfor %}
-            <p class="head-sub">City - {{title.city_name}}</p>
+            <p class="head-sub">City - {{title.city_name |title}}</p>
           </div>
         </div>
       <div class="card-action">

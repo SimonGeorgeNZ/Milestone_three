@@ -462,6 +462,8 @@ def delete_all(title_id):
 def confirm_delete_all(title_id):
     title = mongo.db.title.find_one({"_id": ObjectId(title_id)})
     input_title = request.form['is_correct']
+    print(title['review_title'])
+    print(input_title)
     if title['review_title'] == input_title.lower():
         mongo.db.first_info.remove({"review_title": input_title}),
         mongo.db.accommodation.remove({"review_title": input_title}),
