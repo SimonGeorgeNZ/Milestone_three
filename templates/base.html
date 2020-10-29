@@ -28,9 +28,10 @@
           </div>
         </li>
       </ul>
-      <ul class="side-nav" id="mobile-demo">
+    </div>
+  </nav>
+  <ul class="side-nav" id="mobile-demo">
     <li><a href="{{url_for('new_country')}}">New Review</a></li>
-    <li>
     <div class="input-field">
         <form action="{{ url_for('review_search') }}" method="POST">
         <label class="search_cl" for="icon_prefix">Search for countries</label>
@@ -38,10 +39,7 @@
           <i class="material-icons">close</i>
         </form>
         </div>
-        </li>
   </ul>
-    </div>
-  </nav>
 
 
   </header>
