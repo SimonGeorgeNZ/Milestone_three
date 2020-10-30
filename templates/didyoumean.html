@@ -12,7 +12,7 @@
 <ul>
 {% for place in results %}
 <li class="country_list">
-<a class="list_country lined thin" name="list_country" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
+<a class="list_country lined thin" href="{{url_for('add_list_country', place = place )}}">{{ place |title}}</a>
 </li>
 {% endfor %}
 </ul>

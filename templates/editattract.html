@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <form action="{{ url_for('update_attract', attract_id=attract._id) }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">question_answer</i>
@@ -17,7 +17,7 @@
       <div class="input-field col s12 m6">
       <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
-        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100+" value="{{attract.attract_cost}}" />
+        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100" value="{{attract.attract_cost}}" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
@@ -33,7 +33,6 @@
     <li>
       <div class="lined thin collapsible-header"><i class="material-icons">filter_drama</i>Aditional info</div>
       <div class="lined thin collapsible-body">
-      <span>
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">language</i>
@@ -74,7 +73,6 @@
         <label for="attract_time">How many hours should someone set aside for this Max = 1 day</label>
       </div>
     </div>     
-      </span>
       </div>
     </li>
     </ul>

@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <form action="{{ url_for('update_first', first_id=first._id) }}" method="POST" class="col s12">
-    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <p class="head-sub">Trip dates</p>
       <div class="input-field col s12 m6">
         <i class="material-icons prefix">date_range</i>

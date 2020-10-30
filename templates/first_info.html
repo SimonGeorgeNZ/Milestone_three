@@ -6,19 +6,19 @@
 </div>
 <div class="row">
   <form action="{{ url_for('add_review_info', review_id=title._id) }}" method="POST" class="col s12">
-    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <p class="head-sub">Trip dates</p>
     <p> If this was a day trip, simply select the same date for start and end date</p>
     {{ error }}
     <div class="row">
       <div class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="start_date" name="start_date" type="text" class="datepicker" value="" required />
+        <input id="start_date" name="start_date" type="text" class="datepicker" required />
         <label for="start_date">Start date - Required</label>
       </div>
       <div id="endDate" class="input-field col s12 l6">
         <i class="material-icons prefix">date_range</i>
-        <input id="end_date" name="end_date" type="text" class="datepicker" value="" required />
+        <input id="end_date" name="end_date" type="text" class="datepicker" required />
         <label for="end_date">End date - Required</label>
       </div>
     </div>
@@ -51,10 +51,10 @@
         <i class="material-icons right">playlist_add</i>
       </button>
     </div>
-    <form action="{{ url_for('insert_accom', review_id=title._id) }}" method="POST" class="col s12">
-    <input type="hidden" id="accom_name" name="accom_name" value="This was a day trip" readonly />
-    </form>
   </form>
+  <form action="{{ url_for('insert_accom', review_id=title._id) }}" method="POST" class="col s12">
+    <input type="hidden" id="accom_name" name="accom_name" value="This was a day trip" />
+    </form>
 </div>
 </div>
 </div>

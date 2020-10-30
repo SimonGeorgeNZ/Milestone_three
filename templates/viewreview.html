@@ -8,14 +8,13 @@
 
 
     <form action="{{ url_for('view_review', review_id=title._id) }}" class="col s12">
-      <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+      <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
       <ul class="collapsible popout">
         <li>
           <div class="lined thin collapsible-header active">
             <i class="material-icons">filter_drama</i>Overview
           </div>
           <div class="lined thin collapsible-body">
-          <span>
           {% if first.review_title == title.review_title %}
           <div class="row">
                 <div class="row">
@@ -44,16 +43,13 @@
                 <a href="{{url_for('delete_section', section_id=first._id, cat_name='first_info')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
           </div>
           {% endif %}
-            </span>
             </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
             <i class="material-icons">apartment</i>Accommodation {{ first.accom_name }}
           </div>
-          <div class="lined thin collapsible-body">
-              <span>
-             
+          <div class="lined thin collapsible-body">             
               <div class="row">
               {% for a in accom %}
               {% if a.review_title.lower() == title.review_title %}
@@ -90,15 +86,12 @@
                   {% endif %}
                 {% endfor %}
                 </div>
-                
-              </span>
           </div>
         </li>
         <li>
           <div class="lined thin collapsible-header">
             <i class="material-icons">tour</i>Attractions</div>
           <div class="lined thin collapsible-body">
-              <span>
               <div class="row">
               {% for at in attract %}
               {% if at.review_title == title.review_title %}
@@ -147,7 +140,6 @@
                 {% endif %}
                 {% endfor %}
                 </div>
-                 </span> 
             </div>
         </li>
         <li>
@@ -155,7 +147,6 @@
             <i class="material-icons">local_cafe</i>Hospitality
           </div>
           <div class="lined thin collapsible-body">
-            <span>
             {% for h in hospo %}
             {% if h.review_title == title.review_title %}
               <div class="row">
@@ -171,7 +162,7 @@
                 </div>
                 <div class="row">
                   <div class="lined thin col s12 m6">
-                    <p class="head-sub"><strong>Venue style</strong><p6>
+                    <p class="head-sub"><strong>Venue style</strong></p>
                     {{ h.hospo_style }}
                   </div>
                   <div class="lined thin col s12 m6">
@@ -198,7 +189,6 @@
               </div>
               {% endif %}
               {% endfor %}
-            </span>
           </div>
         </li>
         <li>
@@ -206,7 +196,6 @@
             <i class="material-icons">thumbs_up_down</i>Final info
           </div>
           <div class="lined thin collapsible-body">
-            <span>
             {% if final.review_title == title.review_title %}
               <div class="row">
                 <div class="lined thin col s12 m6">
@@ -237,7 +226,6 @@
               <a href="{{url_for('edit_final', final_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
             <a href="{{url_for('delete_section', section_id=final._id, cat_name='reviews')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
             {% endif %}
-            </span>
           </div>
         </li>
       </ul>

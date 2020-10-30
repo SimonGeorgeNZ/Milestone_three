@@ -7,7 +7,7 @@
 
   <form action="{{ url_for('confirm_title', review_id=title._id) }}" method="POST" class="col s12">
     <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn">

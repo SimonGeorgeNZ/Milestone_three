@@ -4,7 +4,7 @@
 <a href="{{url_for('skip_hospo', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row input_doc">
   <form action="{{ url_for('insert_hospo', review_id=title._id) }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">local_cafe</i>
@@ -30,7 +30,6 @@
     <li>
       <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
-      <span>
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">language</i>
@@ -59,7 +58,6 @@
         <label for="icon_prefix">Overall rating</label>
       </div>
     </div>   
-      </span>
       </div>
     </li>
     </ul>

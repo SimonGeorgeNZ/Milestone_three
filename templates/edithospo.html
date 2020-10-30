@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <form action="{{ url_for('update_hospo', hospo_id=hospo._id) }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">local_cafe</i>
@@ -31,7 +31,6 @@
     <li>
       <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
-      <span>
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">language</i>
@@ -62,7 +61,6 @@
         <label for="hospo_overall_rating">Taking service, cost, wait time, location etc into consideration</label>
       </div>
     </div>   
-      </span>
       </div>
     </li>
     </ul>

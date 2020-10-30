@@ -79,7 +79,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -93,7 +93,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -107,7 +107,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -121,7 +121,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -135,7 +135,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text"  name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -150,7 +150,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
 <div class="row">
   <form action="{{ url_for('confirm_delete_all', title_id=title._id ) }}" method="POST" class="col s12">
   <div class="input-field col s12">
-    <input type="text" id="" name="is_correct" value="{{ not_quite }}"  required />
+    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
     <label for="is_correct">Confirm review title</label>
 	</div>
     <div class="center_btn delete_outter">
@@ -160,6 +160,7 @@ otherwise confirm your delete by confirming the title you gave to your review in
     </div>
   </form>
   </div>
+</div>
 {% endif %}
 
 

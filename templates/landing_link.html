@@ -18,7 +18,6 @@
             <i class="material-icons">filter_drama</i>Overview
           </div>
           <div class="lined thin collapsible-body">
-            <span>
               {% if first.review_title == title.review_title %}
               <div class="row">
                 <div class="row">
@@ -45,7 +44,6 @@
                 </div>
               </div>
               {% endif %}
-            </span>
           </div>
         </li>
         <li>
@@ -54,7 +52,6 @@
             }}
           </div>
           <div class="lined thin collapsible-body">
-            <span>
               <div class="row">
                 {% for a in accom %} {% if a.review_title.lower() ==
                 title.review_title %}
@@ -87,7 +84,6 @@
                 <div class="row section"></div>
                 {% endif %} {% endfor %}
               </div>
-            </span>
           </div>
         </li>
         <li>
@@ -95,7 +91,6 @@
             <i class="material-icons">whatshot</i>Attractions
           </div>
           <div class="lined thin collapsible-body">
-            <span>
               <div class="row">
                 {% for at in attract %} {% if at.review_title ==
                 title.review_title %}
@@ -143,7 +138,6 @@
                 </div>
                 {% endif %} {% endfor %}
               </div>
-            </span>
           </div>
         </li>
         <li>
@@ -151,7 +145,6 @@
             <i class="material-icons">whatshot</i>Hospitality
           </div>
           <div class="lined thin collapsible-body">
-            <span>
               {% for h in hospo %} {% if h.review_title == title.review_title %}
               <div class="row">
                 <div class="row">
@@ -190,7 +183,6 @@
                 </div>
               </div>
               {% endif %} {% endfor %}
-            </span>
           </div>
         </li>
         <li>
@@ -198,7 +190,6 @@
             <i class="material-icons">whatshot</i>Final info
           </div>
           <div class="lined thin collapsible-body">
-            <span>
               {% if final.review_title == title.review_title %}
               <div class="row">
                 <div class="lined thin col m6 s12">
@@ -227,7 +218,6 @@
                 </div>
               </div>
               {% endif %}
-            </span>
           </div>
         </li>
       </ul>
