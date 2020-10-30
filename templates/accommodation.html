@@ -3,7 +3,7 @@
 <p class="heading-box head-main">Add accommodation to {{title.city_name |title}}</p>
 <a href="{{url_for('skip_accom', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
   <form action="{{ url_for('insert_accom', review_id=title._id)}}" method="POST" class="col s12">
-    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly />
+    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">hotel</i>
@@ -20,7 +20,7 @@
       <div class="input-field col s12 m6">
       <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
-        <input type="range" id="accom_price" name="accom_price" min="0" max="100+" />
+        <input type="range" id="accom_price" name="accom_price" min="0" max="100" />
         </p>
         <label for="accom_price">Price per night in local currency - Required</label>
       </div>
@@ -29,7 +29,6 @@
     <li>
       <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
-      <span>
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">language</i>
@@ -53,7 +52,6 @@
         <label for="icon_prefix">Accommodation Cleanliness</label>
       </div>
     </div>    
-      </span>
       </div>
     </li>
     </ul>

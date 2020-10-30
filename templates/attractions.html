@@ -4,7 +4,7 @@
 <a href="{{url_for('skip_attract', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
 <div class="row">
   <form action="{{ url_for('insert_attract', review_id=title._id) }}" method="POST" class="col s12">
-  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" readonly/>
+  <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">question_answer</i>
@@ -16,14 +16,14 @@
       <div class="input-field col s12 m6">
       <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
-        <input type="range" id="attract_cost" name="attract_cost" value="" min="0" max="100+" />
+        <input type="range" id="attract_cost" name="attract_cost" min="0" max="100" />
         </p>
         <label for="attract_cost">How much does this cost?</label>
       </div>
       <div class="input-field col s12 m6">
       <i class="material-icons prefix">thumbs_up_down</i>
         <p class="range-field section">
-        <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" value="attract_rating" />
+        <input type="range" id="attract_rating" name="attract_rating" min="0" max="10" />
         </p>
         <label for="attract_rating">Out of 10, how awesome is this attraction?</label>
       </div>
@@ -32,7 +32,6 @@
     <li>
       <div class="lined thin collapsible-header"><i class="material-icons">read_more</i>Aditional info</div>
       <div class="lined thin collapsible-body">
-      <span>
       <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">language</i>
@@ -68,12 +67,11 @@
       <div class="input-field col s12">
       <i class="material-icons prefix">schedule</i>
         <p class="range-field section">
-        <input type="range" id="attract_time" name="attract_time" min="0" max="15" value="attract_time" />
+        <input type="range" id="attract_time" name="attract_time" min="0" max="15"  />
         </p>
         <label for="attract_time">How many hours should someone set aside for this Max = 1 day</label>
       </div>
     </div>     
-      </span>
       </div>
     </li>
     </ul>
