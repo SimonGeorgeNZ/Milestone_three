@@ -4,7 +4,7 @@
 /*--------------------------Generic styling------------------*/
 html, body {
   font-family: 'Patrick Hand SC';
-  font-size: 1rem;
+  font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600px - 300px)));
   min-height: 100%;
   max-width: 100%;
   padding-bottom: 8vh;
@@ -97,7 +97,7 @@ html {
 }
 
 input[type=text] {
-    font-size: 5vh;
+    font-size: 3vh!important;
 }
 .mobile-title{
         display: none;
@@ -302,44 +302,52 @@ nav .nav-wrapper .brand-logo {
     transition: .5s;
     padding-bottom: 1vh;
 }
+
 .side-nav {
-    margin-top: 5vh;
+    margin-top: 15vh;
     background-image: url("../images/side_nav.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
-    max-height: 40vh;
-    padding-bottom: 0!important;
+    height: auto;
+    width: auto;
 }
 
 .nav-wrapper .input-field input[type=search]{
     padding-left: 2vw!important;
-    padding-top: 3vh;
-    margin-top: 1vh;
+    padding-top: 4vh;
     background-color: transparent;
     height: 4vh;
+    font-size: 3vh;
 }
 
-.side-nav li a {
+.nav-wrapper .input-field label{
+    font-size: 3vh;
+    padding-bottom: 3vh!important;
+}
+
+.side-nav a {
     font-size: 4vh;
-    margin-top: 5vh;
-    padding-left: 18vw;
+    color: black;
+    display: block;
+    margin-top: 6vh;
+    margin-left: 10vw;
 }
 
 .side-nav .input-field {
-    padding-left: 13vw;
-    margin-bottom: 3vh;
+    margin-left: 9vw;
+    padding-bottom: 2vh!important;
+    padding-top: 2vh;
 }
 .side-nav .input-field input[type=search] {
     font-size: 3vh;
     color: black;
-    width: 80%;
-    margin-right: 2vw;
+    padding-left: 4vw;
+    width: 60%;
     background-color: transparent;
 }
 
 .side-nav .input-field label {
-    padding-left: 13vw;
     font-size: 3vh;
 }
 .m-glass label {
@@ -357,7 +365,10 @@ nav .input-field label i {
 nav .input-field {
     margin-top: 1vh;
     padding-left: 2.5vw;
+    margin-right: 1vw;
+    min-width: 20vw;
 }
+
 .search_cl {
     margin-left: 3vw!important;
 }
@@ -526,8 +537,6 @@ label {
     .card-content{
         padding-right: .5vw;
         padding-left: .5vw;
-        min-height: 19vh;
-        margin-bottom: 3vh;
         width: auto;
     }
     .card-action a {

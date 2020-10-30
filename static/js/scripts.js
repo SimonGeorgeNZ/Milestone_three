@@ -26,9 +26,6 @@ $(".datepicker").pickadate({
   closeOnSelect: false, 
 });
 
-$(document).ready(function () {
-  
-  
-});
+
 
 

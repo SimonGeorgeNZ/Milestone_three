@@ -1,8 +1,6 @@
 import os
 import pycountry
-import re
-import unicodedata
-from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -24,8 +22,6 @@ MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
 db_categories = ["accommodation", "attractions",
                  "first_info", "hospitality", "reviews", "title"]
 exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
-    
-    
 
 
 @app.route('/')
@@ -132,7 +128,6 @@ def insert_city():
         new_city = mongo.db.cities.find_one({'city_name': input_city.lower()})
         return redirect(url_for('add_review', city_id=new_city['_id']))
 
-
 #---------------Reviews-----------------#
 
 
@@ -146,15 +141,15 @@ def add_review(city_id):
 def insert_title():
     input_title = request.form['review_title']
     city = {'city_name': request.form.get('city_name').lower()}
-    #find_title = mongo.db.title.find_one({"review_title": input_title.lower()})
-    # if find_title:
-    #    return render_template('addtitle.html', city=city)
-    # else:
-    add_title = {'city_name': request.form.get('city_name').lower(),
-                 'review_title': request.form.get('review_title').lower()}
-    mongo.db.title.insert_one(add_title)
-    title = mongo.db.title.find_one({'review_title': input_title.lower()})
-    return render_template('first_info.html', title=title)
+    find_title = mongo.db.title.find_one({"review_title": input_title.lower()})
+    if find_title:
+       return render_template('addtitle.html', city=city)
+    else:
+        add_title = {'city_name': request.form.get('city_name').lower(),
+                    'review_title': request.form.get('review_title').lower()}
+        mongo.db.title.insert_one(add_title)
+        title = mongo.db.title.find_one({'review_title': input_title.lower()})
+        return render_template('first_info.html', title=title)
 
 
 @app.route('/add_review_info/<review_id>', methods=['POST', 'GET'])
@@ -290,7 +285,6 @@ def view_review(review_id):
     final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
     return render_template('viewreview.html', title=title, first=first,
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
-
 
 
 #---------------Edit/update-----------------#
@@ -439,7 +433,6 @@ def delete_section(section_id, cat_name):
 
 @app.route('/confirm_delete/<review_id>/<cat_name>', methods=['POST', 'GET'])
 def confirm_delete(review_id, cat_name):
-    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
     common = mongo.db[cat_name].find_one({"_id": ObjectId(review_id)})
     the_title = common['review_title']
     input_title = request.form['is_correct']
