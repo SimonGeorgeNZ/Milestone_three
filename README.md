@@ -55,6 +55,14 @@ and even within a price range.
 - John is planning a trip to the annual beer drinking festival, Oktoberfest. He uses Where to Next to search for other trips to Munich to find good ideas on where to stay and activities 
 to do while on his trip. 
 
+### As a user I would like to...
+
+- Easily find review of cities I want to visit
+- Add my reviews to the website
+- Edit or delete my reviews
+- Have the faith that no one else can edit my reviews or delete them 
+
+
 # Fratures left to implement #
 
 - Ability to search for cities or any piece of a review - restaurant names, accommodation names or attractions etc. 
@@ -65,24 +73,52 @@ to do while on his trip.
 
 - OPtion to select what questions the user wants to answer in the review to customize the experiene.
 
-# Technologies used #
+# Resources and technologies used #
 
 I developed this on Gitpod using Heroku as a deployment site and MongoDB as a database. The code is HTML, CSS and Python with a small amount of Javascript. I used Materialise for a number of 
 components including the navbar, search feature and cards. Below are resources I have used to help develope my site
 
-- Stake Overflow
-- Slask
-- Materialize 
-- Python trips
-- Student tutor help
-- W3 Schools 
+- [Stack Overflow](https://stackoverflow.com/)
+- [Slask])(https://slack.com/intl/en-gb/)
+- [Materialize](https://materializecss.com/)
+- [Python trips](https://book.pythontips.com/en/latest/)
+- Student tutor help - From Code Institute website
+- [W3 Schools](https://www.w3schools.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Heroku](https://www.heroku.com/)
+- [Gitpod](https://www.gitpod.io/)
 
 # Testing #
 
-I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools as well but with using templates
-I was getting errors that didn't apply. I was happy with the numbers I was getting over all though.
+I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools.
+
 
 # Deployment #
+
+To deploy the project on Heroku there are a number of steps, please follow them carefully. 
+
+- Create a Procfile using the command in the terminal echo web: python app.py > Procfile
+
+- Make sure you have a requirements.txt file by using the command pip3 freeze --local > requirements.txt
+
+- In your Heroku profile, create a new app 
+
+- Connect your Github to Heroku in Heroku - Go to Deploy - App connected to Github
+
+- In Heroku set the following Config vars
+
+    - IP - 0.0.0.0
+    - Mongo_URI - mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority;
+    - PORT - 5000
+
+- Commit and push your entire file to Github, making sure your requirements file and Procfile are complete
+
+- Once pushed you can go back to Heroku and in the top right corner, click "Open App"
+
+My app is deployed on Heroku and can be found at [Where to Next](https://milestonethree.herokuapp.com/)
+
+I used Github for version control and can be found at [Milestone Three](https://github.com/SimonGeorgeNZ/Milestone_three)
+
 
 # Credits #
 
