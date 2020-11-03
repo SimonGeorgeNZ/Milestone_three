@@ -9,20 +9,20 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">hotel</i>
-        <input id="accom_name" name="accom_name" type="text" value="{{accom.accom_name}}" />
+        <input id="accom_name" name="accom_name" type="text" value="{{accom.accom_name}}" required />
         <label for="icon_prefix">Accommodation Name - Required</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
         <i class="material-icons prefix">apartment</i>
-        <input id="accom_style" name="accom_style" type="text" value="{{accom.accom_style}}" />
+        <input id="accom_style" name="accom_style" type="text" value="{{accom.accom_style}}" required />
         <label for="icon_prefix">Accommodation Style - Required</label>
       </div>
       <div class="input-field col s6">
       <i class="material-icons prefix">local_atm</i>
         <p class="range-field section">
-        <input type="range" id="accom_price" name="accom_price" min="0" max="100" value="{{accom.accom_price}}" />
+        <input type="range" id="accom_price" name="accom_price" min="0" max="100" value="{{accom.accom_price}}" required />
         </p>
         <label for="accom_price">Price per night in local currency - Required</label>
       </div>

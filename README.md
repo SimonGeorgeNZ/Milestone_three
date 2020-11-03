@@ -92,6 +92,11 @@ components including the navbar, search feature and cards. Below are resources I
 
 I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools.
 
+An interesting bug I found was on the date pickers on the first info for the review. I set a function that if the start date was after the end date, the page was reloaded with an error 
+message. However after this any dates picked after this would give the same error, regardless of if they were in order or not. I tried to set the value as none however this didn't solve
+the issue. I was unsure how to proceed. 
+
+
 
 # Deployment #
 
