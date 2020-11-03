@@ -35,3 +35,60 @@ Once finished the user can return to the main landing page where their newly cre
 ![Mockupimages](https://github.com/SimonGeorgeNZ/Milestone_three/blob/master/static/images/planning2.jpg?raw=true)
 
 ![Mockupimages](https://github.com/SimonGeorgeNZ/Milestone_three/blob/master/static/images/planning3.jpg?raw=true)
+
+Image one shows the flow of information that I mapped out. The country is added to a collection on it's own, the ciry then features the country name as well, 
+the title then features the city name also, the title is then added to each doccument as the review is created, which ties the whole review together. I wanted to have 
+individual collections for each segment, as this would allow for multiple documents to be added for the same collection against the same review, allowing the user to 
+add multiple restaurants, attractions and accommodation against one city. 
+
+I planned some simple wireframes for the design but most of the design was done on the fly and based on looks. As mentioned earlier I wanted the looks of the site to 
+be like a hand created scrapbook, made to look like it made quickly with excitement for the upcoming trip. 
+
+# User Stories #
+
+- Mike is from Australia living in London for 2 years. He want's to do as much traveling as possible while he's here and wants to know how to travel cheaply. He spends his time 
+looking through Where to Next for ideas on cheap accommodation options in cities he wants to go to. In future updates it would be possible for people to search for accommodation only
+and even within a price range. 
+
+- Lucy is travel blogger, she travels a lot and likes to doccuments her trips. Lucy uses Where to Next as a way of doccumenting her trips before spending her time writing the full blog. 
+
+- John is planning a trip to the annual beer drinking festival, Oktoberfest. He uses Where to Next to search for other trips to Munich to find good ideas on where to stay and activities 
+to do while on his trip. 
+
+# Fratures left to implement #
+
+- Ability to search for cities or any piece of a review - restaurant names, accommodation names or attractions etc. 
+
+- Log in feature that would allow users to control their reviews without the need to validate with their review title. 
+
+- Search with multiple criteria for an advanced search option. 
+
+- OPtion to select what questions the user wants to answer in the review to customize the experiene.
+
+# Technologies used #
+
+I developed this on Gitpod using Heroku as a deployment site and MongoDB as a database. The code is HTML, CSS and Python with a small amount of Javascript. I used Materialise for a number of 
+components including the navbar, search feature and cards. Below are resources I have used to help develope my site
+
+- Stake Overflow
+- Slask
+- Materialize 
+- Python trips
+- Student tutor help
+- W3 Schools 
+
+# Testing #
+
+I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools as well but with using templates
+I was getting errors that didn't apply. I was happy with the numbers I was getting over all though.
+
+# Deployment #
+
+# Credits #
+
+Firstly I would like to acknowledge the tutor support. Without the expertise and direction I recieved throughout this assessment I would have struggled
+a lot. 
+
+# Anti Plagiarism #
+
+To the best of my knowledge I have credited all sources of media and code that is not my own. Anything missed is absolutely an error on my part, and is unintentional, and is in no way me trying to be villainous.

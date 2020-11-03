@@ -1,18 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 /*--------------------------Generic styling------------------*/
+/* Fonts, borders, icons and headings */
+
 html, body {
-  font-family: 'Patrick Hand SC';
+    font-family: 'Patrick Hand SC';
   font-size: 1rem;
   min-height: 100%;
   max-width: 100%;
   padding-bottom: 8vh;
   overflow-x: hidden;
+  font-display: swap;
 }
 
 .main {
     padding-left: 4vw;
-    padding-right: 4vw;
-    
+    padding-right: 4vw; 
 }
 
 .font {
@@ -20,8 +22,9 @@ html, body {
 }
 
 
+
 html {
-    background-image: url("../images/wrinkled-note40.png");
+    background-image: url("../images/wrinkled-note40.webp");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     align-content: center;
@@ -103,6 +106,7 @@ input[type=text] {
 
 
 /*--------------------------Buttons------------------*/
+/* Animation and styling for all buttons */
 
 
 .btn{
@@ -152,6 +156,10 @@ input[type=text] {
 
 
 /*--------------------------Data display------------------*/
+/* All elements that involve display of data, collapsible, country 
+names on "did you mean" page, and styling for text on landing page*/
+/*---- Cards excluded ---*/
+
 
 
 .collapsible-body {
@@ -164,11 +172,6 @@ input[type=text] {
     font-size: 4vh;
     padding-left: 1vw;
     padding-right: 1vw;
-}
-
-.cards .card {
-    margin-top: 0vh!important;
-    display: block;
 }
 
 .list_country:hover {
@@ -247,6 +250,8 @@ input[type=text] {
 
 
 /*-------------------------Nav---------------------------*/
+/*All styling for nav bar, including mobile nav*/
+
 
 
 nav {
@@ -263,7 +268,7 @@ nav .nav-wrapper .brand-logo {
 }
 
 .nav-wrapper {
-    background-image: url("../images/map.png");
+    background-image: url("../images/map.webp");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -300,7 +305,7 @@ nav .nav-wrapper .brand-logo {
 
 .side-nav {
     margin-top: 15vh;
-    background-image: url("../images/side_nav.png");
+    background-image: url("../images/side_nav.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -374,6 +379,7 @@ nav .input-field {
 
 
 /*-------------------------Input---------------------------*/
+/*All data input including dates*/
 
 
 .picker__date-display {
@@ -432,6 +438,7 @@ label {
 
 
 /*------------------------Data cards---------------------------*/
+/* All styling for card data, both landing page and search*/
 
 .card {
     background-image: url("../images/postitsummer.png");
@@ -439,6 +446,11 @@ label {
     background-size: 100% 100%;
     background-color: transparent;
     padding-top: 7vh!important;
+}
+
+.cards .card {
+    margin-top: 0vh!important;
+    display: block;
 }
 
 
@@ -471,6 +483,7 @@ label {
 
 
 /*------------------------Media Querys---------------------------*/
+/*All media querys for tablet and*/
 
 
 @media screen and (max-width: 992px) { /*--------Tablet------*/

@@ -1,3 +1,5 @@
+# Imports and configurations #
+
 import os
 import pycountry
 from flask import Flask, render_template, redirect, request, url_for
@@ -19,10 +21,10 @@ MONGO_URI = os.environ.get('MONGO_URI')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
 
 
-db_categories = ["accommodation", "attractions",
-                 "first_info", "hospitality", "reviews", "title"]
 exceptions = ["England", "Wales", "Scotland", "Northern Ireland", "TEST"]
 
+
+# Landing page #
 
 @app.route('/')
 @app.route('/home')
@@ -32,7 +34,12 @@ def home():
     return render_template('index.html', titles=titles, cities=cities)
 
 
-# --------------Countries-----------------#
+# Countries #
+
+    '''Search user input against pycountry names. If
+spelling is correct, continue on in the review, if
+the spelling is incorrect, redirect to didyoumean.html where
+countries starting with the same letter will be displayed'''
 
 
 @app.route('/new_country')
@@ -85,6 +92,9 @@ def didyoumean(search):
     return render_template('didyoumean.html', search=search, results=results, place=place)
 
 
+    '''Add country that the user clicks on from the list'''
+
+
 @app.route('/add_list_country/<place>', methods=['POST', 'GET'])
 def add_list_country(place):
     find_country = mongo.db.countries.find_one({"country_name": place.lower()})
@@ -97,7 +107,11 @@ def add_list_country(place):
     return redirect(url_for('new_city', country_id=country['_id']))
 
 
-# ---------------Cities-----------------#
+# Cities #
+
+    '''Display cities associated with country
+to the user for them to select. The user
+can add a new city if their city isn't available'''
 
 
 @app.route('/new_city/<country_id>')
@@ -128,7 +142,15 @@ def insert_city():
         new_city = mongo.db.cities.find_one({'city_name': input_city.lower()})
         return redirect(url_for('add_review', city_id=new_city['_id']))
 
-#---------------Reviews-----------------#
+
+# Reviews #
+
+    '''The title will act as a password if the user ever
+want's to edit or delete their review. The first info dates
+will determine if the user will be taken to Accommodation.
+If the user selects the same start and end date, it is
+determined to be a day trip therefor no accommodation
+is needed'''
 
 
 @app.route('/add_review/<city_id>', methods=['POST', 'GET'])
@@ -176,6 +198,13 @@ def add_review_info(review_id):
         title = mongo.db.title.find_one(
             {'review_title': request.form.get('review_title')})
         return render_template('accommodation.html', title=title)
+
+
+# Inserting review sections #
+
+    '''Allows the user to either insert the info
+to their review, or skip the section if it doesn't
+apply to them'''
 
 
 @app.route('/insert_accom/<review_id>', methods=['POST'])
@@ -266,7 +295,9 @@ def skip_final(review_id):
                             review_id=title['_id']))
 
 
-#---------------View reviews-----------------#
+# View reviews #
+
+    '''Displays the users review'''
 
 
 @app.route('/view_review/<review_id>')
@@ -287,7 +318,10 @@ def view_review(review_id):
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 
-#---------------Edit/update-----------------#
+# Edit/update #
+
+    '''Allows the user to edit their review
+and save the changes back to MongoDB'''
 
 @app.route('/edit_first/<first_id>')
 def edit_first(first_id):
@@ -422,7 +456,9 @@ def update_final(final_id):
     title = mongo.db.title.find_one({'review_title': input_title.lower()})
     return redirect(url_for('view_review', review_id=title['_id']))
 
-#---------------Delete-----------------#
+# Delete #
+    '''Allows the user to delete
+part or all of their review'''
 
 
 @app.route('/delete_section/<section_id>/<cat_name>', methods=["GET"])
@@ -470,7 +506,9 @@ def confirm_delete_all(title_id):
         return render_template('delete.html', common=False, title=title, cat_name=False, not_quite=not_quite)
 
 
-#--------------------------Search---------------------------#
+# Search #
+
+    '''Search for reviews on the landing page'''
 
 
 @app.route('/review_search', methods=['POST', 'GET'])
@@ -486,7 +524,11 @@ def review_search():
         return render_template('newcountry.html', error=error)
 
 
-#---------------------------landing page---------------------------#
+# Search results #
+
+    '''Find the right review after clicking the
+link from the search results or the landing page'''
+
 
 @app.route("/landing_link/<review_id>", methods=['POST', 'GET'])
 def landing_link(review_id):
@@ -503,7 +545,10 @@ def landing_link(review_id):
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 
-#---------------------------validate---------------------------#
+# validate #
+
+    '''User validates their review title to
+either edit or delete the review'''
 
 
 @app.route('/validate/<review_id>')

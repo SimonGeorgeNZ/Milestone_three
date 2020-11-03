@@ -1,3 +1,5 @@
+// Elements on pages taken from Materialise 
+
 $(document).ready(function () {
   start_date = Date.parse("{{first.start_date}}");
   end_date = Date.parse("{{first.end_date}}");
