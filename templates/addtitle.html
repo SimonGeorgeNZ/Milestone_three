@@ -1,34 +1,55 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<div class="row">
-<div class="col title s12">
-<p class="heading-box head-main">Add a title to your review of {{city.city_name |title}}</p>
-<div class="row">
-<p class="head-sub">Pick a title that is unique to this review, it won't be displayed when anyone views it, but you will be asked 
-to provide it if you want to update or delete your review later, so treat it like a password. 
-<br>
-<br>If your review title exists, you'll be redirected back to this page
-</p>
-  <form action="{{ url_for('insert_title') }}" method="POST" class="col s12">
-  <input type="hidden" id="city_name" name="city_name" value="{{city.city_name}}" />
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">device_unknown</i>
-        <input id="review_title" name="review_title" type="text" required />
-        <label for="icon_prefix">Review Title - Required</label>
+  <div class="row">
+    <div class="col title s12">
+      <p class="heading-box head-main">
+        Add a title to your review of {{city.city_name |title}}
+      </p>
+      <div class="row">
+        <p class="head-sub">
+          Pick a title that is unique to this review, it won't be displayed when
+          anyone views it, but you will be asked to provide it if you want to
+          update or delete your review later, so treat it like a password.
+          <br />
+          <br />If your review title exists, you'll be redirected back to this
+          page
+        </p>
+        <form
+          action="{{ url_for('insert_title') }}"
+          method="POST"
+          class="col s12"
+        >
+          <input
+            type="hidden"
+            id="city_name"
+            name="city_name"
+            value="{{city.city_name}}"
+          />
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">device_unknown</i>
+              <input
+                id="review_title"
+                name="review_title"
+                type="text"
+                required
+              />
+              <label for="icon_prefix">Review Title - Required</label>
+            </div>
+          </div>
+          <div class="center_btn">
+            <button
+              class="lined thin btn waves-effect waves-light"
+              type="submit"
+            >
+              Add Title
+              <i class="material-icons right">playlist_add</i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="center_btn">
-      <button class="lined thin btn waves-effect waves-light" type="submit">
-        Add Title
-        <i class="material-icons right">playlist_add</i>
-      </button>
-    </div>
-  </form>
+  </div>
 </div>
-</div>
-</div>
-</div>
-
 
 {% endblock %}

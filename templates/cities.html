@@ -1,40 +1,52 @@
-
 {% extends 'base.html' %}{% block content %}
 <div class="container">
-<div class="row">
-<div class="col title s12">
-  <p class="heading-box head-main">Pick City for {{country.country_name |title}}</p>
-  <p class="head-sub">Select your city from this list if it's there, if not, simply add it with the form below</p>
+  <div class="row">
+    <div class="col title s12">
+      <p class="heading-box head-main">
+        Pick City for {{country.country_name |title}}
+      </p>
+      <p class="head-sub">
+        Select your city from this list if it's there, if not, simply add it
+        with the form below
+      </p>
+    </div>
   </div>
-</div>
 
-{% for city in cities %}
-<div class=" col s12">
-<a class="option lined thin" href="{{url_for('add_review', city_id=city._id)}}">{{city.city_name |title}}</a>
-</div>
+  {% for city in cities %}
+  <div class="col s12">
+    <a
+      class="option lined thin"
+      href="{{url_for('add_review', city_id=city._id)}}"
+      >{{city.city_name |title}}</a
+    >
+  </div>
 
-{% endfor %}
+  {% endfor %}
 
-
-<form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
-    <p class="heading-box head-main">Add a new city for {{country.country_name |title}} </p>
-	<input type="hidden" id="country_name" name="country_name" value="{{country.country_name}}" />
+  <form action="{{ url_for('insert_city') }}" method="POST" class="col s12">
+    <p class="heading-box head-main">
+      Add a new city for {{country.country_name |title}}
+    </p>
+    <input
+      type="hidden"
+      id="country_name"
+      name="country_name"
+      value="{{country.country_name}}"
+    />
 
     <div class="input-field col s12">
-		<i class="material-icons prefix">flight_land</i>
-		<input id="city_name" name="city_name" type="text" required />
-		<label for="icon_prefix">City Name - Required</label>
-	</div>
+      <i class="material-icons prefix">flight_land</i>
+      <input id="city_name" name="city_name" type="text" required />
+      <label for="icon_prefix">City Name - Required</label>
+    </div>
 
-	<div class="center_btn">
-		<button class="lined thin btn waves-effect waves-light" type="submit">
+    <div class="center_btn">
+      <button class="lined thin btn waves-effect waves-light" type="submit">
         Add City
         <i class="material-icons right">playlist_add</i>
       </button>
-	</div>
-</form>
+    </div>
+  </form>
 </div>
-
-
 
 {% endblock %}

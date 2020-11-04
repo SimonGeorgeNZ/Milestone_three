@@ -3,60 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Where to Now is designed with the thrifty traveller in mind. Review your favourite trips and let others know your travel secrets so they can better plan their next getaway" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    <meta
+      name="description"
+      content="Where to Now is designed with the thrifty traveller in mind. Review your favourite trips and let others know your travel secrets so they can better plan their next getaway"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+      type="text/css"
+    />
     <title>Where to next?</title>
   </head>
 
   <body>
-  <header>
-  <nav>
-    <div class="nav-wrapper lined thin">
-      <a href="{{url_for('home')}}" class="brand-logo">Where to next?</a>
-      <a href="#" data-activates="mobile-demo" class=" button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li class="thin lined nav-link"><a href="{{url_for('new_country')}}">New Review</a></li>
-        <li>
-        <div class="input-field thin lined">
-        <form action="{{ url_for('review_search') }}" method="POST">
-        <label class="label-icon" for="search"><i class="m-glass material-icons prefix">search</i></label>
-          <input id="search" name="search" type="search" required>
-          <label class="search_cl" for="icon_prefix">Search for countries</label>
-          <i class="material-icons">close</i>
-          </form>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="row side-nav" id="mobile-demo">
-    <a href="{{url_for('new_country')}}">New Review</a>
-    <div class="input-field">
-        <form action="{{ url_for('review_search') }}" method="POST">
-        <label class="search_cl" for="icon_prefix">Search for countries</label>
-          <input id="mobile_search" name="search" type="search" required>
-          <i class="material-icons">close</i>
-        </form>
+    <header>
+      <nav>
+        <div class="nav-wrapper lined thin">
+          <a href="{{url_for('home')}}" class="brand-logo">Where to next?</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="thin lined nav-link">
+              <a href="{{url_for('new_country')}}">New Review</a>
+            </li>
+            <li>
+              <div class="input-field thin lined">
+                <form action="{{ url_for('review_search') }}" method="POST">
+                  <label class="label-icon" for="search"
+                    ><i class="m-glass material-icons prefix">search</i></label
+                  >
+                  <input id="search" name="search" type="search" required />
+                  <label class="search_cl" for="icon_prefix"
+                    >Search for countries</label
+                  >
+                  <i class="material-icons">close</i>
+                </form>
+              </div>
+            </li>
+          </ul>
         </div>
-   </div>
-  
-
-
-  </header>
+      </nav>
+      <div class="row side-nav" id="mobile-demo">
+        <a href="{{url_for('new_country')}}">New Review</a>
+        <div class="input-field">
+          <form action="{{ url_for('review_search') }}" method="POST">
+            <label class="search_cl" for="icon_prefix"
+              >Search for countries</label
+            >
+            <input id="mobile_search" name="search" type="search" required />
+            <i class="material-icons">close</i>
+          </form>
+        </div>
+      </div>
+    </header>
 
     <div class="main">
-      {% block content %} 
-      
-      {% endblock %}
+      {% block content %} {% endblock %}
     </div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
-    
-    
-
-    
+    <footer>
+      <div class="row">
+        <div class="col footer">
+          <p>
+            Where to next is designed by Simon George for his Milestone Three
+            project
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
 </html>

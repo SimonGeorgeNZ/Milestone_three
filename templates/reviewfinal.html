@@ -1,53 +1,83 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container page_top">
-<p class="heading-box head-main">Add Some final comments to {{title.city_name |title}}</p>
-<p class="head-sub">A reminder that the secret title you gave your review is <strong>"{{title.review_title}}"</strong>. You'll need this 
-if you ever what to delete this review. But why would you want to do that? </p>
-<a href="{{url_for('skip_final', review_id=title._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Skip this section</a>
-<div class="row">
-  <form action="{{ url_for('insert_final', review_id=title._id) }}" method="POST" class="col s12">
-    <input type="hidden" id="review_title" name="review_title" value="{{title.review_title}}" />
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">thumb_up_alt</i>
-        <input id="reasons_yes" name="reasons_yes" type="text" maxlength="300" required />
-        <label for="icon_prefix">Reasons to return - Required</label>
+  <p class="heading-box head-main">
+    Add Some final comments to {{title.city_name |title}}
+  </p>
+  <p class="head-sub">
+    A reminder that the secret title you gave your review is
+    <strong>"{{title.review_title}}"</strong>. You'll need this if you ever what
+    to delete this review. But why would you want to do that?
+  </p>
+  <a
+    href="{{url_for('skip_final', review_id=title._id)}}"
+    class="lined thin waves-effect waves-light btn-large btn"
+    >Skip this section</a
+  >
+  <div class="row">
+    <form
+      action="{{ url_for('insert_final', review_id=title._id) }}"
+      method="POST"
+      class="col s12"
+    >
+      <input
+        type="hidden"
+        id="review_title"
+        name="review_title"
+        value="{{title.review_title}}"
+      />
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">thumb_up_alt</i>
+          <input
+            id="reasons_yes"
+            name="reasons_yes"
+            type="text"
+            maxlength="300"
+            required
+          />
+          <label for="icon_prefix">Reasons to return - Required</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">thumb_down_alt</i>
-        <input id="reasons_not" name="reasons_not" type="text" maxlength="300" required />
-        <label for="icon_prefix">Reasons not to return - Required</label>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">thumb_down_alt</i>
+          <input
+            id="reasons_not"
+            name="reasons_not"
+            type="text"
+            maxlength="300"
+            required
+          />
+          <label for="icon_prefix">Reasons not to return - Required</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m6">
-        <i class="material-icons prefix">directions_bus</i>
-        <input id="ap_transport" name="ap_transport" type="text" />
-        <label for="icon_prefix">Travel from airport</label>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">directions_bus</i>
+          <input id="ap_transport" name="ap_transport" type="text" />
+          <label for="icon_prefix">Travel from airport</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">subway</i>
+          <input id="city_transport" name="city_transport" type="text" />
+          <label for="icon_prefix">Travel around city</label>
+        </div>
       </div>
-      <div class="input-field col s12 m6">
-        <i class="material-icons prefix">subway</i>
-        <input id="city_transport" name="city_transport" type="text" />
-        <label for="icon_prefix">Travel around city</label>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">sms</i>
+          <input id="comment_gen" name="comment_gen" type="text" />
+          <label for="icon_prefix">Any final comments?</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">sms</i>
-        <input id="comment_gen" name="comment_gen" type="text" />
-        <label for="icon_prefix">Any final comments?</label>
+      <div class="center_btn">
+        <button class="lined thin btn waves-effect waves-light" type="submit">
+          Click here to save and preview your review
+          <i class="material-icons right">playlist_add</i>
+        </button>
       </div>
-    </div>
-    <div class="center_btn">
-      <button class="lined thin btn waves-effect waves-light" type="submit">
-        Click here to save and preview your review
-        <i class="material-icons right">playlist_add</i>
-      </button>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

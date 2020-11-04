@@ -4,12 +4,12 @@
 
 html, body {
     font-family: 'Patrick Hand SC';
-  font-size: 1rem;
-  min-height: 100%;
-  max-width: 100%;
-  padding-bottom: 8vh;
-  overflow-x: hidden;
-  font-display: swap;
+    font-size: 1rem;
+    min-height: 100%;
+    max-width: 100%;
+    padding-bottom: 8vh;
+    overflow-x: hidden;
+    font-display: swap;
 }
 
 .main {
@@ -102,6 +102,12 @@ input[type=text] {
 .mobile-title{
         display: none;
         margin-top: 2vh;
+}
+
+.footer {
+    text-align: center;
+    display: block;
+    width: 100%;
 }
 
 

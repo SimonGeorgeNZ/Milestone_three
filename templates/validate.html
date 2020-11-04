@@ -1,29 +1,36 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-<div class="row title">
-<div class="col s12">
+  <div class="row title">
+    <div class="col s12">
+      <h5 class="center">
+        Enter the title you gave this review to make sure it's yours
+      </h5>
 
-<h5 class="center">Enter the title you gave this review to make sure it's yours </h5>
-
-  <form action="{{ url_for('confirm_title', review_id=title._id) }}" method="POST" class="col s12">
-    <div class="input-field col s12">
-    <input type="text" name="is_correct" value="{{ not_quite }}"  required />
-    <label for="is_correct">Confirm review title</label>
-	</div>
-    <div class="center_btn">
-      <button class="lined thin btn-large waves-effect waves-light validate" type="submit">
-        Confirm review title
-      </button>
+      <form
+        action="{{ url_for('confirm_title', review_id=title._id) }}"
+        method="POST"
+        class="col s12"
+      >
+        <div class="input-field col s12">
+          <input
+            type="text"
+            name="is_correct"
+            value="{{ not_quite }}"
+            required
+          />
+          <label for="is_correct">Confirm review title</label>
+        </div>
+        <div class="center_btn">
+          <button
+            class="lined thin btn-large waves-effect waves-light validate"
+            type="submit"
+          >
+            Confirm review title
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
-</div>
-
-
-</div>
-
-
-
-
 
 {% endblock %}
