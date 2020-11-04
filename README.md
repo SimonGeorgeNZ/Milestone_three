@@ -62,8 +62,17 @@ to do while on his trip.
 - Edit or delete my reviews
 - Have the faith that no one else can edit my reviews or delete them 
 
+# Current Features #
 
-# Fratures left to implement #
+- Add new countries to the database
+- Retrieve existing countries from the database using matching user input
+- Add cities to the database linked to a country
+- Link a title to the city which will link the entire review
+- Add all review data 
+- Edit and delete part or all of the review
+- Search for all reviews linked to a country
+
+# Features left to implement #
 
 - Ability to search for cities or any piece of a review - restaurant names, accommodation names or attractions etc. 
 
@@ -92,9 +101,15 @@ components including the navbar, search feature and cards. Below are resources I
 
 I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools.
 
+Because of using templates there it were errors returned that were impossible to clear - Manual testing found they didn't impact site use.
+
 An interesting bug I found was on the date pickers on the first info for the review. I set a function that if the start date was after the end date, the page was reloaded with an error 
 message. However after this any dates picked after this would give the same error, regardless of if they were in order or not. I tried to set the value as none however this didn't solve
 the issue. I was unsure how to proceed. 
+
+## Landing page ##
+
+The user will be greeted with the latest 9 reviews in the database
 
 
 
