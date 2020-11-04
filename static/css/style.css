@@ -319,6 +319,7 @@ nav .nav-wrapper .brand-logo {
     background-color: transparent;
     height: 4vh;
     font-size: 3vh;
+    color: black;
 }
 
 .nav-wrapper .input-field label{
