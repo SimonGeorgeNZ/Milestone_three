@@ -90,18 +90,21 @@ components including the navbar, search feature and cards. Below are resources I
 - [Stack Overflow](https://stackoverflow.com/)
 - [Slask])(https://slack.com/intl/en-gb/)
 - [Materialize](https://materializecss.com/)
-- [Python trips](https://book.pythontips.com/en/latest/)
+- [Python tips](https://book.pythontips.com/en/latest/)
 - Student tutor help - From Code Institute website
 - [W3 Schools](https://www.w3schools.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [Heroku](https://www.heroku.com/)
 - [Gitpod](https://www.gitpod.io/)
+- [Python Code Checker](https://extendsclass.com/python-tester.html)
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+- [Jinja](https://jinja.palletsprojects.com/en/2.10.x/)
 
 # Testing #
 
 I used HTML and CSS validators to get rid of errors, then manually tested the site myself, and had my flatmates test for me as well. I tried to use lighthouse on Chrome Dev tools.
 
-Because of using templates there it were errors returned that were impossible to clear - Manual testing found they didn't impact site use.
+Because of using templates there were errors returned that were impossible to clear - Manual testing found they didn't impact site use.
 
 An interesting bug I found was on the date pickers on the first info for the review. I set a function that if the start date was after the end date, the page was reloaded with an error 
 message. However after this any dates picked after this would give the same error, regardless of if they were in order or not. I tried to set the value as none however this didn't solve
@@ -109,8 +112,44 @@ the issue. I was unsure how to proceed.
 
 ## Landing page ##
 
-The user will be greeted with the latest 9 reviews in the database
+The user will be greeted with the latest 9 reviews in the database, by clicking the link at the bottom of the postit image "View this review", the user will be taken to the full review. 
 
+## Nav Bar ##
+
+The nav bar is simple in design. The main title of the app - Where to Next? on the left side of the nav will bring the user back to the landing page by clicking on it. On the right side
+the new review button will bring the user to the first page of adding a new review, where the search field will bring bring the user to any reviews added under that country. If there are no 
+reviews for that country, the user is brought to the "add country" page, where an error message shows them there are no reviews, but they can add one if they like. 
+
+The nav bar is fully responsive and will drop to a hamburger menu on tablet and mobile, where both new review button and search bar act the same way on a popout. 
+
+## New review ##
+
+The review procedure is explained in the design section above, and there should be no way to deviate from the intended procedure. There are buttons on appropriate pages to skip the section
+or add another under the same heading - accommodation, hospitality, attractions. By clicking the back button the user will be taken back to the previous page however it will not delete the
+previous input from the database. If the user clicks back to take them back to the title page, then any new title added will then become their title, but against the same city. 
+
+## View review ## 
+
+The user will be presented with their review to view, each section is in a collapsible menu to save space on the page. In sections where multiple input is possible, all entries will be available to 
+view. The user will also have the option here to edit or delete part or all of their review. 
+
+## Edit ##
+
+by clicking the edit button they will be taken directly to a screen to edit that section of their review. All previous inputs will be available to them to see and anything unchanged will not be updated. 
+
+## Delete ## 
+
+To delete part or all of their review, the user needs to validate their title to do so. I added this feature on all delete screens by way of a two step process to ensure it wasn't as simple as clicking
+one button to do so. 
+
+## Viewing review from landing page or search ##
+
+This page acts in a similar way to the page the page the user is greeted by after completing their review. The main difference is the addition of a button at the top of the screen asking if the review is theirs. 
+By clicking this button they are asked again to validate their title to be allowed to edit or delete. 
+
+# Compatibility #
+
+I used Dev tools on Google Chrome and [Am I responsive](http://ami.responsivedesign.is/#) to test compatibility. I designed for mobile, desktop/laptop and tablet.
 
 
 # Deployment #

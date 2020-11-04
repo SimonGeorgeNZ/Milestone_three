@@ -393,7 +393,7 @@ nav .input-field {
 }
 
 .picker__box {
-    background-image: url("../images/postitsummer.png");
+    background-image: url("../images/postitsummer.webp");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     align-content: center;
@@ -442,7 +442,7 @@ label {
 /* All styling for card data, both landing page and search*/
 
 .card {
-    background-image: url("../images/postitsummer.png");
+    background-image: url("../images/postitsummer.webp");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-color: transparent;
