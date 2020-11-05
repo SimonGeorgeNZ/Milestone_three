@@ -1,22 +1,9 @@
 // Elements on pages taken from Materialise 
 
 $(document).ready(function () {
-  start_date = Date.parse("{{first.start_date}}");
-  end_date = Date.parse("{{first.end_date}}");
   $(".collapsible").collapsible();
   $("select").material_select();
   $(".button-collapse").sideNav();
-  $("#start_date")
-    .pickadate("picker")
-    .set("select", start_date, { format: "dd/mm/yyyy" })
-    .trigger("change");
-  $("#end_date")
-    .pickadate("picker")
-    .set("select", end_date, { format: "dd/mm/yyyy" })
-    .trigger("change");
-  document.getElementById("matfix").addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
 });
 
 $(".datepicker").pickadate({

@@ -90,7 +90,6 @@ def didyoumean(search):
                     place = place
     return render_template('didyoumean.html', search=search, results=results, place=place)
 
-
     '''Add country that the user clicks on from the list'''
 
 
@@ -321,6 +320,7 @@ def view_review(review_id):
 
     '''Allows the user to edit their review
 and save the changes back to MongoDB'''
+
 
 @app.route('/edit_first/<first_id>')
 def edit_first(first_id):

@@ -80,6 +80,17 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='js/scripts.js')}}"></script>
+<script src="{{ url_for('static', filename='js/scripts.js')}}">
+start_date = Date.parse("{{first.start_date}}");
+  $("#start_date")
+    .pickadate("picker")
+    .set("select", start_date, { format: "dd/mm/yyyy" })
+    .trigger("change");
+    end_date = Date.parse("{{first.end_date}}");
+  $("#end_date")
+    .pickadate("picker")
+    .set("select", end_date, { format: "dd/mm/yyyy" })
+    .trigger("change");
+</script>
 
 {% endblock %}
