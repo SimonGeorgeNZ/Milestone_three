@@ -5,7 +5,6 @@ import pycountry
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
 from os import path
 if path.exists("env.py"):
     import env
@@ -573,4 +572,4 @@ def confirm_title(review_id):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)
