@@ -110,6 +110,9 @@ An interesting bug I found was on the date pickers on the first info for the rev
 message. However after this any dates picked after this would give the same error, regardless of if they were in order or not. I tried to set the value as none however this didn't solve
 the issue. I was unsure how to proceed. 
 
+I was getting console errors from my Date Picker Javascript code where I was setting the date on the edit page. I removed the Javascript code from the Javascript file and placed it
+on the appropriate page and the errors no longer appeared. 
+
 ## Landing page ##
 
 The user will be greeted with the latest 9 reviews in the database, by clicking the link at the bottom of the postit image "View this review", the user will be taken to the full review. 
