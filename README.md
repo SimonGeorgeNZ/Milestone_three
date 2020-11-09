@@ -80,7 +80,13 @@ to do while on his trip.
 
 - Search with multiple criteria for an advanced search option. 
 
-- OPtion to select what questions the user wants to answer in the review to customize the experiene.
+- Option to select what questions the user wants to answer in the review to customize the experiene.
+
+- Interactive map with location pins of reviewed cities
+
+- Featured city on the landing page that's been reviewed the most
+
+- Add photos to reviews
 
 # Resources and technologies used #
 
