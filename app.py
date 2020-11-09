@@ -187,11 +187,11 @@ def add_review_info(review_id):
         {'review_title': request.form.get('review_title')})
     if start > end:
         error = "Are you a time traveller? Try picking an end date that's after your start date"
-        return render_template('first_info.html', title=title, error=error)
+        return redirect(url_for('add_review_info', title=title, error=error))
     elif start == end:
         info.insert_one(request.form.to_dict())
         return render_template('attractions.html', title=title)
-    else:
+    elif start < end:
         info.insert_one(add_info)
         title = mongo.db.title.find_one(
             {'review_title': request.form.get('review_title')})

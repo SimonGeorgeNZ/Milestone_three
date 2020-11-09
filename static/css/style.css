@@ -89,7 +89,9 @@ html {
 
 .option {
     color: royalblue;
+    margin-top: 2vh;
     padding: 1vh 2vw;
+    display: inline-block;
 }
 
 .input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {
@@ -253,6 +255,10 @@ names on "did you mean" page, and styling for text on landing page*/
     font-size: 4vh;
 }
 
+.picker__footer {
+    padding-bottom: 4vh;
+}
+
 
 
 /*-------------------------Nav---------------------------*/
@@ -316,7 +322,6 @@ nav .nav-wrapper .brand-logo {
     background-repeat: no-repeat;
     background-color: transparent;
     height: auto;
-    width: auto;
 }
 
 .nav-wrapper .input-field input[type=search]{
@@ -337,19 +342,16 @@ nav .nav-wrapper .brand-logo {
     font-size: 4vh;
     color: black;
     display: block;
-    margin-top: 6vh;
+    margin-top: 4vh;
     margin-left: 10vw;
 }
 
 .side-nav .input-field {
     margin-left: 9vw;
-    padding-bottom: 2vh!important;
-    padding-top: 2vh;
 }
 .side-nav .input-field input[type=search] {
-    font-size: 3vh;
+    font-size: 4vh;
     color: black;
-    padding-left: 4vw;
     width: 60%;
     background-color: transparent;
 }
@@ -357,10 +359,7 @@ nav .nav-wrapper .brand-logo {
 .side-nav .input-field label {
     font-size: 3vh;
 }
-.m-glass label {
-    padding-left: 70vw!important;
-    color: black;
-}
+
 .nav-link {
     margin-top: 1.5vh;
     margin-right: 2vw!important;
@@ -376,12 +375,13 @@ nav .input-field {
     min-width: 20vw;
 }
 
-.search_cl {
-    margin-left: 3vw!important;
-}
 .nav-link a {
     font-size: 4vh;
     padding-top: .5vh;
+}
+
+.search_cl {
+    margin-left: 3vw;
 }
 
 
@@ -427,7 +427,6 @@ input {
 
 label {
     color: black!important;
-    padding-bottom: 10vh!important;
 }
 
 .heading-box {
@@ -440,6 +439,7 @@ label {
     background-color: red!important;
     width: 60%;
     height: 100%;
+    display: inline-block;
 }
 
 
@@ -464,7 +464,7 @@ label {
 .card-content {
     padding-right: 1vw!important;
     padding-left: 1vw!important;
-    min-height: 23vh;
+    min-height: 25vh;
 }
 
 
@@ -593,9 +593,6 @@ label {
         padding-right: 2vw;
         font-size: 2vh;
     }
-    .center_btn {
-        display: inline;
-    }
     .center_btn button {
         margin-bottom: 5vh;
         height: auto;
@@ -612,7 +609,7 @@ label {
         padding-right: 2vw;
     }
     input[type=text] {
-    font-size: 3vh;
+    font-size: 4vh;
     }
 }
 
