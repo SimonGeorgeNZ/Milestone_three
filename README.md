@@ -112,10 +112,6 @@ I used HTML and CSS validators to get rid of errors, then manually tested the si
 
 Because of using templates there were errors returned that were impossible to clear - Manual testing found they didn't impact site use.
 
-An interesting bug I found was on the date pickers on the first info for the review. I set a function that if the start date was after the end date, the page was reloaded with an error 
-message. However after this any dates picked that were in the correct order after this would give the same error, apart from if the same date was picked for start and finish date. I tried to set the value as none however this didn't solve
-the issue. I also tried reloading the page with no data, however this didn't solve the issue either I was unsure how to proceed. 
-
 I was getting console errors from my Date Picker Javascript code where I was setting the date on the edit page. I removed the Javascript code from the Javascript file and placed it
 on the appropriate page and the errors no longer appeared. 
 

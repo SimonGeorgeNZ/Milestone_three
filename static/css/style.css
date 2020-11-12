@@ -22,7 +22,6 @@ html, body {
 }
 
 
-
 html {
     background-image: url("../images/wrinkled-note40.webp");
     background-repeat: no-repeat;
@@ -90,8 +89,11 @@ html {
 .option {
     color: royalblue;
     margin-top: 2vh;
-    padding: 1vh 2vw;
     display: inline-block;
+}
+
+.option a {
+    padding: 1vh 2vw;
 }
 
 .input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {

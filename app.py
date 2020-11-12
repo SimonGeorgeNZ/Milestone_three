@@ -185,13 +185,10 @@ def add_review_info(review_id):
     end = request.form['end_date']
     title = mongo.db.title.find_one(
         {'review_title': request.form.get('review_title')})
-    if start > end:
-        error = "Are you a time traveller? Try picking an end date that's after your start date"
-        return redirect(url_for('add_review_info', title=title, error=error))
-    elif start == end:
+    if start == end:
         info.insert_one(request.form.to_dict())
         return render_template('attractions.html', title=title)
-    elif start < end:
+    else:
         info.insert_one(add_info)
         title = mongo.db.title.find_one(
             {'review_title': request.form.get('review_title')})
@@ -303,15 +300,15 @@ def view_review(review_id):
     title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
     review_title = title['review_title']
     city = title['city_name']
-    country = mongo.db.cities.find_one({"city_name": (city).lower()})
+    country = mongo.db.cities.find_one({"city_name": city.lower()})
     first = mongo.db.first_info.find_one(
-        {"review_title": (review_title).lower()})
+        {"review_title": review_title.lower()})
     attract = mongo.db.attractions.find(
-        {"review_title": (review_title).lower()})
+        {"review_title": review_title.lower()})
     accom = mongo.db.accommodation.find(
-        {"review_title": (review_title).lower()})
-    hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
-    final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
+        {"review_title": review_title.lower()})
+    hospo = mongo.db.hospitality.find({"review_title": review_title.lower()})
+    final = mongo.db.reviews.find_one({"review_title": review_title.lower()})
     return render_template('viewreview.html', title=title, first=first,
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
@@ -534,12 +531,12 @@ def landing_link(review_id):
     title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
     review_title = title['review_title']
     city = title['city_name']
-    country = mongo.db.cities.find_one({"city_name": (city).lower()})
-    first = mongo.db.first_info.find_one({"review_title": (review_title).lower()})
-    attract = mongo.db.attractions.find({"review_title": (review_title).lower()})
-    accom = mongo.db.accommodation.find({"review_title": (review_title).lower()})
-    hospo = mongo.db.hospitality.find({"review_title": (review_title).lower()})
-    final = mongo.db.reviews.find_one({"review_title": (review_title).lower()})
+    country = mongo.db.cities.find_one({"city_name": city.lower()})
+    first = mongo.db.first_info.find_one({"review_title": review_title.lower()})
+    attract = mongo.db.attractions.find({"review_title": review_title.lower()})
+    accom = mongo.db.accommodation.find({"review_title": review_title.lower()})
+    hospo = mongo.db.hospitality.find({"review_title": review_title.lower()})
+    final = mongo.db.reviews.find_one({"review_title": review_title.lower()})
     return render_template('landing_link.html', title=title, first=first,
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 

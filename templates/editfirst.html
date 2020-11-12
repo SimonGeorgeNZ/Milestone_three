@@ -43,7 +43,7 @@
       <div class="row">
         <div class="input-field col s12 m6">
           <select id="reason" name="reason">
-            <option value="{{first.reason}}" disabled selected
+            <option value="{{first.reason}}" selected
               >Business, pleasure or other?</option
             >
             <option value="Business">Business</option>
@@ -54,7 +54,7 @@
         </div>
         <div class="input-field col s12 m6">
           <select id="s_or_g" name="s_or_g">
-            <option value="{{first.s_or_g}}" disabled selected
+            <option value="{{first.s_or_g}}" selected
               >Did you travel solo or in a tour</option
             >
             <option value="Solo">Solo</option>
@@ -79,8 +79,10 @@
   </div>
 </div>
 
+
+{% endblock %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="{{ url_for('static', filename='js/scripts.js')}}">
+<script>
 start_date = Date.parse("{{first.start_date}}");
   $("#start_date")
     .pickadate("picker")
@@ -93,4 +95,3 @@ start_date = Date.parse("{{first.start_date}}");
     .trigger("change");
 </script>
 
-{% endblock %}
