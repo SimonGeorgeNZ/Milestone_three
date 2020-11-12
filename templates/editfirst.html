@@ -25,6 +25,7 @@
           name="start_date"
           type="text"
           class="datepicker"
+          value="{{first.start_date}}"
           required
         />
         <label for="start_date">Start date - Required</label>
@@ -36,6 +37,7 @@
           name="end_date"
           type="text"
           class="datepicker"
+          value="{{first.end_date}}"
           required
         />
         <label for="end_date">End date - Required</label>
@@ -44,24 +46,22 @@
         <div class="input-field col s12 m6">
           <select id="reason" name="reason">
             <option value="{{first.reason}}" selected
-              >Business, pleasure or other?</option
+              >Business, pleasure or other? - {{first.reason}}</option
             >
             <option value="Business">Business</option>
             <option value="Pleasure">Pleasure</option>
             <option value="Event/Festival">Event/Festival</option>
           </select>
-          <label for="reason">Currently - {{first.reason}}</label>
         </div>
         <div class="input-field col s12 m6">
           <select id="s_or_g" name="s_or_g">
             <option value="{{first.s_or_g}}" selected
-              >Did you travel solo or in a tour</option
+              >Did you travel solo or in a tour = {{first.s_or_g}}</option
             >
             <option value="Solo">Solo</option>
             <option value="With friends">With friends</option>
             <option value="Tour">Tour</option>
           </select>
-          <label for="s_or_g">Currently - {{first.s_or_g}}</label>
         </div>
       </div>
       <div class="input-field col s12">
@@ -81,17 +81,6 @@
 
 
 {% endblock %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-start_date = Date.parse("{{first.start_date}}");
-  $("#start_date")
-    .pickadate("picker")
-    .set("select", start_date, { format: "dd/mm/yyyy" })
-    .trigger("change");
-    end_date = Date.parse("{{first.end_date}}");
-  $("#end_date")
-    .pickadate("picker")
-    .set("select", end_date, { format: "dd/mm/yyyy" })
-    .trigger("change");
-</script>
+
+
 
