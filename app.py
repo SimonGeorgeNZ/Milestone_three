@@ -596,6 +596,16 @@ def insert_new_attract(review_id):
         {'review_title': request.form.get('review_title')})
     return redirect(url_for('view_review', review_id=title['_id']))
 
+
+@app.route('/insert_new_hospo/<review_id>', methods=['POST'])
+def insert_new_hospo(review_id):
+    hospo = mongo.db.hospitality
+    hospo.insert_one(request.form.to_dict())
+    title = mongo.db.title.find_one(
+        {'review_title': request.form.get('review_title')})
+    return redirect(url_for('view_review', review_id=title['_id']))
+
+
 # validate #
 
     '''User validates their review title to
