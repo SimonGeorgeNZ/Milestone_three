@@ -23,6 +23,7 @@
           If this was a day trip, simply select the same date for start and end
           date
         </p>
+        {{ error }}
         <div class="row">
           <div class="input-field col s12 l6">
             <i class="material-icons prefix">date_range</i>
@@ -31,7 +32,7 @@
               name="start_date"
               type="text"
               class="datepicker"
-              required
+              value=""
             />
             <label for="start_date">Start date - Required</label>
           </div>
@@ -42,19 +43,18 @@
               name="end_date"
               type="text"
               class="datepicker"
-              required
+              value=""
             />
             <label for="end_date">End date - Required</label>
           </div>
         </div>
         <div class="input-field col s12 m6">
           <select id="reason" name="reason">
-            <option value="" disabled selected></option>
+            <option disabled selected><label>Business or pleasure?</label></option>
             <option value="Business">Business</option>
             <option value="Pleasure">Pleasure</option>
             <option value="Event/Festival">Event/Festival</option>
           </select>
-          <label>Business or pleasure?</label>
         </div>
         <div class="input-field col s12 m6">
           <i class="material-icons prefix">event</i>
@@ -63,12 +63,11 @@
         </div>
         <div class="input-field col s12">
           <select id="s_or_g" name="s_or_g">
-            <option value="" disabled selected></option>
+            <option disabled selected><label>Did you travel alone or with friends?</label></option>
             <option value="Solo">Solo</option>
             <option value="With friends">With friends</option>
             <option value="Tour">Tour</option>
           </select>
-          <label>Did you travel alone or with friends?</label>
         </div>
         <div class="center_btn">
           <button id="firstAdd" class="btn lined thin waves-effect waves-light" type="submit">

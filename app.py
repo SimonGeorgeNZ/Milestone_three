@@ -185,7 +185,10 @@ def add_review_info(review_id):
     end = request.form['end_date']
     title = mongo.db.title.find_one(
         {'review_title': request.form.get('review_title')})
-    if start == end:
+    if start > end:
+        error = "Are you a time traveller? Try picking an end date that's after your start date"
+        return render_template('first_info.html', title=title, error=error)
+    elif start == end:
         info.insert_one(request.form.to_dict())
         return render_template('attractions.html', title=title)
     else:
@@ -539,6 +542,7 @@ def landing_link(review_id):
     final = mongo.db.reviews.find_one({"review_title": review_title.lower()})
     return render_template('landing_link.html', title=title, first=first,
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
+
 
 
 # validate #

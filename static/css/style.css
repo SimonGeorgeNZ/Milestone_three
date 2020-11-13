@@ -261,6 +261,13 @@ names on "did you mean" page, and styling for text on landing page*/
     padding-bottom: 4vh;
 }
 
+.picker__day--disabled {
+    text-decoration: line-through;
+    background-color: transparent!important;
+    color: black!important;
+    border: none;
+}
+
 
 
 /*-------------------------Nav---------------------------*/
