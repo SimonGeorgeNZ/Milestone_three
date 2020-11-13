@@ -110,7 +110,7 @@ input[type=text] {
 
 .footer {
     text-align: center;
-    display: block;
+    display: inline-block;
     width: 100%;
 }
 

@@ -44,7 +44,7 @@
           </div>
           {% endif %}
           {% if first.review_title == null %}
-          <a href="{{ url_for('insert_title') }}"  class="lined thin waves-effect waves-light btn-large btn">Add</a>
+          <a href="{{url_for('add_new_section', cat_name='first_info')}}" class="lined thin waves-effect waves-light btn-large btn">Add</a>
           {% endif %}
             </div>
         </li>
@@ -88,6 +88,7 @@
                   </div>
                   {% endif %}
                 {% endfor %}
+                <a href="{{url_for('add_new_section', cat_name='accom')}}" class="lined thin waves-effect waves-light btn-large btn">Add</a>
                 </div>
           </div>
         </li>
@@ -142,6 +143,7 @@
                 <a href="{{url_for('delete_section', section_id=at._id, cat_name='attractions')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
                 {% endif %}
                 {% endfor %}
+                <a href="{{url_for('add_new_section', cat_name='attract')}}" class="lined thin waves-effect waves-light btn-large btn">Add</a>
                 </div>
             </div>
         </li>
@@ -192,6 +194,7 @@
               </div>
               {% endif %}
               {% endfor %}
+              <a href="{{url_for('add_new_section', cat_name='hospo')}}" class="lined thin waves-effect waves-light btn-large btn">Add</a>
           </div>
         </li>
         <li>
@@ -229,6 +232,9 @@
               <a href="{{url_for('edit_final', final_id=final._id)}}"  class="lined thin waves-effect waves-light btn-large btn">Edit</a>
             <a href="{{url_for('delete_section', section_id=final._id, cat_name='reviews')}}"  class="lined thin waves-effect waves-light btn-large btn">Delete this section</a>
             {% endif %}
+            {% if final.review_title == null %}
+          <a href="{{url_for('add_new_section', cat_name='final')}}" class="lined thin waves-effect waves-light btn-large btn">Add</a>
+          {% endif %}
           </div>
         </li>
       </ul>

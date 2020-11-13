@@ -544,6 +544,12 @@ def landing_link(review_id):
                            attract=attract, accom=accom, hospo=hospo, final=final, city=city, country=country)
 
 
+# Add new info from View Review page #
+
+@app.route('/add_new_section/<cat_name>')
+def add_new_section(cat_name):
+    return render_template('addnewsection.html', cat_name=cat_name)
+
 
 # validate #
 
