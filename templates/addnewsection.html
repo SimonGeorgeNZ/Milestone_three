@@ -192,7 +192,142 @@
 </div>
 
 {% elif cat_name == 'attract' %}
-Attract
+<div class="container page_top">
+  <p class="heading-box head-main">
+    Add things to do to in {{title.city_name |title}}
+  </p>
+  <div class="row">
+    <form
+      action="{{ url_for('insert_new_attract', review_id=title._id) }}"
+      method="POST"
+      class="col s12"
+    >
+      <input
+        type="hidden"
+        id="review_title"
+        name="review_title"
+        value="{{title.review_title}}"
+      />
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">question_answer</i>
+          <input id="attract_name" name="attract_name" type="text" required />
+          <label for="icon_prefix">Attraction Name - Required</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">local_atm</i>
+          <p class="range-field section">
+            <input
+              type="range"
+              id="attract_cost"
+              name="attract_cost"
+              min="0"
+              max="100"
+            />
+          </p>
+          <label for="attract_cost">How much does this cost?</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">thumbs_up_down</i>
+          <p class="range-field section">
+            <input
+              type="range"
+              id="attract_rating"
+              name="attract_rating"
+              min="0"
+              max="10"
+            />
+          </p>
+          <label for="attract_rating"
+            >Out of 10, how awesome is this attraction?</label
+          >
+        </div>
+      </div>
+      <ul class="collapsible popout">
+        <li>
+          <div class="lined thin collapsible-header">
+            <i class="material-icons">read_more</i>Aditional info
+          </div>
+          <div class="lined thin collapsible-body">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">language</i>
+                <input id="attract_site" name="attract_site" type="text" />
+                <label for="icon_prefix">Attraction Website</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">museum</i>
+                <label for="attract_type">Attraction Type</label>
+                <input id="attract_type" name="attract_type" type="text" />
+              </div>
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">tour</i>
+                <input id="attract_guide" name="attract_guide" type="text" />
+                <label for="icon_prefix">Guided, or self guided?</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">confirmation_number</i>
+                <input id="attract_ticket" name="attract_ticket" type="text" />
+                <label for="icon_prefix">Is the attraction ticketed?</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">language</i>
+                <input id="ticket_site" name="ticket_site" type="text" />
+                <label for="icon_prefix"
+                  >If yes, where can someone buy a ticket?</label
+                >
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">schedule</i>
+                <p class="range-field section">
+                  <input
+                    type="range"
+                    id="attract_time"
+                    name="attract_time"
+                    min="0"
+                    max="15"
+                  />
+                </p>
+                <label for="attract_time"
+                  >How many hours should someone set aside for this Max = 1
+                  day</label
+                >
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">sms</i>
+          <input
+            id="attract_comment"
+            name="attract_comment"
+            type="text"
+            maxlength="500"
+          />
+          <label for="icon_prefix">Any aditional comments? </label>
+        </div>
+      </div>
+
+      <div class="center_btn">
+        <button class="lined thin btn waves-effect waves-light" type="submit">
+          Add Attraction
+          <i class="material-icons right">playlist_add</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 {% elif cat_name == 'hospo' %}
 Hospo
 {% elif cat_name == 'final' %}
