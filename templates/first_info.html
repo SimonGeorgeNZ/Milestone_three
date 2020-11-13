@@ -75,12 +75,6 @@
             <i class="material-icons right">playlist_add</i>
           </button>
         </div>
-      </form>
-      <form
-        action="{{ url_for('insert_accom', review_id=title._id) }}"
-        method="POST"
-        class="col s12"
-      >
         <input
           type="hidden"
           id="accom_name"
@@ -88,6 +82,7 @@
           value="This was a day trip"
         />
       </form>
+        
     </div>
   </div>
 </div>

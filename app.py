@@ -546,9 +546,39 @@ def landing_link(review_id):
 
 # Add new info from View Review page #
 
-@app.route('/add_new_section/<cat_name>')
-def add_new_section(cat_name):
-    return render_template('addnewsection.html', cat_name=cat_name)
+@app.route("/add_new_section/<cat_name>/<title_id>")
+def add_new_section(cat_name, title_id):
+    title = mongo.db.title.find_one({'_id': ObjectId(title_id)})
+    city = title['city_name']
+    country = mongo.db.cities.find_one({"city_name": city.lower()})
+    return render_template('addnewsection.html', cat_name=cat_name, title=title, city=city, country=country)
+
+
+@app.route('/add_new_review_info/<review_id>', methods=['POST', 'GET'])
+def add_new_review_info(review_id):
+    info = mongo.db.first_info
+    add_info = {'start_date': request.form.get('start_date'),
+                'end_date': request.form.get('end_date'),
+                'reason': request.form.get('reason'),
+                'event': request.form.get('event'),
+                's_or_g': request.form.get('s_or_g'),
+                'review_title': request.form.get('review_title').lower()}
+    start = request.form['start_date']
+    end = request.form['end_date']
+    title = mongo.db.title.find_one(
+        {'review_title': request.form.get('review_title')})
+    if start > end:
+        error = "Are you a time traveller? Try picking an end date that's after your start date"
+        return render_template('first_info.html', title=title, error=error)
+    elif start == end:
+        info.insert_one(request.form.to_dict())
+        return redirect(url_for('view_review', review_id=title['_id']))
+    else:
+        info.insert_one(add_info)
+        title = mongo.db.title.find_one(
+            {'review_title': request.form.get('review_title')})
+        return redirect(url_for('view_review', review_id=title['_id']))
+
 
 
 # validate #
