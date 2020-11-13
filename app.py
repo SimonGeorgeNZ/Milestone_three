@@ -606,6 +606,16 @@ def insert_new_hospo(review_id):
     return redirect(url_for('view_review', review_id=title['_id']))
 
 
+@app.route('/insert_new_final/<review_id>', methods=['POST', 'GET'])
+def insert_new_final(review_id):
+    input_title = request.form['review_title']
+    final = mongo.db.reviews
+    final.insert_one(request.form.to_dict())
+    title = mongo.db.title.find_one({'review_title': input_title.lower()})
+    return redirect(url_for('view_review', title=title,
+                            review_id=title['_id']))
+
+
 # validate #
 
     '''User validates their review title to
