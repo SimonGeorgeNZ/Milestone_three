@@ -87,7 +87,110 @@
   </div>
 </div>
 {% elif cat_name == 'accom' %}
-Accom
+<div class="container page_top">
+  <p class="heading-box head-main">
+    Add accommodation to {{title.city_name |title}}
+  </p>
+  <form
+    action="{{ url_for('insert_new_accom', review_id=title._id)}}"
+    method="POST"
+    class="col s12"
+  >
+    <input
+      type="hidden"
+      id="review_title"
+      name="review_title"
+      value="{{title.review_title}}"
+    />
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">hotel</i>
+        <input id="accom_name_new" name="accom_name" type="text" required />
+        <label for="icon_prefix">Accommodation Name - Required</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">apartment</i>
+        <input id="accom_style" name="accom_style" type="text" required />
+        <label for="icon_prefix">Accommodation Style - Required</label>
+      </div>
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix">local_atm</i>
+        <p class="range-field section">
+          <input
+            type="range"
+            id="accom_price"
+            name="accom_price"
+            min="0"
+            max="100"
+            required
+          />
+        </p>
+        <label for="accom_price"
+          >Price per night in local currency - Required</label
+        >
+      </div>
+    </div>
+    <ul class="collapsible popout">
+      <li>
+        <div class="lined thin collapsible-header">
+          <i class="material-icons">read_more</i>Aditional info
+        </div>
+        <div class="lined thin collapsible-body">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">language</i>
+              <input id="accom_site" name="accom_site" type="text" />
+              <label for="icon_prefix">Accommodation Website</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">markunread_mailbox</i>
+              <input id="accom_address" name="accom_address" type="text" />
+              <label for="icon_prefix">Accommodation Address</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">water_damage</i>
+              <p class="range-field">
+                <input
+                  type="range"
+                  id="accom_clean"
+                  name="accom_clean"
+                  min="0"
+                  max="10"
+                />
+              </p>
+              <label for="icon_prefix">Accommodation Cleanliness</label>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">sms</i>
+        <input
+          id="accom_comment"
+          name="accom_comment"
+          type="text"
+          maxlength="500"
+        />
+        <label for="icon_prefix">Add aditional comments</label>
+      </div>
+    </div>
+    <div class="center_btn">
+      <button class="lined thin btn waves-effect waves-light" type="submit">
+        Add Accommodation
+        <i class="material-icons right">playlist_add</i>
+      </button>
+    </div>
+  </form>
+</div>
+
 {% elif cat_name == 'attract' %}
 Attract
 {% elif cat_name == 'hospo' %}

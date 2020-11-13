@@ -580,6 +580,12 @@ def add_new_review_info(review_id):
         return redirect(url_for('view_review', review_id=title['_id']))
 
 
+@app.route('/insert_new_accom/<review_id>', methods=['POST'])
+def insert_new_accom(review_id):
+    title = mongo.db.title.find_one({"_id": ObjectId(review_id)})
+    accom = mongo.db.accommodation
+    accom.insert_one(request.form.to_dict())
+    return redirect(url_for('view_review', review_id=title['_id']))
 
 # validate #
 
