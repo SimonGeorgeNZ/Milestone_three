@@ -491,12 +491,12 @@ def confirm_delete_all(title_id):
     title = mongo.db.title.find_one({"_id": ObjectId(title_id)})
     input_title = request.form['is_correct']
     if title['review_title'] == input_title.lower():
-        mongo.db.first_info.remove({"review_title": input_title}),
-        mongo.db.accommodation.remove({"review_title": input_title}),
-        mongo.db.attractions.remove({"review_title": input_title}),
-        mongo.db.hospitality.remove({"review_title": input_title}),
-        mongo.db.reviews.remove({"review_title": input_title}),
-        mongo.db.title.remove({"review_title": input_title})
+        mongo.db.first_info.remove({"review_title": input_title.lower()}),
+        mongo.db.accommodation.remove({"review_title": input_title.lower()}),
+        mongo.db.attractions.remove({"review_title": input_title.lower()}),
+        mongo.db.hospitality.remove({"review_title": input_title.lower()}),
+        mongo.db.reviews.remove({"review_title": input_title.lower()}),
+        mongo.db.title.remove({"review_title": input_title.lower()})
         return redirect(url_for('home'))
     else:
         not_quite = "Sorry, that's not the correct title"
