@@ -112,6 +112,7 @@ input[type=text] {
     text-align: center;
     display: inline-block;
     width: 100%;
+    height: 100vh;
 }
 
 
@@ -622,6 +623,12 @@ label {
     }
     input[type=text] {
     font-size: 4vh;
+    }
+
+    .your-review {
+        width: auto;
+        margin: auto;
+
     }
 }
 

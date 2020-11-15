@@ -87,6 +87,8 @@
   </div>
 
   {% endif %} {% if cat_name == "first_info" %}
+
+  {{ not_quite }}
   <div class="row">
     <form
       action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}"
@@ -94,7 +96,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct" required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">
@@ -108,6 +110,8 @@
     </form>
   </div>
   {% elif cat_name == "accommodation" %}
+
+  {{ not_quite }}
   <div class="row">
     <form
       action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}"
@@ -115,7 +119,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct"  required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">
@@ -129,6 +133,8 @@
     </form>
   </div>
   {% elif cat_name == "attractions" %}
+
+  {{ not_quite }}
   <div class="row">
     <form
       action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}"
@@ -136,7 +142,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct"  required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">
@@ -150,6 +156,8 @@
     </form>
   </div>
   {% elif cat_name == "hospitality" %}
+
+  {{ not_quite }}
   <div class="row">
     <form
       action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}"
@@ -157,7 +165,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct" required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">
@@ -171,6 +179,8 @@
     </form>
   </div>
   {% elif cat_name == "reviews" %}
+
+  {{ not_quite }}
   <div class="row">
     <form
       action="{{ url_for('confirm_delete', review_id=common._id, cat_name=cat_name) }}"
@@ -178,7 +188,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct" required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">
@@ -193,6 +203,8 @@
   </div>
   {% elif cat_name == False %}
 
+  {{ not_quite }}
+
   <div class="row">
     <form
       action="{{ url_for('confirm_delete_all', title_id=title._id ) }}"
@@ -200,7 +212,7 @@
       class="col s12"
     >
       <div class="input-field col s12">
-        <input type="text" name="is_correct" value="{{ not_quite }}" required />
+        <input type="text" name="is_correct" required />
         <label for="is_correct">Confirm review title</label>
       </div>
       <div class="center_btn delete_outter">

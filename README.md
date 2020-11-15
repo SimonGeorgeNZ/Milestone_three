@@ -94,7 +94,7 @@ I developed this on Gitpod using Heroku as a deployment site and MongoDB as a da
 components including the navbar, search feature and cards. Below are resources I have used to help develope my site
 
 - [Stack Overflow](https://stackoverflow.com/)
-- [Slask])(https://slack.com/intl/en-gb/)
+- [Slask](https://slack.com/intl/en-gb/)
 - [Materialize](https://materializecss.com/)
 - [Python tips](https://book.pythontips.com/en/latest/)
 - Student tutor help - From Code Institute website
@@ -105,6 +105,8 @@ components including the navbar, search feature and cards. Below are resources I
 - [Python Code Checker](https://extendsclass.com/python-tester.html)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [Jinja](https://jinja.palletsprojects.com/en/2.10.x/)
+
+### Please see Deployment section for necessary imports ###
 
 # Testing #
 
@@ -151,6 +153,15 @@ one button to do so.
 
 This page acts in a similar way to the page the page the user is greeted by after completing their review. The main difference is the addition of a button at the top of the screen asking if the review is theirs. 
 By clicking this button they are asked again to validate their title to be allowed to edit or delete. 
+
+## Add new section from view review page ##
+
+I decided to add a button for the user to add more data when reviewing their review. These buttons are available at the final stage of adding a review, or if the user validates a review is theirs off the landing
+page or search. The add button will only appear on the first and last segments if there isn't existing information attached to their review. This was decided for a number of reasons, for example it will stop a 
+review having multiple dates against it, or in the case of the final section, there is no need for multiple entries. The add button will stay active on Accommidation, Activities and Hospitality however, as a user
+is already able to add multiple entries for these collections. Clicking the add button will take the user to a page displaying very much the same as the page they saw when adding the review from scratch. There are some
+subtle differences however. There is no skip button for accommodation, hospitality, attractions or final, and there is no option on accommodation, attractions and hospitality to add another. All pages have one 
+submit button at the very bottom, that will take the user back to the view review page, that will now display their new data. 
 
 # Compatibility #
 

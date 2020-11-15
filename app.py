@@ -490,8 +490,6 @@ def delete_all(title_id):
 def confirm_delete_all(title_id):
     title = mongo.db.title.find_one({"_id": ObjectId(title_id)})
     input_title = request.form['is_correct']
-    print(title['review_title'])
-    print(input_title)
     if title['review_title'] == input_title.lower():
         mongo.db.first_info.remove({"review_title": input_title}),
         mongo.db.accommodation.remove({"review_title": input_title}),
@@ -545,6 +543,11 @@ def landing_link(review_id):
 
 
 # Add new info from View Review page #
+
+    '''Links for if the user wants to add another section
+    to accomodation, attractions or hospitality, or if 
+    they delete the initial and final info and need to 
+    add it again'''
 
 @app.route("/add_new_section/<cat_name>/<title_id>")
 def add_new_section(cat_name, title_id):

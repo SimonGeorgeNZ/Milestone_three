@@ -5,7 +5,7 @@
       <h5 class="center">
         Enter the title you gave this review to make sure it's yours
       </h5>
-
+        {{ not_quite }}
       <form
         action="{{ url_for('confirm_title', review_id=title._id) }}"
         method="POST"
@@ -15,7 +15,7 @@
           <input
             type="text"
             name="is_correct"
-            value="{{ not_quite }}"
+            value=""
             required
           />
           <label for="is_correct">Confirm review title</label>
