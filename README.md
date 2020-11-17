@@ -3,7 +3,7 @@
 
 ![Mockupimages](https://github.com/SimonGeorgeNZ/Milestone_three/blob/master/static/images/macimages.png?raw=true)
 
-Where to next is a website that is inctended for people who love to travel, and love to travel on a budget. It's a place for backpackers to share
+Where to Next is a website that is inctended for people who love to travel, and love to travel on a budget. It's a place for backpackers to share
 experiences, ideas and secrets that otherwise might not be found. Users can review a city that they have traveled to by listing the reasons for their
 trip, where they stayed, where they ate and drank, what they did on their trip as well as some overall lasting memories. 
 
@@ -46,6 +46,33 @@ add multiple restaurants, attractions and accommodation against one city.
 
 I planned some simple wireframes for the design but most of the design was done on the fly and based on looks. As mentioned earlier I wanted the looks of the site to 
 be like a hand created scrapbook, made to look like it made quickly with excitement for the upcoming trip. 
+
+## Strategy Plane ##
+
+Where to Next is designed for the thrifty traveller in mind. People who like to plan their experiences based on like minded reviews and also share their experiences with others
+
+## Scope Plane ##
+
+The users will have the ability to add all relevant information from their trip to a certain place, using the country and city as a link. Sections of the review will include
+accommodation, hospitality and attractions as well as dates traveled, reasons for the trip and travel around the city. See "Features left to implement" for further release. 
+
+## Structure Plane ##
+
+Users will first be asked to add a country for their review, if the country exists in the database it will no be added again to keep the database free from unneccessary double additions. 
+
+The user will then add a city which will have the country linked with it, then add a password to their review which will have the city linked against it. From here all following review sections
+will include the password as a way to link all sections together into one review. 
+
+## Skeleton Plane ##
+
+Where to Next will be structured in a straight line process. The user will be guided through the review process with no inteded way to deviate from the inteded process. Outside of the review process
+the user can search for reviews and be taken to them based on their search criteria, or click the link from the landing page to see the review. See wireframe documents above for further evidence of 
+planning process. 
+
+## Surface Plane ##
+
+I intend for Where to Next to look like a well loved, hand written scrap book. The only colour differences I envision will look like different ink colours or drawn borders. Clean straight lines will 
+give the impression of hand drawn borders and underlined titles to look like a permanent marker.
 
 # User Stories #
 
@@ -109,6 +136,11 @@ components including the navbar, search feature and cards. Below are resources I
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [Jinja](https://jinja.palletsprojects.com/en/2.10.x/)
 - [Pycountry](https://pypi.org/project/pycountry/)
+- [Border and button CSS](https://codemyui.com/hand-drawn-border-buttons-css/)
+- [Background image](https://www.freeimages.com/photo/wrinkled-note-book-paper-1151925)
+- [Card background](http://clipart-library.com/clipart/LcdoqpLni.htm)
+- [Map image for nav](https://www.freepik.com/free-vector/hand-drawn-world-map_1133919.htm)
+- [Side nav image](https://www.nicepng.com/s/ripped-paper/)
 
 ### Please see Deployment section for necessary imports ###
 
@@ -174,6 +206,8 @@ for both tablet and mobile.
 # Deployment #
 
 To deploy the project on Heroku there are a number of steps, please follow them carefully. 
+
+- Download the github file 
 
 - Create a Procfile using the command in the terminal echo web: python app.py > Procfile
 

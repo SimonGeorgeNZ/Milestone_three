@@ -21,6 +21,7 @@ html, body {
     color: black!important;
 }
 
+/* Background image found at https://www.freeimages.com/photo/wrinkled-note-book-paper-1151925 */
 
 html {
     background-image: url("../images/wrinkled-note40.webp");
@@ -30,6 +31,8 @@ html {
     min-height: 100%;
     max-width: 100%;
 }
+
+/* border and button CSS found at https://codemyui.com/hand-drawn-border-buttons-css/ */
 
 .lined.thick{
     border:solid 7px #41403E;
@@ -197,7 +200,6 @@ names on "did you mean" page, and styling for text on landing page*/
     display: inline-block;
     margin-top: 2vw;
     margin-right: 1.5vw;
-    transition: background-color .5s;
 }
 
 .validate {
@@ -288,6 +290,8 @@ nav .nav-wrapper .brand-logo {
     font-size: 7vh;
 }
 
+/* Map image found at https://www.freepik.com/free-vector/hand-drawn-world-map_1133919.htm */
+
 .nav-wrapper {
     background-image: url("../images/map.webp");
     background-repeat: no-repeat;
@@ -323,6 +327,8 @@ nav .nav-wrapper .brand-logo {
     transition: .5s;
     padding-bottom: 1vh;
 }
+
+/* Side nav background image https://www.nicepng.com/s/ripped-paper/ */
 
 .side-nav {
     margin-top: 15vh;
@@ -409,6 +415,8 @@ nav .input-field {
 .picker__year-display {
     color: black;
 }
+
+/* Post it note found at http://clipart-library.com/clipart/LcdoqpLni.htm */
 
 .picker__box {
     background-image: url("../images/postitsummer.webp");
