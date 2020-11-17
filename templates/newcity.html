@@ -1,4 +1,7 @@
 {% extends 'base.html' %}{% block content %}
+
+<!-- If the country doesn't exist in MongoDB, the user will be directed to this page since there won't be any cities added for a non existant country -->
+
 <div class="container">
   <div class="row">
     <div class="col title center s12">

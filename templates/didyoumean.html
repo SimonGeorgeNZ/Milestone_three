@@ -1,4 +1,9 @@
 {% extends 'base.html' %}{% block content %}
+
+<!-- If the user's input for country doesn't match against pycountry the user will be redirected to this page with
+options for what they might mean, based off the first letter -->
+
+
 <div class="container">
   <div class="col title s12">
     <p class="head-main">Sorry we couldn't find {{ search }}</p>

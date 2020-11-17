@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block content %}
+
+<!-- Add accommodation info to MongoDB, with the option to add another or skip section entirely -->
+
 <div class="container page_top">
   <p class="heading-box head-main">
     Add accommodation to {{title.city_name |title}}
   </p>
+  
   <a
     href="{{url_for('skip_accom', review_id=title._id)}}"
     class="lined thin waves-effect waves-light btn-large btn"

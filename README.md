@@ -3,7 +3,7 @@
 
 ![Mockupimages](https://github.com/SimonGeorgeNZ/Milestone_three/blob/master/static/images/macimages.png?raw=true)
 
-Where to now is a website that is inctended for people who love to travel, and love to travel on a budget. It's a place for backpackers to share
+Where to next is a website that is inctended for people who love to travel, and love to travel on a budget. It's a place for backpackers to share
 experiences, ideas and secrets that otherwise might not be found. Users can review a city that they have traveled to by listing the reasons for their
 trip, where they stayed, where they ate and drank, what they did on their trip as well as some overall lasting memories. 
 
@@ -19,10 +19,13 @@ this the user adds the city they are reviewing, with cities already reviewed fro
 to MongoDB twice, and that spelling (hopefully correct) is preserved. The user is then asked to give their review a title - This title acts as a password for
 the review should the user want to delete or edit their review in the future. From here the user goes on to add the info for the review, when the user adds the dates
 they traveled on, if the user selects the same date for start and end of their trip, their trip is deemed to be a day trip and therefor not need accommodation and will 
-take the user past the accommodation page. 
+take the user past the accommodation page. The user should also not be able to add a start date after their end date, with the page reloading if they try to, with an
+error message displayed. 
 
 After leaving their review the user is given a chance to view or edit what they have written, as well as delete a section or the entire review. If they want 
-to delete any or all, they will need to verify their review title to do so. ON the final screen of the review process the user is reminded of their title. 
+to delete any or all, they will need to verify their review title to do so. On the final screen of the review process the user is reminded of their title. 
+
+Here the user can add new sections to accommodation, attractions and hospitality, or if the user deletes the first or last sections, they can add a new one. 
 
 Once finished the user can return to the main landing page where their newly created review will be displayed along with the other 8 newest reviews. 
 
@@ -84,14 +87,14 @@ to do while on his trip.
 
 - Interactive map with location pins of reviewed cities
 
-- Featured city on the landing page that's been reviewed the most
+- Featured aspects on the landing page for cities/restaurants/attractions that have been reviewed the most
 
 - Add photos to reviews
 
 # Resources and technologies used #
 
 I developed this on Gitpod using Heroku as a deployment site and MongoDB as a database. The code is HTML, CSS and Python with a small amount of Javascript. I used Materialise for a number of 
-components including the navbar, search feature and cards. Below are resources I have used to help develope my site
+components including the navbar, search feature and cards. Below are resources I have used to help develop my site
 
 - [Stack Overflow](https://stackoverflow.com/)
 - [Slask](https://slack.com/intl/en-gb/)
@@ -105,6 +108,7 @@ components including the navbar, search feature and cards. Below are resources I
 - [Python Code Checker](https://extendsclass.com/python-tester.html)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [Jinja](https://jinja.palletsprojects.com/en/2.10.x/)
+- [Pycountry](https://pypi.org/project/pycountry/)
 
 ### Please see Deployment section for necessary imports ###
 
@@ -114,8 +118,6 @@ I used HTML and CSS validators to get rid of errors, then manually tested the si
 
 Because of using templates there were errors returned that were impossible to clear - Manual testing found they didn't impact site use.
 
-I was getting console errors from my Date Picker Javascript code where I was setting the date on the edit page. I removed the Javascript code from the Javascript file and placed it
-on the appropriate page and the errors no longer appeared. 
 
 ## Landing page ##
 
@@ -142,7 +144,7 @@ view. The user will also have the option here to edit or delete part or all of t
 
 ## Edit ##
 
-by clicking the edit button they will be taken directly to a screen to edit that section of their review. All previous inputs will be available to them to see and anything unchanged will not be updated. 
+By clicking the edit button they will be taken directly to a screen to edit that section of their review. All previous inputs will be available to them to see and anything unchanged will not be updated. 
 
 ## Delete ## 
 
@@ -165,7 +167,8 @@ submit button at the very bottom, that will take the user back to the view revie
 
 # Compatibility #
 
-I used Dev tools on Google Chrome and [Am I responsive](http://ami.responsivedesign.is/#) to test compatibility. I designed for mobile, desktop/laptop and tablet.
+I used Dev tools on Google Chrome and [Am I responsive](http://ami.responsivedesign.is/#) to test compatibility. I designed for mobile, desktop/laptop and tablet. At the bottom of the CSS file there is responsive stylings
+for both tablet and mobile. 
 
 
 # Deployment #
@@ -173,6 +176,14 @@ I used Dev tools on Google Chrome and [Am I responsive](http://ami.responsivedes
 To deploy the project on Heroku there are a number of steps, please follow them carefully. 
 
 - Create a Procfile using the command in the terminal echo web: python app.py > Procfile
+
+- Make sure you have the following installed on the project
+    - import os
+    - import pycountry
+    - from flask import Flask, render_template, redirect, request, url_for
+    - from flask_pymongo import PyMongo
+    - from bson.objectid import ObjectId
+    - from os import path
 
 - Make sure you have a requirements.txt file by using the command pip3 freeze --local > requirements.txt
 
@@ -197,8 +208,8 @@ I used Github for version control and can be found at [Milestone Three](https://
 
 # Credits #
 
-Firstly I would like to acknowledge the tutor support. Without the expertise and direction I recieved throughout this assessment I would have struggled
-a lot. 
+Firstly I would like to acknowledge the tutor support. Without the expertise and direction I recieved throughout this assessment I would have struggled a lot. Also to my friends and family who gave me the encouragement I
+needed to complete this assessment and test it for me. 
 
 # Anti Plagiarism #
 
