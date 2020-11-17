@@ -197,6 +197,15 @@ is already able to add multiple entries for these collections. Clicking the add 
 subtle differences however. There is no skip button for accommodation, hospitality, attractions or final, and there is no option on accommodation, attractions and hospitality to add another. All pages have one 
 submit button at the very bottom, that will take the user back to the view review page, that will now display their new data. 
 
+### Interesting bugs ###
+
+On the search feature, if the user adds blank spaces before adding the country they're looking for, the blank spaces aren't ignored. In future releases I would code the search feature to ignore everything up until 
+the first real character. 
+
+I was having issues with the dates on the first info datepickers initially as I was using the old JQueery as explained in the original videos. I had a function that if the user picked a start date after the end date 
+the page reloaded and showed an error. With the original code I was then unable to pick any dates without the error message coming up. After changing the code this bug stopped happening and from my testing I believe 
+it's not happening any more. 
+
 # Compatibility #
 
 I used Dev tools on Google Chrome and [Am I responsive](http://ami.responsivedesign.is/#) to test compatibility. I designed for mobile, desktop/laptop and tablet. At the bottom of the CSS file there is responsive stylings
