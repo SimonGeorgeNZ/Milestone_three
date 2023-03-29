@@ -16,8 +16,6 @@ app = Flask(__name__)
 
 mongo = PyMongo(app)
 
-app.config["MONGO_DBNAME"] = 'Milestone_three'
-app.config["MONGO_URI"] = 'mongodb+srv://root:Dunedin100@myfirstcluster.jekwe.mongodb.net/Milestone_three?retryWrites=true&w=majority'
 
 # MONGO_URI = os.environ.get('MONGO_URI')
 # MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
